@@ -1,0 +1,25 @@
+services:
+  py:
+    build: docker/py/
+    container_name: ${PY_CNAME}
+    ports:
+      - 8000:8000
+    volumes:
+      - ./:/hiring-platform/
+    depends_on:
+      - db
+
+  db:
+    image: postgres:16-alpine
+    container_name: ${DB_CNAME}
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASS}
+      - POSTGRES_DB=${DB_NAME}
+    ports:
+      - ${DB_PORT}:${DB_PORT}
+    volumes:
+      - hiring-platform-volume:/var/lib/postgresql/data
+
+volumes:
+  hiring-platform-volume:
