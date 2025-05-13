@@ -1,3 +1,9 @@
 Django==5.0.7
 environs==11.0.0
 psycopg2-binary==2.9.9
+django-cors-headers==4.4.0
+djangorestframework==3.15.2
+djangorestframework-simplejwt==5.3.1
+django-storages==1.14.4
+django-filter==24.2
+drf-spectacular[sidecar]==0.27.2
