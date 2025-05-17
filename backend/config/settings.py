@@ -49,7 +49,13 @@ INSTALLED_APPS = [
     "accounts",
     "api",
     "auth",
+    "complaints",
     "config",
+    "dict",
+    "files",
+    "tags",
+    "vacancies",
+    "vacancies_templates",
 ]
 
 AUTH_USER_MODEL = 'accounts.User'
