@@ -1,0 +1,9 @@
+[
+    {
+        "model": "accounts.role",
+        "pk": 1,
+        "fields": {
+            "name": "ADMIN"
+        }
+    }
+]

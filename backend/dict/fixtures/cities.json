@@ -1,0 +1,3698 @@
+[
+    {
+        "model": "dict.city",
+        "pk": 0,
+        "fields": {
+            "name": "Kyiv",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 1,
+        "fields": {
+            "name": "Kharkiv",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 2,
+        "fields": {
+            "name": "Odesa",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 3,
+        "fields": {
+            "name": "Dnipro",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 4,
+        "fields": {
+            "name": "Donetsk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 5,
+        "fields": {
+            "name": "Lviv",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 6,
+        "fields": {
+            "name": "Zaporizhzhia",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 7,
+        "fields": {
+            "name": "Bazal’tove",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 8,
+        "fields": {
+            "name": "Kryvyi Rih",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 9,
+        "fields": {
+            "name": "Sevastopol",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 10,
+        "fields": {
+            "name": "Mykolaiv",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 11,
+        "fields": {
+            "name": "Luhansk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 12,
+        "fields": {
+            "name": "Vinnytsia",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 13,
+        "fields": {
+            "name": "Makiivka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 14,
+        "fields": {
+            "name": "Simferopol",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 15,
+        "fields": {
+            "name": "Chernihiv",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 16,
+        "fields": {
+            "name": "Poltava",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 17,
+        "fields": {
+            "name": "Kherson",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 18,
+        "fields": {
+            "name": "Khmelnytskyi",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 19,
+        "fields": {
+            "name": "Cherkasy",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 20,
+        "fields": {
+            "name": "Chernivtsi",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 21,
+        "fields": {
+            "name": "Zhytomyr",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 22,
+        "fields": {
+            "name": "Sumy",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 23,
+        "fields": {
+            "name": "Rivne",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 24,
+        "fields": {
+            "name": "Horlivka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 25,
+        "fields": {
+            "name": "Ivano-Frankivsk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 26,
+        "fields": {
+            "name": "Kamianske",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 27,
+        "fields": {
+            "name": "Ternopil",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 28,
+        "fields": {
+            "name": "Lutsk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 29,
+        "fields": {
+            "name": "Kropyvnytskyi",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 30,
+        "fields": {
+            "name": "Kremenchuk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 31,
+        "fields": {
+            "name": "Bila Tserkva",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 32,
+        "fields": {
+            "name": "Kerch",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 33,
+        "fields": {
+            "name": "Melitopol",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 34,
+        "fields": {
+            "name": "Kramatorsk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 35,
+        "fields": {
+            "name": "Mariupol",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 36,
+        "fields": {
+            "name": "Uzhhorod",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 37,
+        "fields": {
+            "name": "Brovary",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 38,
+        "fields": {
+            "name": "Berdiansk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 39,
+        "fields": {
+            "name": "Yevpatoriia",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 40,
+        "fields": {
+            "name": "Nikopol",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 41,
+        "fields": {
+            "name": "Sloviansk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 42,
+        "fields": {
+            "name": "Pavlohrad",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 43,
+        "fields": {
+            "name": "Sievierodonetsk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 44,
+        "fields": {
+            "name": "Kamianets-Podilskyi",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 45,
+        "fields": {
+            "name": "Lysychansk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 46,
+        "fields": {
+            "name": "Mukacheve",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 47,
+        "fields": {
+            "name": "Konotop",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 48,
+        "fields": {
+            "name": "Uman",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 49,
+        "fields": {
+            "name": "Krasnyi Luch",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 50,
+        "fields": {
+            "name": "Khrustalnyi",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 51,
+        "fields": {
+            "name": "Yalta",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 52,
+        "fields": {
+            "name": "Yenakiieve",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 53,
+        "fields": {
+            "name": "Oleksandriia",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 54,
+        "fields": {
+            "name": "Stakhanov",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 55,
+        "fields": {
+            "name": "Drohobych",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 56,
+        "fields": {
+            "name": "Berdychiv",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 57,
+        "fields": {
+            "name": "Shostka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 58,
+        "fields": {
+            "name": "Bakhmut",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 59,
+        "fields": {
+            "name": "Izmail",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 60,
+        "fields": {
+            "name": "Novomoskovsk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 61,
+        "fields": {
+            "name": "Fedosiia",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 62,
+        "fields": {
+            "name": "Kovel",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 63,
+        "fields": {
+            "name": "Kostiantynivka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 64,
+        "fields": {
+            "name": "Nizhyn",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 65,
+        "fields": {
+            "name": "Smila",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 66,
+        "fields": {
+            "name": "Irpin",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 67,
+        "fields": {
+            "name": "Kalush",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 68,
+        "fields": {
+            "name": "Chervonohrad",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 69,
+        "fields": {
+            "name": "Boryspil",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 70,
+        "fields": {
+            "name": "Dovzhansk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 71,
+        "fields": {
+            "name": "Pervomaisk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 72,
+        "fields": {
+            "name": "Korosten",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 73,
+        "fields": {
+            "name": "Kolomyia",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 74,
+        "fields": {
+            "name": "Stryi",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 75,
+        "fields": {
+            "name": "Chornomorsk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 76,
+        "fields": {
+            "name": "Khartsyzk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 77,
+        "fields": {
+            "name": "Rubizhne",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 78,
+        "fields": {
+            "name": "Novohrad-Volynskyi",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 79,
+        "fields": {
+            "name": "Druzhkivka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 80,
+        "fields": {
+            "name": "Chystiakove",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 81,
+        "fields": {
+            "name": "Lozova",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 82,
+        "fields": {
+            "name": "Enerhodar",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 83,
+        "fields": {
+            "name": "Antratsyt",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 84,
+        "fields": {
+            "name": "Pryluky",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 85,
+        "fields": {
+            "name": "Horishni Plavni",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 86,
+        "fields": {
+            "name": "Novovolynsk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 87,
+        "fields": {
+            "name": "Snizhne",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 88,
+        "fields": {
+            "name": "Shakhtarsk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 89,
+        "fields": {
+            "name": "Bilhorod-Dnistrovskyi",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 90,
+        "fields": {
+            "name": "Okhtyrka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 91,
+        "fields": {
+            "name": "Myrnohrad",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 92,
+        "fields": {
+            "name": "Rovenky",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 93,
+        "fields": {
+            "name": "Marhanets",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 94,
+        "fields": {
+            "name": "Izium",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 95,
+        "fields": {
+            "name": "Brianka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 96,
+        "fields": {
+            "name": "Nova Kakhovka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 97,
+        "fields": {
+            "name": "Lubny",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 98,
+        "fields": {
+            "name": "Fastiv",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 99,
+        "fields": {
+            "name": "Svitlovodsk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 100,
+        "fields": {
+            "name": "Vyshneve",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 101,
+        "fields": {
+            "name": "Krasnodon",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 102,
+        "fields": {
+            "name": "Zhovti Vody",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 103,
+        "fields": {
+            "name": "Varash",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 104,
+        "fields": {
+            "name": "Shepetivka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 105,
+        "fields": {
+            "name": "Podilsk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 106,
+        "fields": {
+            "name": "Dzhankoi",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 107,
+        "fields": {
+            "name": "Yuzhnoukrainsk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 108,
+        "fields": {
+            "name": "Volodymyrivka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 109,
+        "fields": {
+            "name": "Myrhorod",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 110,
+        "fields": {
+            "name": "Romny",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 111,
+        "fields": {
+            "name": "Pokrov",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 112,
+        "fields": {
+            "name": "Bucha",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 113,
+        "fields": {
+            "name": "Vasylkiv",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 114,
+        "fields": {
+            "name": "Dubno",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 115,
+        "fields": {
+            "name": "Netishyn",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 116,
+        "fields": {
+            "name": "Pervomaisk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 117,
+        "fields": {
+            "name": "Slavuta",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 118,
+        "fields": {
+            "name": "Kakhovka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 119,
+        "fields": {
+            "name": "Boyarka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 120,
+        "fields": {
+            "name": "Sambir",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 121,
+        "fields": {
+            "name": "Yasynuvata",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 122,
+        "fields": {
+            "name": "Starokostiantyniv",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 123,
+        "fields": {
+            "name": "Zhmerynka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 124,
+        "fields": {
+            "name": "Voznesensk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 125,
+        "fields": {
+            "name": "Obukhiv",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 126,
+        "fields": {
+            "name": "Yuzhne",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 127,
+        "fields": {
+            "name": "Boryslav",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 128,
+        "fields": {
+            "name": "Hlukhiv",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 129,
+        "fields": {
+            "name": "Novoyavorovskoye",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 130,
+        "fields": {
+            "name": "Chuhuiv",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 131,
+        "fields": {
+            "name": "Kostopil",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 132,
+        "fields": {
+            "name": "Mohyliv-Podilskyi",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 133,
+        "fields": {
+            "name": "Synelnykove",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 134,
+        "fields": {
+            "name": "Novyi Rozdil",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 135,
+        "fields": {
+            "name": "Tokmak",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 136,
+        "fields": {
+            "name": "Ternivka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 137,
+        "fields": {
+            "name": "Alushta",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 138,
+        "fields": {
+            "name": "Sarny",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 139,
+        "fields": {
+            "name": "Pervomaiskyi",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 140,
+        "fields": {
+            "name": "Truskavets",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 141,
+        "fields": {
+            "name": "Chortkiv",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 142,
+        "fields": {
+            "name": "Dobropillia",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 143,
+        "fields": {
+            "name": "Khust",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 144,
+        "fields": {
+            "name": "Bakhchysarai",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 145,
+        "fields": {
+            "name": "Khrestivka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 146,
+        "fields": {
+            "name": "Zolotonosha",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 147,
+        "fields": {
+            "name": "Pershotravens’k",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 148,
+        "fields": {
+            "name": "Khmilnyk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 149,
+        "fields": {
+            "name": "Kirovsk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 150,
+        "fields": {
+            "name": "Holubivske",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 151,
+        "fields": {
+            "name": "Kupiansk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 152,
+        "fields": {
+            "name": "Balakliia",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 153,
+        "fields": {
+            "name": "Pereyaslav-Khmel’nyts’kyy",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 154,
+        "fields": {
+            "name": "Yany Kapu",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 155,
+        "fields": {
+            "name": "Sofiyivs’ka Borshchahivka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 156,
+        "fields": {
+            "name": "Haisyn",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 157,
+        "fields": {
+            "name": "Vynohradiv",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 158,
+        "fields": {
+            "name": "Malyn",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 159,
+        "fields": {
+            "name": "Saky",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 160,
+        "fields": {
+            "name": "Perevalsk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 161,
+        "fields": {
+            "name": "Zdolbuniv",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 162,
+        "fields": {
+            "name": "Slavutych",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 163,
+        "fields": {
+            "name": "Armiansk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 164,
+        "fields": {
+            "name": "Debaltseve",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 165,
+        "fields": {
+            "name": "Korostyshiv",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 166,
+        "fields": {
+            "name": "Oleshky",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 167,
+        "fields": {
+            "name": "Zolochiv",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 168,
+        "fields": {
+            "name": "Lebedyn",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 169,
+        "fields": {
+            "name": "Pesochin",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 170,
+        "fields": {
+            "name": "Berehove",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 171,
+        "fields": {
+            "name": "Polonne",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 172,
+        "fields": {
+            "name": "Kaniv",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 173,
+        "fields": {
+            "name": "Brody",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 174,
+        "fields": {
+            "name": "Vyshhorod",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 175,
+        "fields": {
+            "name": "Hadyach",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 176,
+        "fields": {
+            "name": "Dokuchaievsk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 177,
+        "fields": {
+            "name": "Nadvirna",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 178,
+        "fields": {
+            "name": "Ladyzhyn",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 179,
+        "fields": {
+            "name": "Molodohvardiisk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 180,
+        "fields": {
+            "name": "Koziatyn",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 181,
+        "fields": {
+            "name": "Krolevets",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 182,
+        "fields": {
+            "name": "Vilnohirsk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 183,
+        "fields": {
+            "name": "Selydove",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 184,
+        "fields": {
+            "name": "Bilohorodka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 185,
+        "fields": {
+            "name": "Znamianka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 186,
+        "fields": {
+            "name": "Merefa",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 187,
+        "fields": {
+            "name": "Volnovakha",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 188,
+        "fields": {
+            "name": "Kremenets",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 189,
+        "fields": {
+            "name": "Dolyna",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 190,
+        "fields": {
+            "name": "Sukhodilsk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 191,
+        "fields": {
+            "name": "Sokal",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 192,
+        "fields": {
+            "name": "Stebnyk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 193,
+        "fields": {
+            "name": "Lyman",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 194,
+        "fields": {
+            "name": "Liubotyn",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 195,
+        "fields": {
+            "name": "Krasnohrad",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 196,
+        "fields": {
+            "name": "Okhmalynka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 197,
+        "fields": {
+            "name": "Trostyanets’",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 198,
+        "fields": {
+            "name": "Vynnyky",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 199,
+        "fields": {
+            "name": "Yahotyn",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 200,
+        "fields": {
+            "name": "Henichesk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 201,
+        "fields": {
+            "name": "Kiliia",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 202,
+        "fields": {
+            "name": "Kalynivka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 203,
+        "fields": {
+            "name": "Hostomel",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 204,
+        "fields": {
+            "name": "Khotyn",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 205,
+        "fields": {
+            "name": "Krasyliv",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 206,
+        "fields": {
+            "name": "Volochysk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 207,
+        "fields": {
+            "name": "Dolynska",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 208,
+        "fields": {
+            "name": "Piatykhatky",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 209,
+        "fields": {
+            "name": "Kreminna",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 210,
+        "fields": {
+            "name": "Polohy",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 211,
+        "fields": {
+            "name": "Amvrosiivka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 212,
+        "fields": {
+            "name": "Kivsharivka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 213,
+        "fields": {
+            "name": "Zuhres",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 214,
+        "fields": {
+            "name": "Balta",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 215,
+        "fields": {
+            "name": "Pelahiivka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 216,
+        "fields": {
+            "name": "Horodok",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 217,
+        "fields": {
+            "name": "Dniprorudne",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 218,
+        "fields": {
+            "name": "Reni",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 219,
+        "fields": {
+            "name": "Kotsyubyns’ke",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 220,
+        "fields": {
+            "name": "Vovchansk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 221,
+        "fields": {
+            "name": "Rozdilna",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 222,
+        "fields": {
+            "name": "Derhachi",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 223,
+        "fields": {
+            "name": "Korsun-Shevchenkivskyi",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 224,
+        "fields": {
+            "name": "Berezhany",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 225,
+        "fields": {
+            "name": "Svalyava",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 226,
+        "fields": {
+            "name": "Verkhnodniprovsk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 227,
+        "fields": {
+            "name": "Skadovsk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 228,
+        "fields": {
+            "name": "Bakhmach",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 229,
+        "fields": {
+            "name": "Krasnohorivka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 230,
+        "fields": {
+            "name": "Sudak",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 231,
+        "fields": {
+            "name": "Apostolove",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 232,
+        "fields": {
+            "name": "Bilohirsk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 233,
+        "fields": {
+            "name": "Shpola",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 234,
+        "fields": {
+            "name": "Yuvileine",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 235,
+        "fields": {
+            "name": "Zvenyhorodka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 236,
+        "fields": {
+            "name": "Svatove",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 237,
+        "fields": {
+            "name": "Horodok",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 238,
+        "fields": {
+            "name": "Novoukrainka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 239,
+        "fields": {
+            "name": "Berezan",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 240,
+        "fields": {
+            "name": "Iziaslav",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 241,
+        "fields": {
+            "name": "Starobilsk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 242,
+        "fields": {
+            "name": "Vatutine",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 243,
+        "fields": {
+            "name": "Dunaivtsi",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 244,
+        "fields": {
+            "name": "Bilopillya",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 245,
+        "fields": {
+            "name": "Rakhiv",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 246,
+        "fields": {
+            "name": "Taromske",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 247,
+        "fields": {
+            "name": "Ilovaisk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 248,
+        "fields": {
+            "name": "Bar",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 249,
+        "fields": {
+            "name": "Ovruch",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 250,
+        "fields": {
+            "name": "Chervonopartyzansk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 251,
+        "fields": {
+            "name": "Skvyra",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 252,
+        "fields": {
+            "name": "Novyi Buh",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 253,
+        "fields": {
+            "name": "Pyryatyn",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 254,
+        "fields": {
+            "name": "Putyvl",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 255,
+        "fields": {
+            "name": "Bolhrad",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 256,
+        "fields": {
+            "name": "Ostroh",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 257,
+        "fields": {
+            "name": "Burshtyn",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 258,
+        "fields": {
+            "name": "Slobozhanske",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 259,
+        "fields": {
+            "name": "Bilozerske",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 260,
+        "fields": {
+            "name": "Bohodukhiv",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 261,
+        "fields": {
+            "name": "Mykolaiv",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 262,
+        "fields": {
+            "name": "Artsyz",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 263,
+        "fields": {
+            "name": "Vil’nyans’k",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 264,
+        "fields": {
+            "name": "Sadovoye",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 265,
+        "fields": {
+            "name": "Mykolaivka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 266,
+        "fields": {
+            "name": "Ukrainka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 267,
+        "fields": {
+            "name": "Storozhynets",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 268,
+        "fields": {
+            "name": "Karlivka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 269,
+        "fields": {
+            "name": "Novohrodivka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 270,
+        "fields": {
+            "name": "Velykodolynske",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 271,
+        "fields": {
+            "name": "Haivoron",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 272,
+        "fields": {
+            "name": "Tulchyn",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 273,
+        "fields": {
+            "name": "Zhovkva",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 274,
+        "fields": {
+            "name": "Kivertsi",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 275,
+        "fields": {
+            "name": "Zmiiv",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 276,
+        "fields": {
+            "name": "Radomyshl",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 277,
+        "fields": {
+            "name": "Slobozhanske",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 278,
+        "fields": {
+            "name": "Ochakiv",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 279,
+        "fields": {
+            "name": "Nyzhnia Krynka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 280,
+        "fields": {
+            "name": "Hola Prystan",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 281,
+        "fields": {
+            "name": "Bunhe",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 282,
+        "fields": {
+            "name": "Zbarazh",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 283,
+        "fields": {
+            "name": "Solonytsivka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 284,
+        "fields": {
+            "name": "Zhashkiv",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 285,
+        "fields": {
+            "name": "Terebovlya",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 286,
+        "fields": {
+            "name": "Kaharlyk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 287,
+        "fields": {
+            "name": "Mala Vyska",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 288,
+        "fields": {
+            "name": "Berezne",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 289,
+        "fields": {
+            "name": "Horodyshche",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 290,
+        "fields": {
+            "name": "Zolote",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 291,
+        "fields": {
+            "name": "Nosivka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 292,
+        "fields": {
+            "name": "Talne",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 293,
+        "fields": {
+            "name": "Yavoriv",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 294,
+        "fields": {
+            "name": "Zelenodolsk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 295,
+        "fields": {
+            "name": "Perehinske",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 296,
+        "fields": {
+            "name": "Petrovske",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 297,
+        "fields": {
+            "name": "Tetiiv",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 298,
+        "fields": {
+            "name": "Antonivka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 299,
+        "fields": {
+            "name": "Hvardiiske",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 300,
+        "fields": {
+            "name": "Vasylivka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 301,
+        "fields": {
+            "name": "Prymorskyi",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 302,
+        "fields": {
+            "name": "Khorol",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 303,
+        "fields": {
+            "name": "Borodyanka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 304,
+        "fields": {
+            "name": "Rozhyshche",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 305,
+        "fields": {
+            "name": "Novhorod-Siverskyi",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 306,
+        "fields": {
+            "name": "Biliaivka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 307,
+        "fields": {
+            "name": "Stanytsia Luhanska",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 308,
+        "fields": {
+            "name": "Chasiv Yar",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 309,
+        "fields": {
+            "name": "Koriukivka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 310,
+        "fields": {
+            "name": "Hnivan",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 311,
+        "fields": {
+            "name": "Bashtanka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 312,
+        "fields": {
+            "name": "Buchach",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 313,
+        "fields": {
+            "name": "Kamianka-Dniprovska",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 314,
+        "fields": {
+            "name": "Snihurivka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 315,
+        "fields": {
+            "name": "Uzyn",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 316,
+        "fields": {
+            "name": "Beryslav",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 317,
+        "fields": {
+            "name": "Zhdanivka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 318,
+        "fields": {
+            "name": "Krykhivtsi",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 319,
+        "fields": {
+            "name": "Kotelva",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 320,
+        "fields": {
+            "name": "Bershad",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 321,
+        "fields": {
+            "name": "Manevychi",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 322,
+        "fields": {
+            "name": "Kamin-Kashyrskyi",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 323,
+        "fields": {
+            "name": "Mykhailivka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 324,
+        "fields": {
+            "name": "Nova Odesa",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 325,
+        "fields": {
+            "name": "Horodnia",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 326,
+        "fields": {
+            "name": "Liubashivka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 327,
+        "fields": {
+            "name": "Kalmiuske",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 328,
+        "fields": {
+            "name": "Vakhrusheve",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 329,
+        "fields": {
+            "name": "Nemyriv",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 330,
+        "fields": {
+            "name": "Shchastia",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 331,
+        "fields": {
+            "name": "Ovidiopol",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 332,
+        "fields": {
+            "name": "Zimna Voda",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 333,
+        "fields": {
+            "name": "Chornomorske",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 334,
+        "fields": {
+            "name": "Vasylkivka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 335,
+        "fields": {
+            "name": "Baryshivka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 336,
+        "fields": {
+            "name": "Baranivka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 337,
+        "fields": {
+            "name": "Prymorsk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 338,
+        "fields": {
+            "name": "Dachne",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 339,
+        "fields": {
+            "name": "Kurman",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 340,
+        "fields": {
+            "name": "Svitlodarsk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 341,
+        "fields": {
+            "name": "Myronivka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 342,
+        "fields": {
+            "name": "Illintsi",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 343,
+        "fields": {
+            "name": "Yakymivka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 344,
+        "fields": {
+            "name": "Novoazovsk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 345,
+        "fields": {
+            "name": "Lokhvytsya",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 346,
+        "fields": {
+            "name": "Kamianka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 347,
+        "fields": {
+            "name": "Rokytne",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 348,
+        "fields": {
+            "name": "Mena",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 349,
+        "fields": {
+            "name": "Siversk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 350,
+        "fields": {
+            "name": "Tatarbunary",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 351,
+        "fields": {
+            "name": "Novomyrhorod",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 352,
+        "fields": {
+            "name": "Sosnivka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 353,
+        "fields": {
+            "name": "Yampil",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 354,
+        "fields": {
+            "name": "Ukrainsk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 355,
+        "fields": {
+            "name": "Borshchiv",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 356,
+        "fields": {
+            "name": "Snovsk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 357,
+        "fields": {
+            "name": "Lymanka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 358,
+        "fields": {
+            "name": "Ivankiv",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 359,
+        "fields": {
+            "name": "Hrebinka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 360,
+        "fields": {
+            "name": "Bobrovytsia",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 361,
+        "fields": {
+            "name": "Novotroitske",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 362,
+        "fields": {
+            "name": "Soledar",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 363,
+        "fields": {
+            "name": "Mospyne",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 364,
+        "fields": {
+            "name": "Novodnistrovsk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 365,
+        "fields": {
+            "name": "Nova Vodolaha",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 366,
+        "fields": {
+            "name": "Krasnoilsk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 367,
+        "fields": {
+            "name": "Radyvyliv",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 368,
+        "fields": {
+            "name": "Kamianka-Buzka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 369,
+        "fields": {
+            "name": "Bobrynets",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 370,
+        "fields": {
+            "name": "Ichnia",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 371,
+        "fields": {
+            "name": "Valky",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 372,
+        "fields": {
+            "name": "Hirnyk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 373,
+        "fields": {
+            "name": "Zhydachiv",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 374,
+        "fields": {
+            "name": "Inkerman",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 375,
+        "fields": {
+            "name": "Haspra",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 376,
+        "fields": {
+            "name": "Lyuboml’",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 377,
+        "fields": {
+            "name": "Bolekhiv",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 378,
+        "fields": {
+            "name": "Korolevo",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 379,
+        "fields": {
+            "name": "Verkhivtseve",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 380,
+        "fields": {
+            "name": "Tavriisk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 381,
+        "fields": {
+            "name": "Letychiv",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 382,
+        "fields": {
+            "name": "Sartana",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 383,
+        "fields": {
+            "name": "Olevsk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 384,
+        "fields": {
+            "name": "Novooleksiivka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 385,
+        "fields": {
+            "name": "Teplodar",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 386,
+        "fields": {
+            "name": "Khrystynivka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 387,
+        "fields": {
+            "name": "Rodynske",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 388,
+        "fields": {
+            "name": "Sieverne",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 389,
+        "fields": {
+            "name": "Derazhnia",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 390,
+        "fields": {
+            "name": "Dubliany",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 391,
+        "fields": {
+            "name": "Novgorodskoye",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 392,
+        "fields": {
+            "name": "Sniatyn",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 393,
+        "fields": {
+            "name": "Tarashcha",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 394,
+        "fields": {
+            "name": "Radekhiv",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 395,
+        "fields": {
+            "name": "Pereshchepyne",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 396,
+        "fields": {
+            "name": "Vysokyi",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 397,
+        "fields": {
+            "name": "Shyroke",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 398,
+        "fields": {
+            "name": "Ratne",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 399,
+        "fields": {
+            "name": "Zymohiria",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 400,
+        "fields": {
+            "name": "Pokrovske",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 401,
+        "fields": {
+            "name": "Kobeliaky",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 402,
+        "fields": {
+            "name": "Syurte",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 403,
+        "fields": {
+            "name": "Borzna",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 404,
+        "fields": {
+            "name": "Bilenke",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 405,
+        "fields": {
+            "name": "Mizhhiria",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 406,
+        "fields": {
+            "name": "Berezivka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 407,
+        "fields": {
+            "name": "Chaplynka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 408,
+        "fields": {
+            "name": "Novopskov",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 409,
+        "fields": {
+            "name": "Makariv",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 410,
+        "fields": {
+            "name": "Dymka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 411,
+        "fields": {
+            "name": "Pustomyty",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 412,
+        "fields": {
+            "name": "Dubrovytsya",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 413,
+        "fields": {
+            "name": "Vesele",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 414,
+        "fields": {
+            "name": "Chornobaivka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 415,
+        "fields": {
+            "name": "Teplohirsk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 416,
+        "fields": {
+            "name": "Bilozerka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 417,
+        "fields": {
+            "name": "Smoline",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 418,
+        "fields": {
+            "name": "Hlyboka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 419,
+        "fields": {
+            "name": "Pohrebyshche",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 420,
+        "fields": {
+            "name": "Zinkiv",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 421,
+        "fields": {
+            "name": "Irshava",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 422,
+        "fields": {
+            "name": "Obukhivka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 423,
+        "fields": {
+            "name": "Bezliudivka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 424,
+        "fields": {
+            "name": "Cherniakhiv",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 425,
+        "fields": {
+            "name": "Pokotylivka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 426,
+        "fields": {
+            "name": "Velykyi Bychkiv",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 427,
+        "fields": {
+            "name": "Hirske",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 428,
+        "fields": {
+            "name": "Marinka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 429,
+        "fields": {
+            "name": "Mostyska",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 430,
+        "fields": {
+            "name": "Velyki Luchky",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 431,
+        "fields": {
+            "name": "Pivnichne",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 432,
+        "fields": {
+            "name": "Reshetylivka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 433,
+        "fields": {
+            "name": "Velyka Dymerka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 434,
+        "fields": {
+            "name": "Stryzhavka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 435,
+        "fields": {
+            "name": "Novyi Svit",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 436,
+        "fields": {
+            "name": "Kalanchak",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 437,
+        "fields": {
+            "name": "Tysmenytsia",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 438,
+        "fields": {
+            "name": "Hlobyne",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 439,
+        "fields": {
+            "name": "Khodoriv",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 440,
+        "fields": {
+            "name": "Yasenivskyi",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 441,
+        "fields": {
+            "name": "Hurzuf",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 442,
+        "fields": {
+            "name": "Zalishchyky",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 443,
+        "fields": {
+            "name": "Horokhiv",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 444,
+        "fields": {
+            "name": "Tiachiv",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 445,
+        "fields": {
+            "name": "Monastyryshche",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 446,
+        "fields": {
+            "name": "Horodenka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 447,
+        "fields": {
+            "name": "Hlevakha",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 448,
+        "fields": {
+            "name": "Kozova",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 449,
+        "fields": {
+            "name": "Nyzhnohirskyi",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 450,
+        "fields": {
+            "name": "Volodymyrets",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 451,
+        "fields": {
+            "name": "Tlumach",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 452,
+        "fields": {
+            "name": "Busk",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 453,
+        "fields": {
+            "name": "Chop",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 454,
+        "fields": {
+            "name": "Ilarionove",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 455,
+        "fields": {
+            "name": "Pomichna",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 456,
+        "fields": {
+            "name": "Liubymivka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 457,
+        "fields": {
+            "name": "Nerubaiske",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 458,
+        "fields": {
+            "name": "Uspenka",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 459,
+        "fields": {
+            "name": "Sokyriany",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 460,
+        "fields": {
+            "name": "Chyhyryn",
+            "country": 1
+        }
+    },
+    {
+        "model": "dict.city",
+        "pk": 461,
+        "fields": {
+            "name": "Biloziria",
+            "country": 1
+        }
+    }
+]

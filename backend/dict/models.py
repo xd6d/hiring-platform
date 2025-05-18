@@ -1,15 +1,16 @@
 from django.db import models
 
 
-class Country(models.Model):  # todo
+class Country(models.Model):
     name = models.CharField(max_length=100)
 
     class Meta:
         db_table = "dict_countries"
 
 
-class City(models.Model):  # todo find Ukraine cities
+class City(models.Model):
     name = models.CharField(max_length=100)
+    country = models.ForeignKey(Country, on_delete=models.SET_NULL, null=True)
 
     class Meta:
         db_table = 'dict_cities'

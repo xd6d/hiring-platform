@@ -1,0 +1,24 @@
+[
+    {
+        "model": "accounts.user",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$720000$CMexgnhhKi1USjL2NpCHrd$0p/A3dxFDOvyVVmVxEAJNPhDT43D60q04LKkDl9HrYY=",
+            "last_login": null,
+            "is_superuser": true,
+            "first_name": "",
+            "last_name": "",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2025-05-13T18:09:40.769Z",
+            "email": "admin@mail.com",
+            "phone_number": null,
+            "contacts": {},
+            "role": 1,
+            "company": null,
+            "photo": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    }
+]
