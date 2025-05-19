@@ -1,3 +1,15 @@
-from django.shortcuts import render
+from rest_framework import viewsets
+from rest_framework.generics import CreateAPIView
 
-# Create your views here.
+from .models import TagGroup, Tag
+from .serializers import TagGroupSerializer, TagSerializer
+
+
+class TagGroupViewSet(viewsets.ModelViewSet):
+    queryset = TagGroup.objects.all()
+    serializer_class = TagGroupSerializer
+
+
+class TagCreateAPIView(CreateAPIView):
+    queryset = Tag.objects.all()
+    serializer_class = TagSerializer

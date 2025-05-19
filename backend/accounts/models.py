@@ -7,6 +7,7 @@ from .managers import UserManager
 
 class Role(models.Model):
     name = models.CharField(max_length=20, unique=True)
+    hidden = models.BooleanField(default=False)
 
     class Meta:
         db_table = 'users_roles'
@@ -52,4 +53,5 @@ class UserTag(models.Model):
 
     class Meta:
         db_table = 'users_tags'
+        ordering = ['position']
         unique_together = (('user', 'tag'),)

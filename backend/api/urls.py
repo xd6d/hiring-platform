@@ -7,7 +7,14 @@ from django.conf import settings
 from django.urls import path, include
 
 urlpatterns = [
-    path("auth/", include("auth.urls"))
+    path("auth/", include("auth.urls")),
+    path("users/", include("accounts.urls")),
+    path("tags/", include("tags.urls")),
+    path("dict/", include("dict.urls")),
+    path("vacancies/", include("vacancies.urls")),
+    path("templates/", include("vacancies_templates.urls")),
+    path("complaints/", include("complaints.urls")),
+    path("files/", include("files.urls")),
 ]
 
 

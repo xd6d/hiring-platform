@@ -1,0 +1,1 @@
+[{"model": "vacancies_templates.questiontype", "pk": 1, "fields": {"name": "TEXT"}}, {"model": "vacancies_templates.questiontype", "pk": 2, "fields": {"name": "SINGLE_ANSWER"}}]

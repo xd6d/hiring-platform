@@ -71,6 +71,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+if DEBUG:
+    MIDDLEWARE.append("config.utils.QueryCountMiddleware")
+
 ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [

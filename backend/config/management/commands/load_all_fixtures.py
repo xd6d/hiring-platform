@@ -13,6 +13,7 @@ class Command(BaseCommand):
             "users.json",
             "countries.json",
             "cities.json",
+            "question_types.json",
         ]
 
         call_command("loaddata", *fixtures, verbosity=1)

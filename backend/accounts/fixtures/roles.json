@@ -3,7 +3,24 @@
         "model": "accounts.role",
         "pk": 1,
         "fields": {
-            "name": "ADMIN"
+            "name": "ADMIN",
+            "hidden": true
+        }
+    },
+    {
+        "model": "accounts.role",
+        "pk": 2,
+        "fields": {
+            "name": "EMPLOYER",
+            "hidden": false
+        }
+    },
+    {
+        "model": "accounts.role",
+        "pk": 3,
+        "fields": {
+            "name": "CANDIDATE",
+            "hidden": false
         }
     }
 ]

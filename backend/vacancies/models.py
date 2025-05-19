@@ -2,6 +2,7 @@ from django.db import models
 
 from accounts.models import User
 from api.models import AbstractSoftDeleteModel
+from dict.models import City
 from tags.models import Tag
 from vacancies_templates.models import ApplicationTemplate, Answer
 from .enums import WorkFormat
@@ -15,6 +16,7 @@ class Vacancy(AbstractSoftDeleteModel):
     application_template = models.ForeignKey(ApplicationTemplate, on_delete=models.PROTECT, related_name='vacancies')
     created_at = models.DateTimeField(auto_now_add=True)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+    cities = models.ManyToManyField(City, related_name="vacancies")
 
     class Meta:
         db_table = 'vacancies'
@@ -27,6 +29,7 @@ class VacancyTag(models.Model):
 
     class Meta:
         db_table = 'vacancies_tags'
+        ordering = ['position']
         unique_together = (('vacancy', 'tag'),)
 
 
