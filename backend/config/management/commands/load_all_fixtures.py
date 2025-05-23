@@ -14,6 +14,9 @@ class Command(BaseCommand):
             "countries.json",
             "cities.json",
             "question_types.json",
+            "application_statuses.json",
+            "tag_groups.json",
+            "tags.json",
         ]
 
         call_command("loaddata", *fixtures, verbosity=1)

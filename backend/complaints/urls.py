@@ -10,7 +10,7 @@ urlpatterns = [
         name="complaints-list-create"
     ),
     path(
-        "<int:id>/",
+        "<int:pk>/",
         ComplaintModelViewSet.as_view({
             'get': 'retrieve',
             'put': 'update',

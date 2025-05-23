@@ -1,3 +1,4 @@
+from django.db import transaction
 from rest_framework import serializers
 
 from vacancies_templates.models import QuestionType, ApplicationTemplate, Question, Answer
@@ -6,13 +7,13 @@ from vacancies_templates.models import QuestionType, ApplicationTemplate, Questi
 class QuestionTypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = QuestionType
-        fields = ("name", )
+        fields = ("name",)
 
 
 class AnswerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Answer
-        fields = "__all__"
+        exclude = ("question",)
 
 
 class QuestionSerializer(serializers.ModelSerializer):
@@ -21,12 +22,29 @@ class QuestionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Question
-        fields = "__all__"
+        exclude = ("application_template",)
+
 
 class ApplicationTemplateSerializer(serializers.ModelSerializer):
     questions = QuestionSerializer(many=True)
 
     class Meta:
         model = ApplicationTemplate
-        fields = ("name", "created_at", "questions")
-        read_only_fields = ("created_at", )
+        fields = ("id", "name", "created_at", "questions")
+        read_only_fields = ("created_at",)
+
+    def validate(self, attrs):
+        attrs["created_by"] = self.context["request"].user
+        return attrs
+
+    def create(self, validated_data):
+        questions = validated_data.pop("questions")
+        with transaction.atomic():
+            instance = super().create(validated_data)
+            for question in questions:
+                answer_serializer = AnswerSerializer(data=question.pop("answers"), many=True)
+                created_question = Question.objects.create(**question, application_template=instance)
+                answer_serializer.is_valid(raise_exception=True)
+                answer_serializer.save(question=created_question)
+
+        return instance

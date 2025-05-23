@@ -1,7 +1,9 @@
+from rest_framework.generics import CreateAPIView, RetrieveUpdateDestroyAPIView, ListAPIView, \
+    DestroyAPIView
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.generics import CreateAPIView, RetrieveAPIView, RetrieveUpdateDestroyAPIView, ListAPIView
 
-from accounts.models import User, Role, Company, UserTag
+from accounts.filters import CurrentUserFilterBackend
+from accounts.models import User, Role, UserTag
 from accounts.serializers import UserPostSerializer, UserSerializer, RoleSerializer, CompanySerializer, \
     UserTagSerializer
 
@@ -34,3 +36,11 @@ class UserTagCreateAPIView(CreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
+
+
+class UserTagDestroyAPIView(DestroyAPIView):
+    queryset = UserTag.objects.all()
+    permission_classes = [IsAuthenticated]
+    filter_backends = [CurrentUserFilterBackend]
+    lookup_field = 'tag_id'
+    lookup_url_kwarg = 'pk'

@@ -1,0 +1,30 @@
+[
+    {
+        "model": "vacancies.applicationstatus",
+        "pk": 1,
+        "fields": {
+            "name": "New"
+        }
+    },
+    {
+        "model": "vacancies.applicationstatus",
+        "pk": 2,
+        "fields": {
+            "name": "Interviewing"
+        }
+    },
+    {
+        "model": "vacancies.applicationstatus",
+        "pk": 3,
+        "fields": {
+            "name": "Rejected"
+        }
+    },
+    {
+        "model": "vacancies.applicationstatus",
+        "pk": 4,
+        "fields": {
+            "name": "Hired"
+        }
+    }
+]

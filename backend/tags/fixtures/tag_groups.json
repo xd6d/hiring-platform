@@ -1,0 +1,72 @@
+[
+    {
+        "model": "tags.taggroup",
+        "pk": 1,
+        "fields": {
+            "name": "Interpersonal Skills"
+        }
+    },
+    {
+        "model": "tags.taggroup",
+        "pk": 2,
+        "fields": {
+            "name": "Tools & Technologies"
+        }
+    },
+    {
+        "model": "tags.taggroup",
+        "pk": 3,
+        "fields": {
+            "name": "Management & Leadership"
+        }
+    },
+    {
+        "model": "tags.taggroup",
+        "pk": 4,
+        "fields": {
+            "name": "Communication Skills"
+        }
+    },
+    {
+        "model": "tags.taggroup",
+        "pk": 5,
+        "fields": {
+            "name": "Problem Solving & Critical Thinking"
+        }
+    },
+    {
+        "model": "tags.taggroup",
+        "pk": 6,
+        "fields": {
+            "name": "Programming Languages"
+        }
+    },
+    {
+        "model": "tags.taggroup",
+        "pk": 7,
+        "fields": {
+            "name": "Marketing & Sales"
+        }
+    },
+    {
+        "model": "tags.taggroup",
+        "pk": 8,
+        "fields": {
+            "name": "Design & Creativity"
+        }
+    },
+    {
+        "model": "tags.taggroup",
+        "pk": 9,
+        "fields": {
+            "name": "Data Analysis & Statistics"
+        }
+    },
+    {
+        "model": "tags.taggroup",
+        "pk": 10,
+        "fields": {
+            "name": "Project Management"
+        }
+    }
+]

@@ -6,7 +6,8 @@ from .models import Tag, TagGroup
 class TagSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tag
-        exclude = ("group", )
+        fields = ("id", "name", "group")
+        extra_kwargs = {"group": {"write_only": True}}
 
 
 class TagGroupSerializer(serializers.ModelSerializer):

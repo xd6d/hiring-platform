@@ -9,7 +9,7 @@ urlpatterns = [
         name="vacancies-list-create"
     ),
     path(
-        "<int:id>/",
+        "<int:pk>/",
         VacancyModelViewSet.as_view({
             'get': 'retrieve',
             'put': 'update',

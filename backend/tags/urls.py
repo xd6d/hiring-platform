@@ -12,7 +12,7 @@ urlpatterns = [
                 name="tag-groups-list-create"
             ),
             path(
-                "<int:id>/",
+                "<int:pk>/",
                 TagGroupViewSet.as_view({
                     'get': 'retrieve',
                     'put': 'update',

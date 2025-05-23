@@ -22,5 +22,17 @@ services:
     volumes:
       - hiring-platform-volume:/var/lib/postgresql/data
 
+#  frontend:
+#    image: node:20-alpine
+#    container_name: frontend
+#    ports:
+#      - 3000:3000
+#    volumes:
+#      - ./:/app
+#    working_dir: /app
+#    command: npm start
+#    environment:
+#      - CHOKIDAR_USEPOLLING=true
+
 volumes:
   hiring-platform-volume:

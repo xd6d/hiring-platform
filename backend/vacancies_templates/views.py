@@ -10,9 +10,6 @@ class ApplicationTemplateModelViewSet(viewsets.ModelViewSet):
     serializer_class = ApplicationTemplateSerializer
     permission_classes = (IsAuthenticated,)
 
-    def perform_create(self, serializer):
-        serializer.save(created_by=self.request.user)
-
 
 class QuestionModelViewSet(viewsets.ModelViewSet):
     queryset = Question.objects.all()

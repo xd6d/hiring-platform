@@ -33,14 +33,30 @@ class VacancyTag(models.Model):
         unique_together = (('vacancy', 'tag'),)
 
 
+class ApplicationStatus(models.Model):
+    name = models.CharField(max_length=100)
+
+    class Meta:
+        db_table = 'application_statuses'
+
+
 class Application(models.Model):
     vacancy = models.ForeignKey(Vacancy, on_delete=models.CASCADE, related_name='applications')
+    status = models.ForeignKey(ApplicationStatus, on_delete=models.PROTECT)
     answers = models.ManyToManyField(Answer, through="ApplicationAnswer")
     created_at = models.DateTimeField(auto_now_add=True)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
 
     class Meta:
         db_table = 'vacancies_applications'
+
+
+class ApplicationNote(models.Model):
+    text = models.TextField()
+    application = models.ForeignKey(Application, on_delete=models.CASCADE, related_name='notes')
+
+    class Meta:
+        db_table = 'application_notes'
 
 
 class ApplicationAnswer(models.Model):

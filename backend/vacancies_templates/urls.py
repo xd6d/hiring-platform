@@ -10,7 +10,7 @@ urlpatterns = [
             name="questions-list-create"
         ),
         path(
-            "<int:id>/",
+            "<int:pk>/",
             QuestionModelViewSet.as_view({
                 'get': 'retrieve',
                 'put': 'update',
@@ -27,7 +27,7 @@ urlpatterns = [
             name="answers-list-create"
         ),
         path(
-            "<int:id>/",
+            "<int:pk>/",
             AnswerModelViewSet.as_view({
                 'get': 'retrieve',
                 'put': 'update',
@@ -43,7 +43,7 @@ urlpatterns = [
         name="application-templates-list-create"
     ),
     path(
-        "<int:id>/",
+        "<int:pk>/",
         ApplicationTemplateModelViewSet.as_view({
             'get': 'retrieve',
             'put': 'update',
