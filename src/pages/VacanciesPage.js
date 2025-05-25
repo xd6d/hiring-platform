@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import {API_URL} from "../config/apiConfig";
 
 const VacanciesPage = () => {
   const [vacancies, setVacancies] = useState([]);
@@ -8,7 +9,7 @@ const VacanciesPage = () => {
   useEffect(() => {
     const fetchVacancies = async () => {
       try {
-        const response = await fetch('http://localhost:8000/api/v1/vacancies/', {
+        const response = await fetch(`${API_URL}/vacancies/`, {
           headers: {
             accept: 'application/json',
           },

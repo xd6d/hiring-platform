@@ -11,7 +11,7 @@
         "model": "accounts.role",
         "pk": 2,
         "fields": {
-            "name": "EMPLOYER",
+            "name": "RECRUITER",
             "hidden": false
         }
     },
