@@ -1,3 +1,5 @@
+from django.db import transaction
+from django.db.models import F
 from rest_framework import serializers
 
 from tags.serializers import TagSerializer
@@ -7,7 +9,7 @@ from .models import User, Company, Role, UserTag
 class RoleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Role
-        fields = ("name", )
+        fields = ("name",)
 
 
 class UserPostSerializer(serializers.ModelSerializer):
@@ -36,6 +38,50 @@ class UserTagSerializer(serializers.ModelSerializer):
         model = UserTag
         fields = ("user", "tag", "position")
         extra_kwargs = {'user': {'read_only': True}}
+
+    def create(self, validated_data):
+        model = self.Meta.model
+        tag = validated_data.get("tag")
+        if model.objects.filter(user=validated_data.get("user"), tag=tag).exists():
+            raise serializers.ValidationError("Already exists.")
+
+        position = validated_data.get("position")
+        if model.objects.filter(position=position, tag=tag).exists():
+            with transaction.atomic():
+                model.objects.filter(position__gte=position, tag=tag).update(position=F('position') + 1)
+                instance = super().create(validated_data)
+        else:
+            instance = super().create(validated_data)
+
+        return instance
+
+
+class UserTagPositionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserTag
+        fields = ("position", )
+
+    def update(self, instance, validated_data):
+        model = self.Meta.model
+        new_position = validated_data.get('position', instance.position)
+        old_position = instance.position
+        user = validated_data.get("user", instance.user)
+
+        if old_position != new_position and model.objects.filter(position=new_position, user=user).exists():
+            with transaction.atomic():
+                if new_position > old_position:
+                    model.objects.filter(
+                        position__gt=old_position, position__lte=new_position, user=user
+                    ).update(position=F('position') - 1)
+                else:
+                    model.objects.filter(
+                        position__gte=new_position, position__lt=old_position, user=user
+                    ).update(position=F('position') + 1)
+                super().update(instance, validated_data)
+        else:
+            super().update(instance, validated_data)
+
+        return instance
 
 
 class UserSerializer(serializers.ModelSerializer):

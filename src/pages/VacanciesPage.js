@@ -33,7 +33,7 @@ const VacanciesPage = () => {
   if (error) return <div className="p-4 text-red-500">Error: {error}</div>;
 
   return (
-    <div className="p-6 max-w-4xl mx-auto">
+    <div className="pt-24 p-6 max-w-4xl mx-auto">
       <h1 className="text-2xl font-bold mb-4">Vacancies</h1>
       <div className="space-y-4">
         {vacancies.map((vacancy) => (
