@@ -8,7 +8,7 @@ from vacancies.serializers import VacancySerializer, ApplicationSerializer, Appl
 
 
 class VacancyModelViewSet(viewsets.ModelViewSet):
-    queryset = Vacancy.objects.all()
+    queryset = Vacancy.objects.order_by("created_at")
     serializer_class = VacancySerializer
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
