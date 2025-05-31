@@ -23,6 +23,31 @@ const VacancyDetailPage = () => {
   // Combined with vacancy.is_applied to determine if user has already applied.
   const [applied, setApplied] = useState(false);
 
+  // --- New: Fetch current user's info (to check role) ---
+  const [user, setUser] = useState(null);
+  const [userLoading, setUserLoading] = useState(true);
+  const [userError, setUserError] = useState(null);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const response = await apiClient(`users/me/`, { method: 'GET' });
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        setUser(data);
+      } catch (err) {
+        setUserError(err.message);
+        setUser(null);
+      } finally {
+        setUserLoading(false);
+      }
+    };
+
+    fetchUser();
+  }, []);
+
   // --- Fetch vacancy details via apiClient ---
   useEffect(() => {
     const fetchVacancy = async () => {
@@ -122,9 +147,20 @@ const VacancyDetailPage = () => {
     }
   };
 
-  // --- Render loading/error states for vacancy fetch ---
-  if (loading) return <div className="p-4 text-center">Loading...</div>;
-  if (error) return <div className="p-4 text-red-500">Error: {error}</div>;
+  // --- Render loading/error states for vacancy or user fetch ---
+  if (loading || userLoading) {
+    return <div className="p-4 text-center">Loading...</div>;
+  }
+
+  if (error) {
+    return <div className="p-4 text-red-500">Error: {error}</div>;
+  }
+
+  // If user fetch failed, we still render vacancy, but log the issue
+  if (userError) {
+    console.warn('Error fetching user info:', userError);
+  }
+
   if (!vacancy) return null;
 
   // Determine if the user has already applied (either from server or from local POST)
@@ -175,8 +211,8 @@ const VacancyDetailPage = () => {
         </div>
       )}
 
-      {/* If not yet applied and template not showing, show “Apply Now” */}
-      {!alreadyApplied && !showTemplate && (
+      {/* If not yet applied, template not showing, AND user is not a RECRUITER, show “Apply Now” */}
+      {!alreadyApplied && !showTemplate && user?.role !== 'RECRUITER' && (
         <button
           onClick={handleApplyNow}
           className="mb-6 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"

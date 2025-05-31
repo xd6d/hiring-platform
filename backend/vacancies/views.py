@@ -1,8 +1,13 @@
+from django.db.models import OuterRef, ExpressionWrapper, F, Subquery, IntegerField, FloatField, Sum
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import viewsets
+from rest_framework.filters import SearchFilter
 from rest_framework.generics import ListAPIView, CreateAPIView
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 
-from vacancies.models import Vacancy, Application, ApplicationStatus
+from accounts.models import UserTag
+from vacancies.filters import VacancyFilter
+from vacancies.models import Vacancy, Application, ApplicationStatus, VacancyTag
 from vacancies.serializers import VacancySerializer, ApplicationCandidateSerializer, ApplicationStatusSerializer, \
     ApplicationNoteSerializer, ApplicationSerializer, UserVacancySerializer
 
@@ -11,6 +16,9 @@ class VacancyModelViewSet(viewsets.ModelViewSet):
     queryset = Vacancy.objects.order_by("-created_at")
     serializer_class = VacancySerializer
     permission_classes = (IsAuthenticatedOrReadOnly,)
+    filter_backends = [DjangoFilterBackend, SearchFilter]
+    filterset_class = VacancyFilter
+    search_fields = ['name', 'description']
 
     def perform_create(self, serializer):
         serializer.save(created_by=self.request.user)
@@ -57,3 +65,52 @@ class UserVacanciesListAPIView(ListAPIView):
             .filter(created_by=self.request.user)
             .prefetch_related("tags", "cities")
         )
+
+
+class VacancySearchListAPIView(ListAPIView):
+    serializer_class = VacancySerializer
+    permission_classes = [IsAuthenticated]
+    filter_backends = [DjangoFilterBackend, SearchFilter]
+    filterset_class = VacancyFilter
+    search_fields = ['name', 'description']
+
+    def get_queryset(self):
+        user = self.request.user
+
+        user_tags_qs = UserTag.objects.filter(user=user).values('tag')
+
+        vacancy_tag_match_qs = (
+            VacancyTag.objects
+            .filter(
+                vacancy=OuterRef('pk'),
+                tag__in=user_tags_qs
+            )
+            .annotate(
+                user_position=Subquery(
+                    UserTag.objects.filter(
+                        user=user,
+                        tag=OuterRef('tag')
+                    ).values('position')[:1]
+                )
+            )
+            .annotate(
+                weight=ExpressionWrapper(
+                    1.0 / F('user_position') + 1.0 / F('position'),
+                    output_field=FloatField()
+                )
+            )
+            .values('vacancy')
+            .annotate(total=Sum('weight'))
+            .values('total')
+        )
+
+        qs = (
+            Vacancy.objects
+            .annotate(
+                match_score=Subquery(vacancy_tag_match_qs, output_field=FloatField())
+            )
+            .filter(match_score__isnull=False)
+            .order_by('-match_score')
+        )
+
+        return qs

@@ -1,6 +1,6 @@
 from django.urls import path, include
 
-from vacancies.views import VacancyModelViewSet, ApplicationModelViewSet
+from vacancies.views import VacancyModelViewSet, ApplicationModelViewSet, VacancySearchListAPIView
 
 urlpatterns = [
     path("vacancies/", include([
@@ -18,6 +18,7 @@ urlpatterns = [
                 'delete': 'destroy'
             }),
             name="vacancies-retrieve-update-delete"),
+        path("personalized/", VacancySearchListAPIView.as_view())
     ])),
     path("applications/", include([
         path(
