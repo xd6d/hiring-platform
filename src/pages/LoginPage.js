@@ -49,7 +49,7 @@ const LoginPage = ({refreshHeader}) => {
 
 
     return (
-        <div className="pt-24 flex items-center justify-center min-h-screen bg-gray-100">
+        <div className="pt-8 flex items-center justify-center min-h-screen bg-gray-100">
             <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md w-full max-w-sm">
                 <h2 className="text-xl font-bold mb-4 text-center">Login</h2>
 

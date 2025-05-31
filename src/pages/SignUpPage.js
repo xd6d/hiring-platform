@@ -72,7 +72,7 @@ const SignUpPage = ({setGlobalAppMessage, refreshHeader}) => {
     };
 
     return (
-        <div className="pt-24 relative min-h-screen">
+        <div className="pt-8 relative min-h-screen">
             {stage === 'chooseRole' ? (
                 <div className="p-6 max-w-xl mx-auto">
                     <h1 className="text-2xl font-bold mb-6 text-center">Choose Your Role</h1>

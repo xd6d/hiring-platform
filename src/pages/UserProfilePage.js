@@ -220,7 +220,7 @@ const UserProfilePage = ({ refreshHeader }) => {
     if (error) return <div className="p-4 text-red-500">Error: {error}</div>;
 
     return (
-        <div className="pt-24 px-6 max-w-xl mx-auto min-h-screen flex flex-col justify-between">
+        <div className="pt-8 px-6 max-w-xl mx-auto min-h-screen flex flex-col justify-between">
             <div>
                 <h1 className="text-2xl font-bold mb-4">User Profile</h1>
                 <div className="space-y-4">
