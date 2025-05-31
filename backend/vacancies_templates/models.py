@@ -30,10 +30,15 @@ class Question(models.Model):
     class Meta:
         db_table = 'templates_questions'
 
+    @property
+    def initial_answers(self):
+        return self.answers.filter(application_created=False)
+
 
 class Answer(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE, related_name='answers')
-    value = models.TextField(null=True)  # or JSONField ?
+    value = models.TextField(null=True)
+    application_created = models.BooleanField(default=False)
 
     class Meta:
         db_table = 'templates_answers'

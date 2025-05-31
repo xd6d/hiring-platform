@@ -2,6 +2,7 @@ from django.db import transaction
 from rest_framework import serializers
 
 from tags.serializers import TagSerializer
+from vacancies_templates.serializers import AnswerQuestionSerializer
 from .models import Vacancy, Application, ApplicationStatus, ApplicationNote, VacancyTag
 
 
@@ -37,20 +38,24 @@ class VacancySerializer(serializers.ModelSerializer):
             instance.tags.order_by("vacancytag__position"), many=True
         ).data
         representation["cities"] = instance.cities.values_list("name", flat=True)
+        representation["is_applied"] = (
+                self.context["request"].user.is_authenticated
+                and self.context["request"].user.applications.filter(vacancy_id=instance.id).exists()
+        )
         return representation
 
 
 class ApplicationStatusSerializer(serializers.ModelSerializer):
     class Meta:
         model = ApplicationStatus
-        fields = ("name", )
+        fields = ("name",)
 
 
 class ApplicationNoteSerializer(serializers.ModelSerializer):  # todo: validate user from request
     class Meta:
         model = ApplicationNote
         fields = ("text", "application")
-        extra_kwargs = {"application": {"write_only": True}}
+        extra_kwargs = {"application": {"read_only": True}}
 
     def validate(self, attrs):
         if attrs.get("application").vacancy.created_by != self.context["request"].user:
@@ -58,11 +63,71 @@ class ApplicationNoteSerializer(serializers.ModelSerializer):  # todo: validate 
         return attrs
 
 
-class ApplicationSerializer(serializers.ModelSerializer):  # todo: bulk_create answers
+class ApplicationCandidateSerializer(serializers.ModelSerializer):
+    answers = AnswerQuestionSerializer(many=True)
+
+    class Meta:
+        model = Application
+        fields = ("vacancy", "answers")
+        extra_kwargs = {"created_by": {"read_only": True}}
+
+    def validate_answers(self, answers):
+        for answer in answers:
+            answer["question"] = answer["question"].id
+        return answers
+
+    def validate(self, attrs):
+        if self.context["request"].user.applications.filter(vacancy=attrs["vacancy"]).exists():
+            raise serializers.ValidationError("You already applied!")
+        return attrs
+
+    def create(self, validated_data):
+        answers = validated_data.pop("answers")
+        required_question_ids = list(validated_data.get("vacancy").application_template.questions.filter(
+            is_required=True
+        ).values_list("id", flat=True))
+        for answer in answers:
+            if answer["question"] in required_question_ids:
+                required_question_ids.remove(answer["question"])
+        if required_question_ids:
+            raise serializers.ValidationError("Answer required questions.")
+
+        validated_data["status"] = ApplicationStatus.objects.get(pk=1)
+
+        with transaction.atomic():
+            instance = super().create(validated_data)
+            answer_serializer = AnswerQuestionSerializer(data=answers, many=True)
+            answer_serializer.is_valid(raise_exception=True)
+            created_answers = answer_serializer.save()
+            instance.answers.set(created_answers)
+
+        return instance
+
+class ApplicationRecruiterSerializer(serializers.ModelSerializer):
     status = serializers.SlugRelatedField(queryset=ApplicationStatus.objects.all(), slug_field="name")
     notes = serializers.StringRelatedField(read_only=True, many=True)
 
     class Meta:
         model = Application
-        fields = '__all__'
-        extra_kwargs = {"created_by": {"write_only": True}}
+        fields = ("vacancy", "status", "notes", "answers", "created_at", "created_by")
+
+
+class VacancyShortSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Vacancy
+        fields = ("id", "name", "created_at")
+
+
+class ApplicationSerializer(serializers.ModelSerializer):
+    status = serializers.SlugRelatedField(queryset=ApplicationStatus.objects.all(), slug_field="name")
+    vacancy = VacancyShortSerializer(read_only=True)
+    answers = AnswerQuestionSerializer(many=True)
+
+    class Meta:
+        model = Application
+        fields = ("id", "vacancy", "answers", "status", "created_at")
+
+
+class UserVacancySerializer(VacancySerializer):
+    class Meta(VacancySerializer.Meta):
+        fields = ("id", "name", "description", "work_format", "tags", "cities")

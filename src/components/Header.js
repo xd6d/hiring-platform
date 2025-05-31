@@ -45,6 +45,15 @@ const Header = ({ refreshKey }) => {
         <Link to="/" className="text-lg text-gray-700 hover:text-gray-900">
           Vacancies
         </Link>
+        <Link
+          to="/my-vacancies"
+          className="text-lg text-gray-700 hover:text-gray-900"
+        >
+          My Vacancies
+        </Link>
+        <Link to="/applications" className="text-lg text-gray-700 hover:text-gray-900">
+          My Applications
+        </Link>
       </div>
 
       <div className="flex items-center gap-6 mr-6">

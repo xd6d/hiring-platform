@@ -11,7 +11,7 @@ urlpatterns = [
     path("", include("accounts.urls")),
     path("tags/", include("tags.urls")),
     path("dict/", include("dict.urls")),
-    path("vacancies/", include("vacancies.urls")),
+    path("", include("vacancies.urls")),
     path("templates/", include("vacancies_templates.urls")),
     path("complaints/", include("complaints.urls")),
     path("files/", include("files.urls")),

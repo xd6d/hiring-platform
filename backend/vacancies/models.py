@@ -41,11 +41,11 @@ class ApplicationStatus(models.Model):
 
 
 class Application(models.Model):
-    vacancy = models.ForeignKey(Vacancy, on_delete=models.CASCADE, related_name='applications')
+    vacancy = models.ForeignKey(Vacancy, on_delete=models.CASCADE, related_name="applications")
     status = models.ForeignKey(ApplicationStatus, on_delete=models.PROTECT)
     answers = models.ManyToManyField(Answer, through="ApplicationAnswer")
     created_at = models.DateTimeField(auto_now_add=True)
-    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name="applications")
 
     class Meta:
         db_table = 'vacancies_applications'
@@ -65,3 +65,4 @@ class ApplicationAnswer(models.Model):
 
     class Meta:
         db_table = 'applications_answers'
+        ordering = ["id"]

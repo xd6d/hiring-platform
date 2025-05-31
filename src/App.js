@@ -8,6 +8,8 @@ import VacanciesPage from './pages/VacanciesPage';
 import UserProfilePage from './pages/UserProfilePage';
 import VacancyDetailPage from "./pages/VacancyDetailPage";
 import CreateVacancyPage from "./pages/CreateVacancyPage";
+import ApplicationsPage from "./pages/ApplicationsPage";
+import UserVacanciesPage from "./pages/UserVacanciesPage";
 
 function App() {
     const [globalMessage, setGlobalMessage] = useState(null);
@@ -31,6 +33,8 @@ function App() {
                     <Route path="/profile" element={<UserProfilePage refreshHeader={refreshHeader}/>}/>
                     <Route path="/vacancies/:id" element={<VacancyDetailPage/>}/>
                     <Route path="/vacancies/create" element={<CreateVacancyPage />} />
+                    <Route path="/applications" element={<ApplicationsPage />} />
+                    <Route path="/my-vacancies" element={<UserVacanciesPage />} />
                 </Routes>
             </div>
         </Router>

@@ -13,12 +13,12 @@ class QuestionTypeSerializer(serializers.ModelSerializer):
 class AnswerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Answer
-        exclude = ("question",)
+        fields = ("id", "value", "application_created")
 
 
 class QuestionSerializer(serializers.ModelSerializer):
     type = serializers.SlugRelatedField(slug_field="name", queryset=QuestionType.objects.all())
-    answers = AnswerSerializer(many=True)
+    answers = AnswerSerializer(many=True, source="initial_answers")
 
     class Meta:
         model = Question
@@ -48,3 +48,36 @@ class ApplicationTemplateSerializer(serializers.ModelSerializer):
                 answer_serializer.save(question=created_question)
 
         return instance
+
+
+class QuestionShortSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Question
+        fields = ("id", "name")
+
+
+class AnswerQuestionSerializer(serializers.ModelSerializer):
+    value = serializers.JSONField()
+    question = QuestionShortSerializer()
+
+    class Meta:
+        model = Answer
+        fields = ("question", "value")
+
+    def validate(self, attrs):
+        if (attrs["question"].type.name in ["SHORT_TEXT", "LONG_TEXT"]
+                and not isinstance(attrs["value"], str)):
+            raise serializers.ValidationError("This text field must be a string.")
+        if attrs["question"].type.name == "SINGLE_ANSWER":
+            if not isinstance(attrs["value"], int):
+                raise serializers.ValidationError("This answer field must be an int.")
+            elif attrs["value"] not in attrs["question"].answers.values_list("id", flat=True):
+                raise serializers.ValidationError("This answer field must be related to question.")
+        return attrs
+
+    def create(self, validated_data):
+        if validated_data["question"].type.name in ["SHORT_TEXT", "LONG_TEXT"]:
+            validated_data["application_created"] = True
+            return super().create(validated_data)
+        if validated_data["question"].type.name == "SINGLE_ANSWER":
+            return self.Meta.model.objects.get(pk=validated_data["value"])
