@@ -9,6 +9,7 @@ package-lock.json
 test/
 *.csv
 *.xlxs
+media/
 
 # dependencies
 /.pnp

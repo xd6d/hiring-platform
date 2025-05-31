@@ -11,7 +11,7 @@ class FileType(models.Model):
 
 
 class File(models.Model):
-    path = models.FileField()  # todo
+    file = models.FileField(upload_to="files/")
     user_filename = models.CharField(max_length=255)
     type = models.ForeignKey(FileType, on_delete=models.PROTECT)
     created_at = models.DateTimeField(auto_now_add=True)

@@ -17,6 +17,7 @@ class Command(BaseCommand):
             "application_statuses.json",
             "tag_groups.json",
             "tags.json",
+            "file_types.json",
         ]
 
         call_command("loaddata", *fixtures, verbosity=1)
