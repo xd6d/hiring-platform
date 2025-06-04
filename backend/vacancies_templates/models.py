@@ -6,6 +6,7 @@ from api.models import AbstractSoftDeleteModel
 
 class ApplicationTemplate(AbstractSoftDeleteModel):
     name = models.CharField(max_length=300)
+    # is_global = models.BooleanField(default=False) todo
     created_at = models.DateTimeField(auto_now_add=True)
     created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 

@@ -15,6 +15,7 @@ class ComplaintCause(models.Model):
 class Complaint(models.Model):
     vacancy = models.ForeignKey(Vacancy, on_delete=models.CASCADE, null=True)
     employer = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    # todo: status
     description = models.TextField()
     causes = models.ManyToManyField(ComplaintCause, related_name="complaints", db_table="complaints_complaints_causes")
 

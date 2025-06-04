@@ -2,6 +2,7 @@ from django.db import transaction
 from django.db.models import F
 from rest_framework import serializers
 
+from files.serializers import FileSerializer
 from tags.serializers import TagSerializer
 from .models import User, Company, Role, UserTag
 
@@ -88,8 +89,9 @@ class UserSerializer(serializers.ModelSerializer):
     role = serializers.StringRelatedField(source="role.name", read_only=True)
     company = CompanySerializer(read_only=True)
     tags = TagSerializer(many=True, read_only=True)
+    photo = FileSerializer(read_only=True, include_url=True)
 
     class Meta:
         model = User
         fields = ("id", "email", "first_name", "last_name", "phone_number", "contacts",
-                  "role", "company", "tags")
+                  "role", "company", "photo", "tags")

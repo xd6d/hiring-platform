@@ -7,3 +7,4 @@
 5. template creation and filtering
 6. translate to ua
 7. user's applications
+8. add permission classes

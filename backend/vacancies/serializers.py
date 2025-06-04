@@ -35,7 +35,7 @@ class VacancySerializer(serializers.ModelSerializer):
     def to_representation(self, instance):
         representation = super().to_representation(instance)
         representation["tags"] = TagSerializer(
-            instance.tags.order_by("vacancytag__position"), many=True
+            instance.tags.order_by("vacancytag__position"), many=True  # todo: prefetch is better: see users-tags
         ).data
         representation["cities"] = instance.cities.values_list("name", flat=True)
         representation["is_applied"] = (

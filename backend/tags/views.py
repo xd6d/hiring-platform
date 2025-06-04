@@ -9,6 +9,8 @@ class TagGroupViewSet(viewsets.ModelViewSet):
     queryset = TagGroup.objects.all()
     serializer_class = TagGroupSerializer
 
+    #todo: search
+
 
 class TagCreateAPIView(CreateAPIView):
     queryset = Tag.objects.all()

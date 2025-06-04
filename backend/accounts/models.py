@@ -32,7 +32,8 @@ class User(AbstractUser):
     role = models.ForeignKey(Role, on_delete=models.PROTECT)
     company = models.ForeignKey(Company, on_delete=models.SET_NULL, null=True, related_name="users")
     tags = models.ManyToManyField(Tag, related_name='users', through="UserTag")
-    photo = models.OneToOneField("files.File", on_delete=models.SET_NULL, null=True, blank=True)
+    photo = models.OneToOneField("files.File", on_delete=models.SET_NULL, null=True, blank=True,
+                                 related_name="user_photo")
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []

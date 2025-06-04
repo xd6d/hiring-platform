@@ -54,7 +54,8 @@ INSTALLED_APPS = [
     "rest_framework",
     "drf_spectacular",
     "drf_spectacular_sidecar",
-    'django_filters',
+    "django_filters",
+    "storages",
 
     "accounts",
     "api",
@@ -103,7 +104,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'config.wsgi.application'
-# ads
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
@@ -184,5 +184,18 @@ SIMPLE_JWT = {
     "ROTATE_REFRESH_TOKENS": True,
 }
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR.parent, 'media')
+# Files
+
+DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+AWS_ACCESS_KEY_ID = env("S3_USER")
+AWS_SECRET_ACCESS_KEY = env("S3_PASS")
+AWS_STORAGE_BUCKET_NAME = env("STORAGE_BUCKET_NAME")
+S3_HOST = env("S3_HOST")
+S3_PORT_API = env("S3_PORT_API")
+AWS_S3_ENDPOINT_URL = f"http://{S3_HOST}:{S3_PORT_API}"
+AWS_S3_CUSTOM_DOMAIN = None
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = "bucket-owner-full-control"
+
+ALLOWED_IMAGE_EXTENSIONS = ['jpg', 'jpeg', 'png']
+ALLOWED_FILE_EXTENSIONS = ['pdf']

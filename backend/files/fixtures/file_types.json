@@ -3,7 +3,7 @@
         "model": "files.filetype",
         "pk": 1,
         "fields": {
-            "name": "CV"
+            "name": "Резюме"
         }
     },
     {

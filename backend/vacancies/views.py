@@ -1,4 +1,4 @@
-from django.db.models import OuterRef, ExpressionWrapper, F, Subquery, IntegerField, FloatField, Sum
+from django.db.models import OuterRef, ExpressionWrapper, F, Subquery, FloatField, Sum
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import viewsets
 from rest_framework.filters import SearchFilter
@@ -81,23 +81,14 @@ class VacancySearchListAPIView(ListAPIView):
 
         vacancy_tag_match_qs = (
             VacancyTag.objects
-            .filter(
-                vacancy=OuterRef('pk'),
-                tag__in=user_tags_qs
-            )
-            .annotate(
-                user_position=Subquery(
-                    UserTag.objects.filter(
-                        user=user,
-                        tag=OuterRef('tag')
-                    ).values('position')[:1]
-                )
-            )
-            .annotate(
-                weight=ExpressionWrapper(
-                    1.0 / F('user_position') + 1.0 / F('position'),
-                    output_field=FloatField()
-                )
+            .filter(vacancy=OuterRef('pk'), tag__in=user_tags_qs)
+            .annotate(user_position=Subquery(UserTag.objects.filter(
+                user=user,
+                tag=OuterRef('tag')
+            ).values('position')[:1]))
+            .annotate(weight=ExpressionWrapper(
+                1.0 / F('user_position') + 1.0 / F('position'),
+                output_field=FloatField())
             )
             .values('vacancy')
             .annotate(total=Sum('weight'))
@@ -106,9 +97,7 @@ class VacancySearchListAPIView(ListAPIView):
 
         qs = (
             Vacancy.objects
-            .annotate(
-                match_score=Subquery(vacancy_tag_match_qs, output_field=FloatField())
-            )
+            .annotate(match_score=Subquery(vacancy_tag_match_qs, output_field=FloatField()))
             .filter(match_score__isnull=False)
             .order_by('-match_score')
         )

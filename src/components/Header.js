@@ -71,7 +71,19 @@ const Header = ({ refreshKey }) => {
               to="/profile"
               className="text-xl font-semibold text-blue-800 hover:text-blue-900 no-underline flex items-center"
             >
+              {/* First name */}
               {user.first_name}
+
+              {/* Profile photo (if available) */}
+              {user.photo && user.photo.url && (
+                <img
+                  src={user.photo.url}
+                  alt={`${user.first_name}'s profile`}
+                  className="w-8 h-8 rounded-full ml-2 mr-2 object-cover"
+                />
+              )}
+
+              {/* Role icon */}
               {getRoleIcon(user.role)}
             </Link>
           </>

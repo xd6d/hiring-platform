@@ -64,7 +64,7 @@ class AnswerQuestionSerializer(serializers.ModelSerializer):
         model = Answer
         fields = ("question", "value")
 
-    def validate(self, attrs):
+    def validate(self, attrs):  # todo: validate against max_length
         if (attrs["question"].type.name in ["SHORT_TEXT", "LONG_TEXT"]
                 and not isinstance(attrs["value"], str)):
             raise serializers.ValidationError("This text field must be a string.")
