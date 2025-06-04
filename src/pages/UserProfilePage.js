@@ -25,20 +25,31 @@ const SortableItem = ({tag, onDelete}) => {
         setNodeRef,
         transform,
         transition,
+        isDragging,
     } = useSortable({id: tag.id});
 
     const style = {
         transform: CSS.Transform.toString(transform),
         transition,
+        opacity: isDragging ? 0.5 : 1,
+        zIndex: isDragging ? 1 : 0,
     };
 
     return (
         <div
             ref={setNodeRef}
             style={style}
-            className="flex items-center bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm"
+            className={`flex items-center px-3 py-1.5 rounded-full text-sm font-medium ${
+                isDragging
+                    ? 'bg-green-200 border-2 border-green-500 shadow-md'
+                    : 'bg-green-100 text-green-800'
+            }`}
         >
-            <button {...attributes} {...listeners} className="cursor-move mr-1">
+            <button
+                {...attributes}
+                {...listeners}
+                className={`cursor-grab mr-1 ${isDragging ? 'text-green-700' : 'text-green-600 hover:text-green-800'}`}
+            >
                 <GripVertical size={16}/>
             </button>
             <span>{tag.name}</span>
@@ -321,26 +332,24 @@ const UserProfilePage = ({refreshHeader}) => {
     }
 
     return (
-        <div className="pt-8 px-6 max-w-xl mx-auto">
-            <div>
-                <h1 className="text-2xl font-bold mb-4">User Profile</h1>
-                <div className="space-y-4">
-                    <div className="relative w-36 h-36 mb-6 mx-auto">
+        <div className="pt-8 px-4 sm:px-6 max-w-2xl mx-auto">
+            <div className="bg-white rounded-lg shadow-sm p-6">
+                <h1 className="text-2xl font-bold text-gray-800 mb-6">Profile Settings</h1>
+
+                {/* Profile Picture Section */}
+                <div className="flex flex-col items-center mb-8">
+                    <div className="relative w-32 h-32 mb-4">
                         <img
                             src={photoUrl}
                             alt="Profile"
-                            className="w-36 h-36 rounded-full object-cover border border-gray-300"
+                            className="w-full h-full rounded-full object-cover border-2 border-gray-200"
                         />
                         <button
                             type="button"
-                            onClick={() => {
-                                if (fileInputRef.current) {
-                                    fileInputRef.current.click();
-                                }
-                            }}
-                            className="absolute bottom-0 right-0 bg-white rounded-full p-1 shadow hover:bg-gray-100"
+                            onClick={() => fileInputRef.current?.click()}
+                            className="absolute bottom-0 right-0 bg-white rounded-full p-1.5 shadow-md hover:bg-gray-50 border border-gray-200"
                         >
-                            <Edit2 size={22} className="text-gray-600"/>
+                            <Edit2 size={18} className="text-gray-700"/>
                         </button>
                         <input
                             type="file"
@@ -350,13 +359,26 @@ const UserProfilePage = ({refreshHeader}) => {
                             onChange={handleFileChange}
                         />
                     </div>
+                    <h2 className="text-xl font-semibold text-gray-800">
+                        {user.first_name} {user.last_name}
+                    </h2>
+                    <p className="text-gray-500">{user.email}</p>
+                </div>
 
-                    {['email', 'first_name', 'last_name', 'phone_number'].map((field) => (
-                            <div key={field} className="flex justify-between items-start">
-                                <div className="flex-1">
-                                    <span className="font-medium capitalize">{field.replace('_', ' ')}:</span>{' '}
+                {/* Personal Information Section */}
+                <div className="mb-8">
+                    <h2 className="text-lg font-semibold text-gray-800 mb-4 pb-2 border-b border-gray-100">
+                        Personal Information
+                    </h2>
+                    <div className="space-y-4">
+                        {['first_name', 'last_name', 'email', 'phone_number'].map((field) => (
+                            <div key={field} className="grid grid-cols-1 sm:grid-cols-3 gap-4 items-start">
+                                <label className="text-sm font-medium text-gray-700 sm:col-span-1 capitalize">
+                                    {field.replace('_', ' ')}
+                                </label>
+                                <div className="sm:col-span-2">
                                     {editField === field ? (
-                                        <>
+                                        <div className="space-y-2">
                                             {field === 'email' ? (
                                                 <input
                                                     type="email"
@@ -366,7 +388,7 @@ const UserProfilePage = ({refreshHeader}) => {
                                                         const filtered = e.target.value.replace(/[^\w@.]+/g, '');
                                                         setFieldValues(prev => ({...prev, [field]: filtered}));
                                                     }}
-                                                    className="border px-2 py-1 rounded w-full mt-1"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                                                     placeholder="example@domain.com"
                                                 />
                                             ) : field === 'phone_number' ? (
@@ -374,7 +396,7 @@ const UserProfilePage = ({refreshHeader}) => {
                                                     type="text"
                                                     value={fieldValues[field] || ''}
                                                     onChange={handlePhoneChange}
-                                                    className="border px-2 py-1 rounded w-full mt-1"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                                                     placeholder="+380 (__) ___-__-__"
                                                 />
                                             ) : (
@@ -384,99 +406,122 @@ const UserProfilePage = ({refreshHeader}) => {
                                                     onChange={(e) =>
                                                         setFieldValues(prev => ({...prev, [field]: e.target.value}))
                                                     }
-                                                    className="border px-2 py-1 rounded w-full mt-1"
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                                                 />
                                             )}
                                             {fieldErrors[field] && (
-                                                <div className="text-red-500 text-sm mt-1">
+                                                <p className="text-red-500 text-sm mt-1">
                                                     {fieldErrors[field]}
-                                                </div>
+                                                </p>
                                             )}
-                                        </>
+                                            <div className="flex justify-end space-x-2">
+                                                <button
+                                                    onClick={() => setEditField(null)}
+                                                    className="px-3 py-1 text-sm text-gray-600 hover:text-gray-800"
+                                                >
+                                                    Cancel
+                                                </button>
+                                                <button
+                                                    onClick={() => handleFieldUpdate(field)}
+                                                    className="px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
+                                                >
+                                                    Save
+                                                </button>
+                                            </div>
+                                        </div>
                                     ) : (
-                                        <span className="ml-2">{user[field] || '—'}</span>
-                                    )}
-                                </div>
-                                <div className="ml-4">
-                                    {editField === field ? (
-                                        <button
-                                            onClick={() => handleFieldUpdate(field)}
-                                            className="text-green-600 hover:underline mt-1"
-                                        >
-                                            Save
-                                        </button>
-                                    ) : (
-                                        <button
-                                            onClick={() => handlePencilClick(field)}
-                                            className="text-blue-500 hover:text-blue-700 mt-1"
-                                        >
-                                            <Pencil size={18}/>
-                                        </button>
+                                        <div className="flex items-center justify-between">
+                                            <p className="text-gray-800">
+                                                {user[field] || <span className="text-gray-400">Not set</span>}
+                                            </p>
+                                            <button
+                                                onClick={() => handlePencilClick(field)}
+                                                className="ml-2 text-gray-500 hover:text-blue-600 p-1 rounded-full hover:bg-gray-100"
+                                            >
+                                                <Pencil size={16}/>
+                                            </button>
+                                        </div>
                                     )}
                                 </div>
                             </div>
-                        )
-                    )}
+                        ))}
+                    </div>
+                </div>
 
-                    <div className="mt-4">
-                        <span className="font-medium">Tags:</span>
-                        <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
-                            <SortableContext
-                                items={user.tags.map((tag) => tag.id)}
-                                strategy={verticalListSortingStrategy}
-                            >
-                                <div className="mt-2 flex flex-col gap-2">
-                                    {user.tags && user.tags.length > 0 ? (
-                                        user.tags.map((tag) => (
-                                            <SortableItem
-                                                key={tag.id}
-                                                tag={tag}
-                                                onDelete={(tagId) => {
-                                                    setTagToDelete(tagId);
-                                                    setDeleteModalOpen(true);
-                                                }}
-                                            />
-                                        ))
-                                    ) : (
-                                        <span className="text-gray-500 text-sm">No tags yet</span>
-                                    )}
-                                </div>
-                            </SortableContext>
-                        </DndContext>
+                {/* Tags Section */}
+                <div className="mb-8">
+                    <div className="flex justify-between items-center mb-4 pb-2 border-b border-gray-100">
+                        <h2 className="text-lg font-semibold text-gray-800">Your Tags</h2>
                         <button
                             onClick={openTagsModal}
-                            className="mt-2 bg-blue-500 text-white px-3 py-1 rounded flex items-center gap-1"
+                            className="flex items-center gap-1 text-sm bg-blue-500 text-white px-3 py-1.5 rounded hover:bg-blue-600"
                         >
                             <Plus size={16}/> Add tags
                         </button>
                     </div>
+
+                    {user.tags && user.tags.length > 0 ? (
+                        <DndContext
+                            sensors={sensors}
+                            collisionDetection={closestCenter}
+                            onDragEnd={handleDragEnd}
+                        >
+                            <SortableContext
+                                items={user.tags.map((tag) => tag.id)}
+                                strategy={verticalListSortingStrategy}
+                            >
+                                <div className="flex flex-wrap gap-2 min-h-[40px]">
+                                    {user.tags.map((tag) => (
+                                        <SortableItem
+                                            key={tag.id}
+                                            tag={tag}
+                                            onDelete={(tagId) => {
+                                                setTagToDelete(tagId);
+                                                setDeleteModalOpen(true);
+                                            }}
+                                        />
+                                    ))}
+                                </div>
+                            </SortableContext>
+                            <div className="mt-2 text-xs text-gray-500 flex items-center">
+                                <GripVertical size={12} className="mr-1"/>
+                                <span>Drag to reorder tags</span>
+                            </div>
+                        </DndContext>
+                    ) : (
+                        <div className="bg-gray-50 rounded-lg p-4 text-center">
+                            <p className="text-gray-500">You haven't added any tags yet</p>
+                        </div>
+                    )}
+                </div>
+
+                {/* Sign Out Section */}
+                <div className="flex justify-center border-t border-gray-100 pt-6">
+                    <button
+                        onClick={handleSignOut}
+                        className="px-4 py-2 text-red-500 border border-red-500 rounded-md hover:bg-red-50 transition-colors"
+                    >
+                        Sign Out
+                    </button>
                 </div>
             </div>
 
-            <div className="mt-8 flex justify-center">
-                <button
-                    onClick={handleSignOut}
-                    className="text-red-500 border border-red-500 rounded px-4 py-2 hover:text-red-600 hover:border-red-600"
-                >
-                    Sign Out
-                </button>
-            </div>
-
-            {
-                tagsModalOpen && (
-                    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-                        <div className="relative bg-white p-6 rounded-lg max-w-lg w-full max-h-[80vh] overflow-y-auto">
-                            <button
-                                onClick={() => setTagsModalOpen(false)}
-                                className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
-                            >
-                                <X size={20}/>
-                            </button>
-                            <h2 className="text-xl font-bold mb-4">Select Tags</h2>
+            {/* Tags Modal */}
+            {tagsModalOpen && (
+                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                    <div className="relative bg-white p-6 rounded-lg max-w-lg w-full max-h-[80vh] overflow-y-auto">
+                        <button
+                            onClick={() => setTagsModalOpen(false)}
+                            className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+                        >
+                            <X size={20}/>
+                        </button>
+                        <h2 className="text-xl font-bold text-gray-800 mb-4">Select Tags</h2>
+                        <div className="space-y-6">
                             {tagGroups.map((group) => (
-                                <div key={group.id} className="mb-4">
-                                    <h3 className="font-semibold">{group.name}</h3>
-                                    <div className="flex flex-wrap gap-2 mt-2">
+                                <div key={group.id}>
+                                    <h3 className="font-semibold text-gray-700 mb-2">{group.name}</h3>
+                                    <div className="flex flex-wrap gap-2">
                                         {group.tags.map((tag) => (
                                             <button
                                                 key={tag.id}
@@ -489,12 +534,12 @@ const UserProfilePage = ({refreshHeader}) => {
                                                         );
                                                     }
                                                 }}
-                                                className={`px-3 py-1 rounded border ${
+                                                className={`px-3 py-1.5 rounded-full text-sm font-medium border ${
                                                     selectedTags.includes(tag.id)
                                                         ? lockedTags.includes(tag.id)
-                                                            ? 'bg-gray-300 border-gray-500 cursor-not-allowed'
-                                                            : 'bg-green-200 border-green-500'
-                                                        : 'bg-gray-100 border-gray-300'
+                                                            ? 'bg-gray-200 border-gray-400 text-gray-600 cursor-not-allowed'
+                                                            : 'bg-green-100 border-green-400 text-green-800 hover:bg-green-200'
+                                                        : 'bg-gray-50 border-gray-300 text-gray-700 hover:bg-gray-100'
                                                 }`}
                                                 disabled={lockedTags.includes(tag.id)}
                                             >
@@ -504,58 +549,57 @@ const UserProfilePage = ({refreshHeader}) => {
                                     </div>
                                 </div>
                             ))}
-                            <div className="flex justify-end mt-4 gap-2">
-                                <button
-                                    onClick={() => setTagsModalOpen(false)}
-                                    className="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400"
-                                >
-                                    Cancel
-                                </button>
-                                <button
-                                    onClick={saveTags}
-                                    className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-                                >
-                                    Save
-                                </button>
-                            </div>
+                        </div>
+                        <div className="flex justify-end space-x-3 mt-6 pt-4 border-t border-gray-100">
+                            <button
+                                onClick={() => setTagsModalOpen(false)}
+                                className="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200"
+                            >
+                                Cancel
+                            </button>
+                            <button
+                                onClick={saveTags}
+                                className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+                            >
+                                Save Changes
+                            </button>
                         </div>
                     </div>
-                )
-            }
+                </div>
+            )}
 
-            {
-                deleteModalOpen && (
-                    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-                        <div className="relative bg-white p-6 rounded-lg max-w-sm w-full">
+            {/* Delete Confirmation Modal */}
+            {deleteModalOpen && (
+                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                    <div className="relative bg-white p-6 rounded-lg max-w-sm w-full">
+                        <button
+                            onClick={() => setDeleteModalOpen(false)}
+                            className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+                        >
+                            <X size={20}/>
+                        </button>
+                        <h2 className="text-xl font-bold text-gray-800 mb-3">Confirm Removal</h2>
+                        <p className="text-gray-600 mb-6">Are you sure you want to remove this tag from your
+                            profile?</p>
+                        <div className="flex justify-end space-x-3">
                             <button
                                 onClick={() => setDeleteModalOpen(false)}
-                                className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+                                className="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200"
                             >
-                                <X size={20}/>
+                                Cancel
                             </button>
-                            <h2 className="text-xl font-bold mb-4">Confirm Delete</h2>
-                            <p className="mb-4">Are you sure you want to remove this tag?</p>
-                            <div className="flex justify-end gap-2">
-                                <button
-                                    onClick={() => setDeleteModalOpen(false)}
-                                    className="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400"
-                                >
-                                    Cancel
-                                </button>
-                                <button
-                                    onClick={() => handleDeleteTag(tagToDelete)}
-                                    className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
-                                >
-                                    Confirm
-                                </button>
-                            </div>
+                            <button
+                                onClick={() => handleDeleteTag(tagToDelete)}
+                                className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600"
+                            >
+                                Remove Tag
+                            </button>
                         </div>
                     </div>
-                )
-            }
+                </div>
+            )}
         </div>
-    )
-        ;
+    );
 };
 
 export default UserProfilePage;
