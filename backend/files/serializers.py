@@ -9,7 +9,7 @@ from .utils import generate_presigned_url
 class FileSerializer(serializers.ModelSerializer):
     type = serializers.SlugRelatedField(slug_field='name', queryset=FileType.objects.all())
     file = serializers.FileField(use_url=False, validators=[
-        FileExtensionValidator(allowed_extensions=ALLOWED_IMAGE_EXTENSIONS+ALLOWED_FILE_EXTENSIONS)
+        FileExtensionValidator(allowed_extensions=ALLOWED_IMAGE_EXTENSIONS + ALLOWED_FILE_EXTENSIONS)
     ])
 
     class Meta:
@@ -25,8 +25,7 @@ class FileSerializer(serializers.ModelSerializer):
         if self.validate_photo:
             self.fields['file'].validators = [FileExtensionValidator(allowed_extensions=ALLOWED_IMAGE_EXTENSIONS)]
 
-
-    def validate(self, attrs):
+    def validate(self, attrs):  # todo: size validation
         file = attrs.get('file')
 
         if file:
@@ -42,3 +41,8 @@ class FileSerializer(serializers.ModelSerializer):
         if self.include_url:
             representation["url"] = generate_presigned_url(instance.file.name)
         return representation
+
+
+class FilePhotoSerializer(FileSerializer):
+    type = serializers.SlugRelatedField(slug_field='name', queryset=FileType.objects.all(),
+                                        default=serializers.CreateOnlyDefault(lambda: FileType.objects.get(id=3)))

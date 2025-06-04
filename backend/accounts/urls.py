@@ -2,6 +2,7 @@ from django.urls import path, include
 
 from accounts.views import UserCreateAPIView, UserRetrieveView, RoleListAPIView, CompanyCreateAPIView, \
     UserTagCreateAPIView, UserTagDestroyAPIView, CompanyRetrieveUpdateDestroyAPIView
+from files.views import UserPhotoUploadCreateAPIView
 from vacancies.views import UserApplicationsListAPIView, UserVacanciesListAPIView
 
 urlpatterns = [
@@ -15,6 +16,7 @@ urlpatterns = [
                 path("", UserTagCreateAPIView.as_view(), name="user-tag-create"),
                 path("<int:pk>/", UserTagDestroyAPIView.as_view(), name="user-tag-delete"),
             ])),
+            path("upload-photo/", UserPhotoUploadCreateAPIView.as_view(), name="user-me-upload-photo"),
         ])),
         path("roles/", RoleListAPIView.as_view(), name="role-list"),
     ])),

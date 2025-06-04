@@ -90,8 +90,9 @@ class UserSerializer(serializers.ModelSerializer):
     company = CompanySerializer(read_only=True)
     tags = TagSerializer(many=True, read_only=True)
     photo = FileSerializer(read_only=True, include_url=True)
+    files = FileSerializer(many=True, read_only=True)
 
     class Meta:
         model = User
         fields = ("id", "email", "first_name", "last_name", "phone_number", "contacts",
-                  "role", "company", "photo", "tags")
+                  "role", "company", "photo", "tags", "files")

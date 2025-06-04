@@ -1,4 +1,4 @@
-import { API_URL } from '../config/apiConfig';
+import {API_URL} from '../config/apiConfig';
 
 export const getAuthToken = () => localStorage.getItem('access');
 export const getRefreshToken = () => localStorage.getItem('refresh');
@@ -16,8 +16,8 @@ const refreshToken = async () => {
     const refresh = getRefreshToken();
     const response = await fetch(`${API_URL}/auth/token/refresh/`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ refresh }),
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({refresh}),
     });
 
     if (!response.ok) throw new Error('Failed to refresh token');
@@ -28,14 +28,20 @@ const refreshToken = async () => {
 };
 
 export const apiClient = async (endpoint, options = {}, retry = true) => {
-    let token = getAuthToken();
+    const token = getAuthToken();
 
+    // Start with any headers passed in options, plus Authorization if we have a token
     const headers = {
-        'Content-Type': 'application/json',
-        ...(token ? { Authorization: `Bearer ${token}` } : {}),
+        ...(token ? {Authorization: `Bearer ${token}`} : {}),
         ...options.headers,
     };
 
+    const isFormData = options.body instanceof FormData;
+    if (!isFormData && !('Content-Type' in headers)) {
+        headers['Content-Type'] = 'application/json';
+    }
+
+    // Perform the fetch
     const response = await fetch(`${API_URL}/${endpoint}`, {
         ...options,
         headers,
@@ -44,7 +50,8 @@ export const apiClient = async (endpoint, options = {}, retry = true) => {
     if (response.status === 401 && retry) {
         try {
             await refreshToken();
-            return apiClient(endpoint, options, false); // retry once
+            // Retry once (but disable further retries)
+            return apiClient(endpoint, options, false);
         } catch (err) {
             redirectToLogin();
             return;

@@ -75,6 +75,10 @@ class VacancySearchListAPIView(ListAPIView):
     search_fields = ['name', 'description']
 
     def get_queryset(self):
+        if getattr(self, "swagger_fake_view", False):
+            # queryset just for schema generation metadata
+            return Vacancy.objects.none()
+
         user = self.request.user
 
         user_tags_qs = UserTag.objects.filter(user=user).values('tag')

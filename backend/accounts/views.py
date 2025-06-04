@@ -8,6 +8,7 @@ from accounts.filters import CurrentUserFilterBackend
 from accounts.models import User, Role, UserTag, Company
 from accounts.serializers import UserPostSerializer, UserSerializer, RoleSerializer, CompanySerializer, \
     UserTagSerializer, UserTagPositionSerializer
+from files.models import File
 from tags.models import Tag
 
 
@@ -16,8 +17,11 @@ class UserCreateAPIView(CreateAPIView):
 
 
 class UserRetrieveView(RetrieveUpdateDestroyAPIView):
-    queryset = User.objects.prefetch_related(
-        Prefetch("tags", queryset=Tag.objects.order_by("usertag__position"))
+    queryset = User.objects.select_related(
+        "photo"
+    ).prefetch_related(
+        Prefetch("tags", queryset=Tag.objects.order_by("usertag__position")),
+        Prefetch("files", queryset=File.objects.exclude(type_id=3)),
     ).all()
     serializer_class = UserSerializer
     permission_classes = [IsAuthenticated]

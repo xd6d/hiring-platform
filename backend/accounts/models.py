@@ -27,7 +27,7 @@ class Company(models.Model):
 class User(AbstractUser):
     username = None
     email = models.EmailField("email address", unique=True)
-    phone_number = models.CharField(max_length=15, unique=True, null=True, blank=True)
+    phone_number = models.CharField(max_length=20, unique=True, null=True, blank=True)
     contacts = models.JSONField(default=dict)
     role = models.ForeignKey(Role, on_delete=models.PROTECT)
     company = models.ForeignKey(Company, on_delete=models.SET_NULL, null=True, related_name="users")
