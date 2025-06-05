@@ -4,15 +4,14 @@ import { apiClient } from '../utils/auth';
 import { useTranslation } from 'react-i18next';
 
 const UserVacanciesPage = () => {
+  const { t } = useTranslation();
   const [vacancies, setVacancies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const { t } = useTranslation();
 
   useEffect(() => {
     const fetchUserVacancies = async () => {
       try {
-        // Note: endpoint 'users/me/vacancies/' corresponds to GET /api/v1/users/me/vacancies/
         const response = await apiClient('users/me/vacancies/', {
           method: 'GET',
         });
@@ -37,17 +36,17 @@ const UserVacanciesPage = () => {
   }, []);
 
   if (loading) {
-    return <div className="p-4 text-center">Loading...</div>;
+    return <div className="p-4 text-center">{t('loading')}...</div>;
   }
   if (error) {
-    return <div className="p-4 text-red-500">Error: {error}</div>;
+    return <div className="p-4 text-red-500">{t('error')}: {error}</div>;
   }
 
   return (
     <div className="p-6 max-w-4xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4">My Vacancies</h1>
+      <h1 className="text-2xl font-bold mb-4">{t('my_vacancies')}</h1>
       {vacancies.length === 0 ? (
-        <p className="text-gray-600">You have not created any vacancies yet.</p>
+        <p className="text-gray-600">{t('no_vacancies_message')}.</p>
       ) : (
         <div className="space-y-4">
           {vacancies.map((vacancy) => (
@@ -61,16 +60,16 @@ const UserVacanciesPage = () => {
                 </h2>
               </Link>
 
-              {/* Truncate description to 3 lines (requires tailwind line-clamp plugin) */}
+              {/* Truncate description to 3 lines (requires Tailwind line-clamp plugin) */}
               <p className="text-sm text-gray-700 mb-2 line-clamp-3">
                 {vacancy.description}
               </p>
 
               <div className="flex flex-wrap gap-2 text-sm mb-2">
                 <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded">
-                  {vacancy.work_format === 'OFFICE' && 'Office'}
-                  {vacancy.work_format === 'REMOTE' && 'Remote'}
-                  {vacancy.work_format === 'HYBRID' && 'Hybrid'}
+                  {vacancy.work_format === 'OFFICE' && t('office')}
+                  {vacancy.work_format === 'REMOTE' && t('remote')}
+                  {vacancy.work_format === 'HYBRID' && t('hybrid')}
                 </span>
                 {vacancy.cities.map((city, idx) => (
                   <span
@@ -98,7 +97,7 @@ const UserVacanciesPage = () => {
                   to={`/vacancies/${vacancy.id}`}
                   className="inline-block text-blue-500 hover:text-blue-600 text-sm font-medium"
                 >
-                  View Details →
+                  {t('view_details')} →
                 </Link>
               </div>
             </div>

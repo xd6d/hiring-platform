@@ -9,7 +9,7 @@
 
   "no_applications_message": "You have not applied to any vacancies yet.",
   "applied_for_from": "Applied for {vac.name} from {vacCreated}",
-  "application_status:": "Application status:",
+  "application_status": "Application status",
   "applied_at": "Applied at",
   "show_answers": "Show answers",
   "hide_answers": "Hide answers",
@@ -102,5 +102,19 @@
   "accepted_and_required_file_types": "Accepted and required file types",
   "submission_error": "Submission error",
   "application_submitted": "Application Submitted",
-  "submit_application": "Submit Application"
+  "submit_application": "Submit Application",
+  "fill_in_the_details_to_create_vacancy": "Fill in the details below to create a new job vacancy",
+  "edit_markdown": "Edit Markdown",
+  "preview_markdown": "Preview Markdown",
+  "supports_markdown_formatting": "Supports Markdown formatting (headings, lists, links, etc.)",
+  "application_form_template": "Application Form Template",
+  "created": "Created",
+  "preview": "Preview",
+  "change": "Change",
+  "invalid_credentials_or_server_error": "Invalid credentials or server error",
+  "choose_your_role": "Choose Your Role",
+  "failed_to_register": "Failed to register",
+  "login_after_registration_failed": "Login after registration failed",
+  "registration_successful": "Registration successful! 🎉",
+  "confirm_password": "Confirm password"
 }

@@ -532,9 +532,8 @@ const CreateVacancyPage = () => {
             <div className="max-w-3xl mx-auto">
                 <div className="bg-white shadow rounded-lg overflow-hidden">
                     <div className="px-6 py-5 border-b border-gray-200 bg-gradient-to-r from-blue-50 to-white">
-                        <h1 className="text-2xl font-bold text-gray-800">Create New Vacancy</h1>
-                        <p className="mt-1 text-sm text-gray-600">Fill in the details below to create a new job
-                            vacancy</p>
+                        <h1 className="text-2xl font-bold text-gray-800">{t('create_new_vacancy')}</h1>
+                        <p className="mt-1 text-sm text-gray-600">{t('fill_in_the_details_to_create_vacancy')}</p>
                     </div>
 
                     <form onSubmit={handleSubmit} className="px-6 py-5 space-y-6">
@@ -558,7 +557,7 @@ const CreateVacancyPage = () => {
 
                         {/* Name */}
                         <div className="space-y-2">
-                            <label className="block text-sm font-medium text-gray-700">Job Title</label>
+                            <label className="block text-sm font-medium text-gray-700">{t('job_title')}</label>
                             <input
                                 type="text"
                                 value={formData.name}
@@ -572,13 +571,13 @@ const CreateVacancyPage = () => {
                         {/* Description */}
                         <div>
                             <div className="flex justify-between items-center mb-1">
-                                <label className="block font-medium text-gray-700">Description</label>
+                                <label className="block font-medium text-gray-700">{t('description')}</label>
                                 <button
                                     type="button"
                                     onClick={() => setIsPreview(!isPreview)}
                                     className="text-sm text-blue-600 hover:text-blue-800"
                                 >
-                                    {isPreview ? 'Edit Markdown' : 'Preview Markdown'}
+                                    {isPreview ? t('edit_markdown') : t('preview_markdown')}
                                 </button>
                             </div>
 
@@ -599,14 +598,14 @@ const CreateVacancyPage = () => {
                             )}
 
                             <div className="mt-1 text-xs text-gray-500">
-                                Supports Markdown formatting (headings, lists, links, etc.)
+                                {t('supports_markdown_formatting')}
                             </div>
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             {/* Work Format */}
                             <div className="space-y-2">
-                                <label className="block text-sm font-medium text-gray-700">Work Format</label>
+                                <label className="block text-sm font-medium text-gray-700">{t('work_format')}</label>
                                 <select
                                     value={formData.work_format}
                                     onChange={e => setFormData(fd => ({...fd, work_format: e.target.value}))}
@@ -621,18 +620,17 @@ const CreateVacancyPage = () => {
 
                             {/* Application Template */}
                             <div className="space-y-2">
-                                <label className="block text-sm font-medium text-gray-700">Application Form
-                                    Template</label>
+                                <label className="block text-sm font-medium text-gray-700">{t('application_form_template')}</label>
                                 <div className="flex items-center space-x-3">
                                     <div className="flex-1 border border-gray-300 rounded-lg px-4 py-2 bg-white">
                                         {templateInfo ? (
                                             <span className="text-gray-700">
-                        {templateInfo.name} (created {new Date(templateInfo.created_at).toLocaleDateString('en-GB', {
+                        {templateInfo.name} ({t('created')} {new Date(templateInfo.created_at).toLocaleDateString('en-GB', {
                                                 day: '2-digit', month: 'short', year: 'numeric'
                                             })})
                       </span>
                                         ) : (
-                                            <span className="text-gray-400">Loading default template...</span>
+                                            <span className="text-gray-400">{t('loading_default_template')}...</span>
                                         )}
                                     </div>
                                     <button
@@ -640,7 +638,7 @@ const CreateVacancyPage = () => {
                                         onClick={() => setShowPreviewModal(true)}
                                         className="px-3 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
                                     >
-                                        Preview
+                                        {t('preview')}
                                     </button>
                                     <button
                                         type="button"
@@ -657,7 +655,7 @@ const CreateVacancyPage = () => {
                                         }}
                                         className="px-3 py-2 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-colors"
                                     >
-                                        Change
+                                        {t('change')}
                                     </button>
                                 </div>
                             </div>
@@ -665,13 +663,13 @@ const CreateVacancyPage = () => {
 
                         {/* Cities */}
                         <div className="space-y-2">
-                            <label className="block text-sm font-medium text-gray-700">Job Locations</label>
+                            <label className="block text-sm font-medium text-gray-700">{t('job_locations')}</label>
                             {citiesBlock}
                         </div>
 
                         {/* Tags */}
                         <div className="space-y-2">
-                            <label className="block text-sm font-medium text-gray-700">Skills & Technologies</label>
+                            <label className="block text-sm font-medium text-gray-700">{t('skills_and_technologies')}</label>
                             {tagsBlock}
                         </div>
 

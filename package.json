@@ -15,6 +15,7 @@
     "i18next": "^25.2.1",
     "lucide-react": "^0.511.0",
     "react": "^19.1.0",
+    "react-country-flag": "^3.1.0",
     "react-dom": "^19.1.0",
     "react-i18next": "^15.5.2",
     "react-input-mask": "^2.0.4",

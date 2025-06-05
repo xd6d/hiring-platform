@@ -46,23 +46,23 @@ const ApplicationsPage = () => {
   };
 
   if (loading) {
-    return <div className="p-4 text-center">Loading...</div>;
+    return <div className="p-4 text-center">{t('loading')}...</div>;
   }
   if (error) {
-    return <div className="p-4 text-red-500">Error: {error}</div>;
+    return <div className="p-4 text-red-500">{t('error') + ': ' + error}</div>;
   }
   if (!applications.length) {
     return (
       <div className="p-6 max-w-4xl mx-auto">
-        <h1 className="text-2xl font-bold mb-4">My Applications</h1>
-        <p className="text-gray-700">You have not applied to any vacancies yet.</p>
+        <h1 className="text-2xl font-bold mb-4">{t('my_applications')}</h1>
+        <p className="text-gray-700">{t('no_applications_message')}</p>
       </div>
     );
   }
 
   return (
     <div className="p-6 max-w-4xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4">My Applications</h1>
+      <h1 className="text-2xl font-bold mb-4">{t('my_applications')}</h1>
       <div className="space-y-4">
         {applications.map((application) => {
           const appId = application.id;
@@ -79,16 +79,16 @@ const ApplicationsPage = () => {
                     to={`/vacancies/${vac.id}`}
                     className="text-blue-600 hover:underline"
                 >
-                  Applied for {vac.name} from {vacCreated}
+                  {t('applied_for_from', { vac: { name: vac.name }, vacCreated })}
                 </Link>
               </h2>
 
               {/* Status and applied date */}
               <p className="text-sm text-gray-700 mb-1">
-                <span className="font-medium">Application status:</span> {application.status}
+                <span className="font-medium">{t('application_status')}:</span> {application.status}
               </p>
               <p className="text-sm text-gray-700 mb-2">
-                <span className="font-medium">Applied at:</span> {appCreated}
+                <span className="font-medium">{t('applied_at')}:</span> {appCreated}
               </p>
 
               {/* Show/Hide answers button */}
@@ -96,7 +96,7 @@ const ApplicationsPage = () => {
                 onClick={() => toggleAnswers(appId)}
                 className="text-blue-500 hover:text-blue-600 text-sm font-medium"
               >
-                {isOpen ? 'Hide answers' : 'Show answers'}
+                {isOpen ? t('hide_answers') : t('show_answers')}
               </button>
 
               {/* Conditionally render the answers section */}
@@ -112,7 +112,7 @@ const ApplicationsPage = () => {
                       </div>
                     ))
                   ) : (
-                    <p className="text-sm text-gray-500">No answers provided.</p>
+                    <p className="text-sm text-gray-500">{t('no_answers_provided')}</p>
                   )}
                 </div>
               )}

@@ -4,6 +4,7 @@ import { apiClient } from '../utils/auth';
 import { User, Briefcase, Shield } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import i18n from '../i18n';
+import ReactCountryFlag from 'react-country-flag';
 
 const Header = ({ refreshKey }) => {
   const [user, setUser] = useState(null);
@@ -26,18 +27,19 @@ const Header = ({ refreshKey }) => {
     fetchUser();
   }, [refreshKey]);
 
-  const handleLanguageChange = (lang) => {
-    i18n.changeLanguage(lang);
+  const toggleLanguage = () => {
+    const newLang = i18n.language === 'uk' ? 'en' : 'uk';
+    i18n.changeLanguage(newLang);
   };
 
   const getRoleIcon = (role) => {
     switch (role) {
       case 'CANDIDATE':
-        return <User size={24} className="ml-2" title="Candidate" />;
+        return <User size={24} className="ml-2" title={t('candidate')} />;
       case 'RECRUITER':
-        return <Briefcase size={24} className="ml-2" title="Recruiter" />;
+        return <Briefcase size={24} className="ml-2" title={t('recruiter')} />;
       case 'ADMIN':
-        return <Shield size={24} className="ml-2" title="Admin" />;
+        return <Shield size={24} className="ml-2" title={t('admin')} />;
       default:
         return null;
     }
@@ -50,32 +52,20 @@ const Header = ({ refreshKey }) => {
           HRP
         </Link>
         <Link to="/" className="text-lg text-gray-700 hover:text-gray-900">
-          {t('vacancy')}
+          {t('vacancies')}
         </Link>
         <Link
           to="/my-vacancies"
           className="text-lg text-gray-700 hover:text-gray-900"
         >
-          My Vacancies
+          {t('my_vacancies')}
         </Link>
         <Link to="/applications" className="text-lg text-gray-700 hover:text-gray-900">
-          My Applications
+          {t('my_applications')}
         </Link>
       </div>
 
       <div className="flex items-center gap-6 mr-6">
-        <button
-            onClick={() => handleLanguageChange('en')}
-            className={`text-sm ${i18n.language === 'en' ? 'font-bold' : 'text-gray-600'}`}
-        >
-          EN
-        </button>
-        <button
-            onClick={() => handleLanguageChange('uk')}
-            className={`text-sm ${i18n.language === 'uk' ? 'font-bold' : 'text-gray-600'}`}
-        >
-          УК
-        </button>
         {user ? (
             <>
               {user.role === 'RECRUITER' && (
@@ -83,7 +73,7 @@ const Header = ({ refreshKey }) => {
                       to="/vacancies/create"
                       className="text-lg text-blue-500 hover:text-blue-600"
                   >
-                    Create Vacancy
+                    {t('create_vacancy')}
                   </Link>
               )}
               <Link
@@ -112,16 +102,51 @@ const Header = ({ refreshKey }) => {
                   onClick={() => navigate('/sign-up')}
                   className="text-lg text-blue-500 hover:text-blue-600"
               >
-                Sign up
+                {t('sign_up')}
               </button>
               <button
                   onClick={() => navigate('/login')}
                   className="text-lg text-blue-500 hover:text-blue-600"
               >
-                Login
+                {t('login')}
               </button>
             </>
         )}
+        <button
+            onClick={toggleLanguage}
+            className="ml-4"
+            aria-label={
+              i18n.language === 'uk'
+                  ? 'Switch to English'
+                  : 'Переключитися на українську'
+            }
+        >
+          {i18n.language === 'uk' ? (
+              <ReactCountryFlag
+                  countryCode="GB"
+                  svg
+                  style={{
+                    width: '24px',
+                    height: '24px',
+                    borderRadius: '50%',
+                    objectFit: 'cover',
+                  }}
+                  title="English"
+              />
+          ) : (
+              <ReactCountryFlag
+                  countryCode="UA"
+                  svg
+                  style={{
+                    width: '24px',
+                    height: '24px',
+                    borderRadius: '50%',
+                    objectFit: 'cover',
+                  }}
+                  title="Українська"
+              />
+          )}
+        </button>
       </div>
     </header>
   );
