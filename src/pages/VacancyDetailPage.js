@@ -1,7 +1,7 @@
-// VacancyDetailPage.js
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { apiClient } from '../utils/auth';
+import ReactMarkdown from 'react-markdown';
 
 const VacancyDetailPage = () => {
   const { id } = useParams();
@@ -19,11 +19,10 @@ const VacancyDetailPage = () => {
   const [answersByQuestionId, setAnswersByQuestionId] = useState({});
   const [submitError, setSubmitError] = useState(null);
 
-  // Local “applied” state to reflect a successful POST.
-  // Combined with vacancy.is_applied to determine if user has already applied.
+  // Local "applied" state to reflect a successful POST.
   const [applied, setApplied] = useState(false);
 
-  // --- New: Fetch current user's info (to check role) ---
+  // User info
   const [user, setUser] = useState(null);
   const [userLoading, setUserLoading] = useState(true);
   const [userError, setUserError] = useState(null);
@@ -48,7 +47,6 @@ const VacancyDetailPage = () => {
     fetchUser();
   }, []);
 
-  // --- Fetch vacancy details via apiClient ---
   useEffect(() => {
     const fetchVacancy = async () => {
       try {
@@ -68,7 +66,6 @@ const VacancyDetailPage = () => {
     fetchVacancy();
   }, [id]);
 
-  // --- Handler: “Apply Now” → load the application template via apiClient ---
   const handleApplyNow = async () => {
     if (!vacancy) return;
 
@@ -92,7 +89,6 @@ const VacancyDetailPage = () => {
     }
   };
 
-  // --- Track user inputs per question ID ---
   const handleInputChange = (questionId, value) => {
     setAnswersByQuestionId((prev) => ({
       ...prev,
@@ -100,22 +96,16 @@ const VacancyDetailPage = () => {
     }));
   };
 
-  // --- Handler: send POST to create application ---
   const handleSubmitResponse = async () => {
     if (!vacancy || !template) return;
     setSubmitError(null);
 
-    // Build payload:
-    // - Include required questions always (empty-string if no answer).
-    // - Include non-required only if user provided a non-empty answer.
     const answersPayload = template.questions.reduce((arr, q) => {
       const answerValue = answersByQuestionId[q.id];
 
       if (q.is_required) {
-        // Required: always include (use empty string if unanswered)
         arr.push({ question: q.id, value: answerValue ?? '' });
       } else {
-        // Non-required: include only if user gave a non-empty value
         if (answerValue !== undefined && answerValue !== '') {
           arr.push({ question: q.id, value: answerValue });
         }
@@ -134,9 +124,7 @@ const VacancyDetailPage = () => {
       });
 
       if (response.status === 201) {
-        // Once we know the server accepted the application, mark as applied
         setApplied(true);
-        // Hide the form/template so that the top‐level message appears
         setShowTemplate(false);
       } else {
         const errData = await response.json();
@@ -147,151 +135,228 @@ const VacancyDetailPage = () => {
     }
   };
 
-  // --- Render loading/error states for vacancy or user fetch ---
   if (loading || userLoading) {
-    return <div className="p-4 text-center">Loading...</div>;
+    return <div className="p-8 text-center">Loading vacancy details...</div>;
   }
 
   if (error) {
-    return <div className="p-4 text-red-500">Error: {error}</div>;
+    return <div className="p-8 text-red-500 text-center">Error: {error}</div>;
   }
 
-  // If user fetch failed, we still render vacancy, but log the issue
   if (userError) {
     console.warn('Error fetching user info:', userError);
   }
 
   if (!vacancy) return null;
 
-  // Determine if the user has already applied (either from server or from local POST)
   const alreadyApplied = vacancy.is_applied || applied;
 
   return (
-    <div className="p-6 max-w-4xl mx-auto">
-      {/* Vacancy Header */}
-      <h1 className="text-3xl font-bold mb-4">{vacancy.name}</h1>
-      <p className="mb-4 text-gray-700">{vacancy.description}</p>
+    <div className="max-w-6xl mx-auto px-4 py-8">
+      {/* Vacancy Header Section */}
+      <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+        <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-6">
+          <div className="flex-1">
+            <h1 className="text-3xl font-bold text-gray-800 mb-2">{vacancy.name}</h1>
+            <article className="prose prose-gray max-w-none mb-6">
+              <ReactMarkdown>{vacancy.description}</ReactMarkdown>
+            </article>
 
-      {/* Work Format */}
-      <div className="mb-4">
-        <span className="font-semibold">Work Format: </span>
-        <span className="inline-block bg-blue-100 text-blue-800 px-2 py-1 rounded">
-          {vacancy.work_format}
-        </span>
-      </div>
+            {/* Work Format and Cities */}
+            <div className="flex flex-wrap gap-4 mb-4">
+              <div className="flex items-center">
+                <span className="text-gray-700 font-medium mr-2">Work Format:</span>
+                <span className="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
+                  {vacancy.work_format}
+                </span>
+              </div>
 
-      {/* Cities */}
-      <div className="mb-4">
-        <span className="font-semibold">Cities: </span>
-        <div className="flex flex-wrap gap-2 mt-1">
-          {vacancy.cities.map((city, idx) => (
-            <span key={idx} className="bg-gray-100 text-gray-800 px-2 py-1 rounded">
-              {city}
-            </span>
-          ))}
+              <div className="flex items-center">
+                <span className="text-gray-700 font-medium mr-2">Locations:</span>
+                <div className="flex flex-wrap gap-2">
+                  {vacancy.cities.map((city, idx) => (
+                    <span key={idx} className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">
+                      {city}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Tags */}
+            <div className="mb-4">
+              <span className="text-gray-700 font-medium mr-2">Skills:</span>
+              <div className="flex flex-wrap gap-2 mt-2">
+                {vacancy.tags.map((tag) => (
+                  <span key={tag.id} className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">
+                    {tag.name}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Apply Button Section */}
+          <div className="md:w-48 flex flex-col items-center">
+            {alreadyApplied ? (
+              <div className="bg-green-100 text-green-700 px-4 py-3 rounded-lg text-center w-full">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mx-auto mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                Application Submitted
+              </div>
+            ) : (
+              !showTemplate && user?.role !== 'RECRUITER' && (
+                <button
+                  onClick={handleApplyNow}
+                  className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-3 rounded-lg w-full transition-colors duration-200 flex items-center justify-center"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clipRule="evenodd" />
+                  </svg>
+                  Apply Now
+                </button>
+              )
+            )}
+          </div>
         </div>
       </div>
 
-      {/* Tags */}
-      <div className="mb-6">
-        <span className="font-semibold">Tags: </span>
-        <div className="flex flex-wrap gap-2 mt-1">
-          {vacancy.tags.map((tag) => (
-            <span key={tag.id} className="bg-green-100 text-green-800 px-2 py-1 rounded">
-              {tag.name}
-            </span>
-          ))}
-        </div>
-      </div>
-
-      {/* If already applied (from server or just submitted), show message */}
-      {alreadyApplied && (
-        <div className="text-green-700 text-lg font-semibold mb-6">
-          You already applied!
-        </div>
-      )}
-
-      {/* If not yet applied, template not showing, AND user is not a RECRUITER, show “Apply Now” */}
-      {!alreadyApplied && !showTemplate && user?.role !== 'RECRUITER' && (
-        <button
-          onClick={handleApplyNow}
-          className="mb-6 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-        >
-          Apply Now
-        </button>
-      )}
-
-      {/* If user clicked “Apply Now,” show the template (only if not alreadyApplied) */}
+      {/* Application Form Section */}
       {!alreadyApplied && showTemplate && (
-        <div className="border rounded-lg p-6 shadow-sm mb-6">
-          {templateLoading && <div className="text-center">Loading template...</div>}
+        <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6 pb-2 border-b border-gray-200">Application Form</h2>
+
+          {templateLoading && (
+            <div className="text-center py-8">
+              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500 mx-auto mb-4"></div>
+              <p>Loading application form...</p>
+            </div>
+          )}
+
           {templateError && (
-            <div className="text-red-500">Error loading template: {templateError}</div>
+            <div className="bg-red-50 text-red-700 p-4 rounded-lg mb-6">
+              <p className="font-medium">Error loading template:</p>
+              <p>{templateError}</p>
+            </div>
           )}
 
           {template && (
-            <>
-              <h2 className="text-2xl font-semibold mb-4">Application Form</h2>
-
-              {/* Render each question: show q.name (with optional asterisk) above q.label */}
+            <div className="space-y-8">
               {template.questions.map((q) => (
-                <div key={q.id} className="mb-6">
-                  {/* Question name with red asterisk if is_required */}
-                  <div className="flex items-center mb-1">
-                    <span className="text-sm text-gray-500">{q.name}</span>
-                    {q.is_required && <span className="text-red-500 ml-1">*</span>}
+                <div key={q.id} className="space-y-2">
+                  <div className="flex items-center">
+                    <label className="block text-gray-800 font-medium">
+                      {q.name}
+                      {q.is_required && <span className="text-red-500 ml-1">*</span>}
+                    </label>
                   </div>
 
-                  {/* Human-readable label */}
-                  <label className="block font-medium mb-1">{q.label}</label>
-
-                  {/* Render input based on type */}
                   {q.type === 'SHORT_TEXT' && (
                     <input
                       type="text"
-                      className="w-full border px-3 py-2 rounded"
+                      className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
                       onChange={(e) => handleInputChange(q.id, e.target.value)}
                     />
                   )}
 
                   {q.type === 'LONG_TEXT' && (
                     <textarea
-                      className="w-full border px-3 py-2 rounded"
-                      rows={4}
+                      className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                      rows={5}
                       onChange={(e) => handleInputChange(q.id, e.target.value)}
                     />
                   )}
 
                   {q.type === 'SINGLE_ANSWER' && q.answers && (
-                    <div className="flex flex-col mt-1">
+                    <div className="space-y-2 mt-2">
                       {q.answers.map((opt) => (
-                        <label key={opt.id} className="inline-flex items-center mt-1">
+                        <label key={opt.id} className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg cursor-pointer">
                           <input
                             type="radio"
                             name={`q-${q.id}`}
                             value={opt.id}
-                            className="mr-2"
+                            className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
                             onChange={() => handleInputChange(q.id, opt.id)}
                           />
-                          {opt.value}
+                          <span className="text-gray-700">{opt.value}</span>
                         </label>
                       ))}
+                    </div>
+                  )}
+
+                  {q.type === 'FILE' && user.files && (
+                    <div className="space-y-3 mt-2">
+                      {q.custom_requirements?.types?.length > 0 && (
+                        <div className="text-sm text-gray-600 mb-2">
+                          <span className="font-medium">Accepted and required file types:</span>
+                          <div className="flex flex-wrap gap-2 mt-1">
+                            {q.custom_requirements.types.map(type => (
+                              <span
+                                key={type}
+                                className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-gray-100 text-gray-800 text-xs font-medium"
+                              >
+                                {type}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      <div className="space-y-2">
+                        {user.files.map((file) => {
+                          const selectedList = answersByQuestionId[q.id] || [];
+                          const isChecked = Array.isArray(selectedList) && selectedList.includes(file.id);
+                          return (
+                            <label key={file.id} className="flex items-center space-x-3 p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
+                              <input
+                                type="checkbox"
+                                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                                value={file.id}
+                                checked={isChecked}
+                                onChange={() => {
+                                  const current = answersByQuestionId[q.id] || [];
+                                  let updated;
+                                  if (current.includes(file.id)) {
+                                    updated = current.filter((id) => id !== file.id);
+                                  } else {
+                                    updated = [...current, file.id];
+                                  }
+                                  handleInputChange(q.id, updated);
+                                }}
+                              />
+                              <div className="flex-1 min-w-0">
+                                <p className="text-sm font-medium text-gray-700 truncate">{file.user_filename}</p>
+                                <p className="text-xs text-gray-500">{file.type}</p>
+                              </div>
+                            </label>
+                          );
+                        })}
+                      </div>
                     </div>
                   )}
                 </div>
               ))}
 
-              {/* Submission error message */}
-              {submitError && <div className="mb-4 text-red-500">{submitError}</div>}
+              {submitError && (
+                <div className="bg-red-50 text-red-700 p-4 rounded-lg">
+                  <p className="font-medium">Submission error:</p>
+                  <p>{submitError}</p>
+                </div>
+              )}
 
-              {/* “Send respond” Button */}
-              <button
-                onClick={handleSubmitResponse}
-                className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
-              >
-                Send respond
-              </button>
-            </>
+              <div className="pt-4">
+                <button
+                  onClick={handleSubmitResponse}
+                  className="bg-green-600 hover:bg-green-700 text-white font-medium px-6 py-3 rounded-lg transition-colors duration-200 flex items-center justify-center w-full md:w-auto"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  Submit Application
+                </button>
+              </div>
+            </div>
           )}
         </div>
       )}

@@ -39,7 +39,7 @@ class Question(models.Model):
 
 class Answer(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE, related_name='answers')
-    value = models.TextField(null=True)
+    value = models.JSONField()
     application_created = models.BooleanField(default=False)
 
     class Meta:

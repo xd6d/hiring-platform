@@ -66,7 +66,6 @@ class QuestionShortSerializer(serializers.ModelSerializer):
 
 class AnswerQuestionSerializer(serializers.ModelSerializer):
     value = serializers.JSONField()
-    question = QuestionShortSerializer()
 
     class Meta:
         model = Answer
@@ -84,7 +83,7 @@ class AnswerQuestionSerializer(serializers.ModelSerializer):
         if question.type.name == "FILE":
             if not isinstance(answer, list) or len(answer) == 0:
                 raise serializers.ValidationError("Specify files.")
-            if len(answer) > question.max_length:
+            if question.max_length and len(answer) > question.max_length:
                 raise serializers.ValidationError(f"This field cannot be more than {question.max_length}.")
             if types := question.custom_requirements.get("types"):
                 file_types = File.objects.filter(id__in=answer).select_related("type").values_list("type__name",
@@ -99,8 +98,13 @@ class AnswerQuestionSerializer(serializers.ModelSerializer):
         return attrs
 
     def create(self, validated_data):
-        if validated_data["question"].type.name in ["SHORT_TEXT", "LONG_TEXT"]:
+        if validated_data["question"].type.name in ["SHORT_TEXT", "LONG_TEXT", "FILE"]:
             validated_data["application_created"] = True
             return super().create(validated_data)
         if validated_data["question"].type.name == "SINGLE_ANSWER":
             return self.Meta.model.objects.get(pk=validated_data["value"])
+
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+        representation["question"] = QuestionShortSerializer(instance.question).data
+        return representation

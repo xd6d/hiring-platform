@@ -21,6 +21,7 @@ import {
     arrayMove,
 } from '@dnd-kit/sortable';
 import {CSS} from '@dnd-kit/utilities';
+import ReactMarkdown from "react-markdown";
 
 const SortableTagItem = ({tag, onRemove}) => {
     const {attributes, listeners, setNodeRef, transform, transition} = useSortable({id: tag.id});
@@ -96,6 +97,7 @@ const CreateVacancyPage = () => {
 
     const navigate = useNavigate();
     const sensors = useSensors(useSensor(PointerSensor));
+    const [isPreview, setIsPreview] = useState(false);
 
     useEffect(() => {
         (async () => {
@@ -565,16 +567,37 @@ const CreateVacancyPage = () => {
                         </div>
 
                         {/* Description */}
-                        <div className="space-y-2">
-                            <label className="block text-sm font-medium text-gray-700">Job Description</label>
-                            <textarea
-                                value={formData.description}
-                                onChange={e => setFormData(fd => ({...fd, description: e.target.value}))}
-                                className="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
-                                rows={6}
-                                placeholder="Describe the job responsibilities, requirements, and benefits..."
-                                required
-                            />
+                        <div>
+                            <div className="flex justify-between items-center mb-1">
+                                <label className="block font-medium text-gray-700">Description</label>
+                                <button
+                                    type="button"
+                                    onClick={() => setIsPreview(!isPreview)}
+                                    className="text-sm text-blue-600 hover:text-blue-800"
+                                >
+                                    {isPreview ? 'Edit Markdown' : 'Preview Markdown'}
+                                </button>
+                            </div>
+
+                            {isPreview ? (
+                                <div className="border border-gray-300 rounded-lg p-4 bg-white min-h-[200px]">
+                                    <article className="prose max-w-none">
+                                        <ReactMarkdown>{formData.description}</ReactMarkdown>
+                                    </article>
+                                </div>
+                            ) : (
+                                <textarea
+                                    value={formData.description}
+                                    onChange={e => setFormData(fd => ({...fd, description: e.target.value}))}
+                                    className="w-full border border-gray-300 rounded-lg p-3 focus:ring-blue-500 focus:border-blue-500 min-h-[200px]"
+                                    placeholder="Enter job description in Markdown format..."
+                                    required
+                                />
+                            )}
+
+                            <div className="mt-1 text-xs text-gray-500">
+                                Supports Markdown formatting (headings, lists, links, etc.)
+                            </div>
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
