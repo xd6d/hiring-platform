@@ -6,6 +6,12 @@ from .models import File, FileType
 from .utils import generate_presigned_url
 
 
+class FileTypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = FileType
+        fields = ("name", )
+
+
 class FileSerializer(serializers.ModelSerializer):
     type = serializers.SlugRelatedField(slug_field='name', queryset=FileType.objects.all())
     file = serializers.FileField(use_url=False, validators=[
@@ -14,7 +20,7 @@ class FileSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = File
-        fields = ("file", "user_filename", "extension", "type", "created_at")
+        fields = ("id", "file", "user_filename", "extension", "type", "created_at")
         extra_kwargs = {"user_filename": {"read_only": True}, "extension": {"read_only": True}, }
 
     def __init__(self, *args, **kwargs):
@@ -25,12 +31,16 @@ class FileSerializer(serializers.ModelSerializer):
         if self.validate_photo:
             self.fields['file'].validators = [FileExtensionValidator(allowed_extensions=ALLOWED_IMAGE_EXTENSIONS)]
 
-    def validate(self, attrs):  # todo: size validation
+    def validate(self, attrs):
         file = attrs.get('file')
+        max_size_mb = 6 if self.validate_photo else 50
+        max_size_bytes = max_size_mb * 1024 * 1024
 
         if file:
             attrs['user_filename'] = file.name[:255]
             attrs['extension'] = file.content_type.split('/')[1][:100]
+            if file.size > max_size_bytes:
+                raise serializers.ValidationError(f"File size must be ≤ {max_size_mb} MB.")
         else:
             raise serializers.ValidationError("File cannot be empty")
 

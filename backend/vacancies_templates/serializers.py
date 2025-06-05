@@ -1,6 +1,7 @@
 from django.db import transaction
 from rest_framework import serializers
 
+from files.models import File
 from vacancies_templates.models import QuestionType, ApplicationTemplate, Question, Answer
 
 
@@ -22,15 +23,22 @@ class QuestionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Question
+        exclude = ("application_template", "custom_requirements")
+
+
+class QuestionTemplateSerializer(QuestionSerializer):
+    answers = AnswerSerializer(many=True, required=False)
+
+    class Meta(QuestionSerializer.Meta):
         exclude = ("application_template",)
 
 
 class ApplicationTemplateSerializer(serializers.ModelSerializer):
-    questions = QuestionSerializer(many=True)
+    questions = QuestionTemplateSerializer(many=True)
 
     class Meta:
         model = ApplicationTemplate
-        fields = ("id", "name", "created_at", "questions")
+        fields = ("id", "name", "created_at", "questions", "is_global")
         read_only_fields = ("created_at",)
 
     def validate(self, attrs):
@@ -42,7 +50,7 @@ class ApplicationTemplateSerializer(serializers.ModelSerializer):
         with transaction.atomic():
             instance = super().create(validated_data)
             for question in questions:
-                answer_serializer = AnswerSerializer(data=question.pop("answers"), many=True)
+                answer_serializer = AnswerSerializer(data=question.pop("answers", []), many=True)
                 created_question = Question.objects.create(**question, application_template=instance)
                 answer_serializer.is_valid(raise_exception=True)
                 answer_serializer.save(question=created_question)
@@ -64,14 +72,29 @@ class AnswerQuestionSerializer(serializers.ModelSerializer):
         model = Answer
         fields = ("question", "value")
 
-    def validate(self, attrs):  # todo: validate against max_length
-        if (attrs["question"].type.name in ["SHORT_TEXT", "LONG_TEXT"]
-                and not isinstance(attrs["value"], str)):
-            raise serializers.ValidationError("This text field must be a string.")
-        if attrs["question"].type.name == "SINGLE_ANSWER":
-            if not isinstance(attrs["value"], int):
+    def validate(self, attrs):
+        question = attrs["question"]
+        answer = attrs["value"]
+        if question.type.name in ["SHORT_TEXT", "LONG_TEXT"]:
+            if not isinstance(answer, str):
+                raise serializers.ValidationError("This text field must be a string.")
+            if len(answer) > question.max_length:
+                raise serializers.ValidationError(
+                    f"This text field cannot be longer than {question.max_length} characters.")
+        if question.type.name == "FILE":
+            if not isinstance(answer, list) or len(answer) == 0:
+                raise serializers.ValidationError("Specify files.")
+            if len(answer) > question.max_length:
+                raise serializers.ValidationError(f"This field cannot be more than {question.max_length}.")
+            if types := question.custom_requirements.get("types"):
+                file_types = File.objects.filter(id__in=answer).select_related("type").values_list("type__name",
+                                                                                                   flat=True)
+                if set(types) != set(file_types):
+                    raise serializers.ValidationError("Enter correct files.")
+        if question.type.name == "SINGLE_ANSWER":
+            if not isinstance(answer, int):
                 raise serializers.ValidationError("This answer field must be an int.")
-            elif attrs["value"] not in attrs["question"].answers.values_list("id", flat=True):
+            elif answer not in question.answers.values_list("id", flat=True):
                 raise serializers.ValidationError("This answer field must be related to question.")
         return attrs
 

@@ -1,6 +1,7 @@
 from django.urls import path, include
 
-from vacancies_templates.views import ApplicationTemplateModelViewSet, QuestionModelViewSet, AnswerModelViewSet
+from vacancies_templates.views import ApplicationTemplateModelViewSet, QuestionModelViewSet, AnswerModelViewSet, \
+    QuestionTypeListAPIView
 
 urlpatterns = [
     path("questions/", include([
@@ -19,6 +20,7 @@ urlpatterns = [
             }),
             name="questions-retrieve-update-delete"
         ),
+        path("types/", QuestionTypeListAPIView.as_view(), name="types-list"),
     ])),
     path("answers/", include([
         path(

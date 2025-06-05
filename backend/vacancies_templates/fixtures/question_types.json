@@ -19,5 +19,12 @@
         "fields": {
             "name": "LONG_TEXT"
         }
+    },
+    {
+        "model": "vacancies_templates.questiontype",
+        "pk": 4,
+        "fields": {
+            "name": "FILE"
+        }
     }
 ]

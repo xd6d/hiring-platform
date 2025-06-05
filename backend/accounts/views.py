@@ -21,7 +21,7 @@ class UserRetrieveView(RetrieveUpdateDestroyAPIView):
         "photo"
     ).prefetch_related(
         Prefetch("tags", queryset=Tag.objects.order_by("usertag__position")),
-        Prefetch("files", queryset=File.objects.exclude(type_id=3)),
+        Prefetch("files", queryset=File.objects.filter(user_photo__isnull=True).select_related("type")),
     ).all()
     serializer_class = UserSerializer
     permission_classes = [IsAuthenticated]

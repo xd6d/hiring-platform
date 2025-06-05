@@ -6,7 +6,7 @@ from api.models import AbstractSoftDeleteModel
 
 class ApplicationTemplate(AbstractSoftDeleteModel):
     name = models.CharField(max_length=300)
-    # is_global = models.BooleanField(default=False) todo
+    is_global = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 
@@ -26,6 +26,7 @@ class Question(models.Model):
     type = models.ForeignKey(QuestionType, on_delete=models.PROTECT)
     application_template = models.ForeignKey(ApplicationTemplate, on_delete=models.CASCADE, related_name='questions')
     max_length = models.PositiveIntegerField(null=True)
+    custom_requirements = models.JSONField(default=dict)
     is_required = models.BooleanField(default=True)
 
     class Meta:

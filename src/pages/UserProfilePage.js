@@ -15,7 +15,20 @@ import {
     arrayMove,
 } from '@dnd-kit/sortable';
 import {CSS} from '@dnd-kit/utilities';
-import {Pencil, Plus, X, Trash2, GripVertical, Edit2} from 'lucide-react';
+import {
+    Pencil,
+    Plus,
+    X,
+    Trash2,
+    GripVertical,
+    Edit2,
+    Image,
+    File,
+    Clock,
+    GraduationCap,
+    FileText,
+    Award, Shield, Briefcase, User
+} from 'lucide-react';
 import defaultProfilePicture from '../assets/default_profile_picture.png';
 
 const SortableItem = ({tag, onDelete}) => {
@@ -78,7 +91,16 @@ const UserProfilePage = ({refreshHeader}) => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [photoUrl, setPhotoUrl] = useState(null);
+    const [deleteFileModal, setDeleteFileModal] = useState({
+        isOpen: false,
+        fileId: null,
+        fileName: ''
+    });
     const fileInputRef = useRef(null);
+    const [fileTypes, setFileTypes] = useState([]);
+    const [selectedFileType, setSelectedFileType] = useState('');
+    const [fileUploadError, setFileUploadError] = useState(null);
+    const [isUploading, setIsUploading] = useState(false);
 
     const navigate = useNavigate();
     const sensors = useSensors(useSensor(PointerSensor));
@@ -97,6 +119,8 @@ const UserProfilePage = ({refreshHeader}) => {
                     phone_number: data.phone_number,
                 });
                 setPhotoUrl(data.photo?.url ?? defaultProfilePicture);
+
+                await fetchFileTypes();
             } catch (err) {
                 setError(err.message);
             } finally {
@@ -137,6 +161,92 @@ const UserProfilePage = ({refreshHeader}) => {
             setFieldErrors(prev => ({...prev, [field]: null}));
         } catch (err) {
             alert(err.message);
+        }
+    };
+
+    const fetchFileTypes = async () => {
+        try {
+            const response = await apiClient('files/types/', {method: 'GET'});
+            if (!response.ok) throw new Error('Failed to fetch file types');
+            const data = await response.json();
+            setFileTypes(data);
+            if (data.length > 0) setSelectedFileType(data[0].name);
+        } catch (err) {
+            console.error('Error fetching file types:', err);
+        }
+    };
+
+    const handleFileUpload = async (e) => {
+        const file = e.target.files?.[0];
+        if (!file) return;
+
+        const allowedExtensions = ['.png', '.jpeg', '.jpg', '.pdf'];
+        const fileExtension = file.name.split('.').pop().toLowerCase();
+
+        if (!allowedExtensions.includes(`.${fileExtension}`)) {
+            setFileUploadError('Only PNG, JPEG, JPG, and PDF files are allowed');
+            return;
+        }
+
+        if (!selectedFileType) {
+            setFileUploadError('Please select a file type');
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('file', file);
+        formData.append('type', selectedFileType);
+
+        setIsUploading(true);
+        setFileUploadError(null);
+
+        try {
+            const response = await apiClient('files/', {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (response.status === 400) {
+                const errorData = await response.json();
+                const errorMessage = errorData.file?.[0] || 'Invalid file';
+                setFileUploadError(errorMessage);
+                return;
+            }
+
+            if (!response.ok) throw new Error('Failed to upload file');
+
+            // Refresh user data to show the new file
+            const userResponse = await apiClient('users/me/', {method: 'GET'});
+            if (userResponse.ok) {
+                const userData = await userResponse.json();
+                setUser(userData);
+            }
+        } catch (err) {
+            setFileUploadError(err.message);
+        } finally {
+            setIsUploading(false);
+            e.target.value = ''; // Reset file input
+        }
+    };
+
+    const handleDeleteFile = async () => {
+        if (!deleteFileModal.fileId) return;
+
+        try {
+            const response = await apiClient(`files/${deleteFileModal.fileId}/`, {
+                method: 'DELETE'
+            });
+
+            if (!response.ok) throw new Error('Failed to delete file');
+
+            setUser(prev => ({
+                ...prev,
+                files: prev.files.filter(file => file.id !== deleteFileModal.fileId)
+            }));
+        } catch (err) {
+            alert(`Error deleting file: ${err.message}`);
+        } finally {
+            setDeleteFileModal({isOpen: false, fileId: null, fileName: ''});
         }
     };
 
@@ -334,10 +444,24 @@ const UserProfilePage = ({refreshHeader}) => {
     return (
         <div className="pt-8 px-4 sm:px-6 max-w-2xl mx-auto">
             <div className="bg-white rounded-lg shadow-sm p-6">
-                <h1 className="text-2xl font-bold text-gray-800 mb-6">Profile Settings</h1>
+                <div className="flex justify-between items-start mb-6">
+                    <h1 className="text-2xl font-bold text-gray-800">Profile Settings</h1>
+                    <div className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${
+                        user.role === 'ADMIN'
+                            ? 'bg-purple-100 text-purple-800'
+                            : user.role === 'RECRUITER'
+                                ? 'bg-blue-100 text-blue-800'
+                                : 'bg-green-100 text-green-800'
+                    }`}>
+                        {user.role === 'ADMIN' && <Shield size={14} className="mr-1"/>}
+                        {user.role === 'RECRUITER' && <Briefcase size={14} className="mr-1"/>}
+                        {user.role === 'CANDIDATE' && <User size={14} className="mr-1"/>}
+                        {user.role.charAt(0) + user.role.slice(1).toLowerCase()}
+                    </div>
+                </div>
 
                 {/* Profile Picture Section */}
-                <div className="flex flex-col items-center mb-8">
+                <div className="flex flex-col items-center mb-6">
                     <div className="relative w-32 h-32 mb-4">
                         <img
                             src={photoUrl}
@@ -349,7 +473,7 @@ const UserProfilePage = ({refreshHeader}) => {
                             onClick={() => fileInputRef.current?.click()}
                             className="absolute bottom-0 right-0 bg-white rounded-full p-1.5 shadow-md hover:bg-gray-50 border border-gray-200"
                         >
-                            <Edit2 size={18} className="text-gray-700"/>
+                        <Edit2 size={18} className="text-gray-700"/>
                         </button>
                         <input
                             type="file"
@@ -362,7 +486,8 @@ const UserProfilePage = ({refreshHeader}) => {
                     <h2 className="text-xl font-semibold text-gray-800">
                         {user.first_name} {user.last_name}
                     </h2>
-                    <p className="text-gray-500">{user.email}</p>
+                    <p className="text-gray-500 mb-2">{user.email}</p>
+
                 </div>
 
                 {/* Personal Information Section */}
@@ -495,6 +620,127 @@ const UserProfilePage = ({refreshHeader}) => {
                     )}
                 </div>
 
+                <div className="mb-8">
+                    <div className="flex justify-between items-center mb-4 pb-2 border-b border-gray-100">
+                        <h2 className="text-lg font-semibold text-gray-800">Your Files</h2>
+                        <div className="flex items-center space-x-3">
+                            <label
+                                className="flex items-center gap-1 text-sm bg-blue-500 text-white px-3 py-1.5 rounded hover:bg-blue-600 cursor-pointer">
+                                <Plus size={16}/> Upload File
+                                <input
+                                    type="file"
+                                    accept=".png,.jpeg,.jpg,.pdf"
+                                    className="hidden"
+                                    onChange={handleFileUpload}
+                                    disabled={isUploading}
+                                />
+                            </label>
+                            {fileTypes.length > 0 && (
+                                <select
+                                    value={selectedFileType}
+                                    onChange={(e) => setSelectedFileType(e.target.value)}
+                                    className="text-sm border border-gray-300 rounded-md px-2 py-1"
+                                >
+                                    {fileTypes.map((type) => (
+                                        <option key={type.name} value={type.name}>
+                                            {type.name}
+                                        </option>
+                                    ))}
+                                </select>
+                            )}
+                        </div>
+                    </div>
+
+                    {fileUploadError && (
+                        <div className="mb-4 text-red-500 text-sm">{fileUploadError}</div>
+                    )}
+
+                    {isUploading && (
+                        <div className="mb-4 text-blue-500 text-sm">Uploading file...</div>
+                    )}
+
+                    {user.files && user.files.length > 0 ? (
+                        <div className="space-y-3">
+                            {user.files.map((file) => {
+                                const displayName = file.user_filename.length > 30
+                                    ? `${file.user_filename.substring(0, 15)}...${file.user_filename.substring(file.user_filename.length - 10)}`
+                                    : file.user_filename;
+
+                                const formattedDate = new Date(file.created_at).toLocaleDateString('en-US', {
+                                    year: 'numeric',
+                                    month: 'short',
+                                    day: 'numeric',
+                                    hour: '2-digit',
+                                    minute: '2-digit'
+                                });
+
+                                return (
+                                    <div key={file.id}
+                                         className="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100">
+                                        <div className="flex items-center space-x-3">
+                                            <div className="p-2 bg-white rounded-md shadow-sm" title={file.type}>
+                                                {(() => {
+                                                    switch (file.type) {
+                                                        case 'Photo':
+                                                            return <Image size={16} className="text-blue-500"/>;
+                                                        case 'CV':
+                                                            return <FileText size={16} className="text-green-500"/>;
+                                                        case 'Certificate':
+                                                            return <Award size={16} className="text-yellow-500"/>;
+                                                        case 'Education':
+                                                            return <GraduationCap size={16}
+                                                                                  className="text-purple-500"/>;
+                                                        default:
+                                                            return <File size={16} className="text-gray-500"/>;
+                                                    }
+                                                })()}
+                                            </div>
+                                            <div>
+                                                <div className="flex items-center space-x-2">
+                                                    {file.type && (
+                                                        <span className="text-xs text-gray-500">
+            Type: {file.type}
+        </span>
+                                                    )}
+                                                    <span className="font-medium text-gray-800"
+                                                          title={file.user_filename}>
+                                        {displayName}
+                                    </span>
+                                                    <span
+                                                        className="text-xs text-gray-500 bg-gray-200 px-2 py-0.5 rounded-full">
+                                        {file.extension.toUpperCase()}
+                                    </span>
+                                                </div>
+                                                <div className="flex items-center text-xs text-gray-500 mt-1">
+                                                    <Clock size={12} className="mr-1"/>
+                                                    <span>{formattedDate}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="flex space-x-2">
+                                            <button
+                                                onClick={() => setDeleteFileModal({
+                                                    isOpen: true,
+                                                    fileId: file.id,
+                                                    fileName: file.user_filename
+                                                })}
+                                                className="p-2 text-gray-500 hover:text-red-500 rounded-full hover:bg-gray-200"
+                                                title="Delete"
+                                            >
+                                                <Trash2 size={18}/>
+                                            </button>
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    ) : (
+                        <div className="bg-gray-50 rounded-lg p-4 text-center">
+                            <p className="text-gray-500">No files uploaded yet</p>
+                        </div>
+                    )}
+                </div>
+
                 {/* Sign Out Section */}
                 <div className="flex justify-center border-t border-gray-100 pt-6">
                     <button
@@ -593,6 +839,42 @@ const UserProfilePage = ({refreshHeader}) => {
                                 className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600"
                             >
                                 Remove Tag
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {deleteFileModal.isOpen && (
+                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                    <div className="relative bg-white p-6 rounded-lg max-w-sm w-full">
+                        <button
+                            onClick={() => setDeleteFileModal({isOpen: false, fileId: null, fileName: ''})}
+                            className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+                        >
+                            <X size={20}/>
+                        </button>
+                        <h2 className="text-xl font-bold text-gray-800 mb-3">Confirm Deletion</h2>
+                        <p className="text-gray-600 mb-6">
+                            Are you sure you want to delete <span className="font-medium">"
+                            {deleteFileModal.fileName.length > 30
+                                ? `${deleteFileModal.fileName.substring(0, 15)}...${deleteFileModal.fileName.substring(deleteFileModal.fileName.length - 10)}`
+                                : deleteFileModal.fileName
+                            }"
+    </span>?
+                        </p>
+                        <div className="flex justify-end space-x-3">
+                            <button
+                                onClick={() => setDeleteFileModal({isOpen: false, fileId: null, fileName: ''})}
+                                className="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200"
+                            >
+                                Cancel
+                            </button>
+                            <button
+                                onClick={handleDeleteFile}
+                                className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600"
+                            >
+                                Delete
                             </button>
                         </div>
                     </div>

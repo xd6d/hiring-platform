@@ -1,10 +1,10 @@
 from rest_framework import viewsets
-from rest_framework.generics import CreateAPIView
+from rest_framework.generics import CreateAPIView, ListAPIView
 from rest_framework.parsers import FormParser, MultiPartParser
 from rest_framework.permissions import IsAuthenticated
 
-from .models import File
-from .serializers import FileSerializer, FilePhotoSerializer
+from .models import File, FileType
+from .serializers import FileSerializer, FilePhotoSerializer, FileTypeSerializer
 
 
 class FileModelViewSet(viewsets.ModelViewSet):  # todo: write read permission
@@ -38,3 +38,9 @@ class UserPhotoUploadCreateAPIView(CreateAPIView):
         instance = serializer.save(created_by=user)
         user.photo = instance
         user.save()
+
+
+class FileTypeListAPIView(ListAPIView):
+    queryset = FileType.objects.all()
+    serializer_class = FileTypeSerializer
+    permission_classes = [IsAuthenticated]

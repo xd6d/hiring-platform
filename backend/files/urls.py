@@ -1,6 +1,6 @@
 from django.urls import path, include
 
-from files.views import FileModelViewSet
+from files.views import FileModelViewSet, FileTypeListAPIView
 
 urlpatterns = [
     path(
@@ -17,4 +17,5 @@ urlpatterns = [
             'delete': 'destroy'
         }),
         name="files-retrieve-update-delete"),
+    path("types/", FileTypeListAPIView.as_view(), name="files-types-list"),
 ]

@@ -3,28 +3,28 @@
         "model": "files.filetype",
         "pk": 1,
         "fields": {
-            "name": "Резюме"
+            "name": "CV"
         }
     },
     {
         "model": "files.filetype",
         "pk": 2,
         "fields": {
-            "name": "Освіта"
+            "name": "Education"
         }
     },
     {
         "model": "files.filetype",
         "pk": 3,
         "fields": {
-            "name": "Фото"
+            "name": "Photo"
         }
     },
     {
         "model": "files.filetype",
         "pk": 4,
         "fields": {
-            "name": "Сертифікат"
+            "name": "Certificate"
         }
     }
 ]
