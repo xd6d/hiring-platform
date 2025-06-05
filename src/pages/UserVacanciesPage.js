@@ -1,13 +1,13 @@
-// src/pages/UserVacanciesPage.js
-
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { apiClient } from '../utils/auth';
+import { useTranslation } from 'react-i18next';
 
 const UserVacanciesPage = () => {
   const [vacancies, setVacancies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const fetchUserVacancies = async () => {

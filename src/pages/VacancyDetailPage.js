@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { apiClient } from '../utils/auth';
 import ReactMarkdown from 'react-markdown';
+import { useTranslation } from 'react-i18next';
 
 const VacancyDetailPage = () => {
   const { id } = useParams();
@@ -26,6 +27,7 @@ const VacancyDetailPage = () => {
   const [user, setUser] = useState(null);
   const [userLoading, setUserLoading] = useState(true);
   const [userError, setUserError] = useState(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const fetchUser = async () => {

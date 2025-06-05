@@ -22,6 +22,8 @@ import {
 } from '@dnd-kit/sortable';
 import {CSS} from '@dnd-kit/utilities';
 import ReactMarkdown from "react-markdown";
+import { useTranslation } from 'react-i18next';
+
 
 const SortableTagItem = ({tag, onRemove}) => {
     const {attributes, listeners, setNodeRef, transform, transition} = useSortable({id: tag.id});
@@ -98,6 +100,7 @@ const CreateVacancyPage = () => {
     const navigate = useNavigate();
     const sensors = useSensors(useSensor(PointerSensor));
     const [isPreview, setIsPreview] = useState(false);
+  const { t } = useTranslation();
 
     useEffect(() => {
         (async () => {

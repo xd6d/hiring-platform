@@ -2,11 +2,13 @@ import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import {apiClient} from '../utils/auth';
 import {Info, Search, Filter} from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const VacanciesPage = () => {
     const [vacancies, setVacancies] = useState([]);
     const [vacLoading, setVacLoading] = useState(true);
     const [vacError, setVacError] = useState(null);
+  const { t } = useTranslation();
 
     const [searchTerm, setSearchTerm] = useState('');
 

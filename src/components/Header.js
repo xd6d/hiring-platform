@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { apiClient } from '../utils/auth';
 import { User, Briefcase, Shield } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import i18n from '../i18n';
 
 const Header = ({ refreshKey }) => {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -22,6 +25,10 @@ const Header = ({ refreshKey }) => {
     };
     fetchUser();
   }, [refreshKey]);
+
+  const handleLanguageChange = (lang) => {
+    i18n.changeLanguage(lang);
+  };
 
   const getRoleIcon = (role) => {
     switch (role) {
@@ -43,7 +50,7 @@ const Header = ({ refreshKey }) => {
           HRP
         </Link>
         <Link to="/" className="text-lg text-gray-700 hover:text-gray-900">
-          Vacancies
+          {t('vacancy')}
         </Link>
         <Link
           to="/my-vacancies"
@@ -57,51 +64,63 @@ const Header = ({ refreshKey }) => {
       </div>
 
       <div className="flex items-center gap-6 mr-6">
+        <button
+            onClick={() => handleLanguageChange('en')}
+            className={`text-sm ${i18n.language === 'en' ? 'font-bold' : 'text-gray-600'}`}
+        >
+          EN
+        </button>
+        <button
+            onClick={() => handleLanguageChange('uk')}
+            className={`text-sm ${i18n.language === 'uk' ? 'font-bold' : 'text-gray-600'}`}
+        >
+          УК
+        </button>
         {user ? (
-          <>
-            {user.role === 'RECRUITER' && (
-              <Link
-                to="/vacancies/create"
-                className="text-lg text-blue-500 hover:text-blue-600"
-              >
-                Create Vacancy
-              </Link>
-            )}
-            <Link
-              to="/profile"
-              className="text-xl font-semibold text-blue-800 hover:text-blue-900 no-underline flex items-center"
-            >
-              {/* First name */}
-              {user.first_name}
-
-              {/* Profile photo (if available) */}
-              {user.photo && user.photo.url && (
-                <img
-                  src={user.photo.url}
-                  alt={`${user.first_name}'s profile`}
-                  className="w-8 h-8 rounded-full ml-2 mr-2 object-cover"
-                />
+            <>
+              {user.role === 'RECRUITER' && (
+                  <Link
+                      to="/vacancies/create"
+                      className="text-lg text-blue-500 hover:text-blue-600"
+                  >
+                    Create Vacancy
+                  </Link>
               )}
+              <Link
+                  to="/profile"
+                  className="text-xl font-semibold text-blue-800 hover:text-blue-900 no-underline flex items-center"
+              >
+                {/* First name */}
+                {user.first_name}
 
-              {/* Role icon */}
-              {getRoleIcon(user.role)}
-            </Link>
-          </>
+                {/* Profile photo (if available) */}
+                {user.photo && user.photo.url && (
+                    <img
+                        src={user.photo.url}
+                        alt={`${user.first_name}'s profile`}
+                        className="w-8 h-8 rounded-full ml-2 mr-2 object-cover"
+                    />
+                )}
+
+                {/* Role icon */}
+                {getRoleIcon(user.role)}
+              </Link>
+            </>
         ) : (
-          <>
-            <button
-              onClick={() => navigate('/sign-up')}
-              className="text-lg text-blue-500 hover:text-blue-600"
-            >
-              Sign up
-            </button>
-            <button
-              onClick={() => navigate('/login')}
-              className="text-lg text-blue-500 hover:text-blue-600"
-            >
-              Login
-            </button>
-          </>
+            <>
+              <button
+                  onClick={() => navigate('/sign-up')}
+                  className="text-lg text-blue-500 hover:text-blue-600"
+              >
+                Sign up
+              </button>
+              <button
+                  onClick={() => navigate('/login')}
+                  className="text-lg text-blue-500 hover:text-blue-600"
+              >
+                Login
+              </button>
+            </>
         )}
       </div>
     </header>

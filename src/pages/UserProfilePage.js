@@ -30,6 +30,7 @@ import {
     Award, Shield, Briefcase, User
 } from 'lucide-react';
 import defaultProfilePicture from '../assets/default_profile_picture.png';
+import { useTranslation } from 'react-i18next';
 
 const SortableItem = ({tag, onDelete}) => {
     const {
@@ -101,6 +102,7 @@ const UserProfilePage = ({refreshHeader}) => {
     const [selectedFileType, setSelectedFileType] = useState('');
     const [fileUploadError, setFileUploadError] = useState(null);
     const [isUploading, setIsUploading] = useState(false);
+  const { t } = useTranslation();
 
     const navigate = useNavigate();
     const sensors = useSensors(useSensor(PointerSensor));

@@ -13,6 +13,8 @@ class ApplicationTemplateModelViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated,)
 
     def get_queryset(self):
+        if 'pk' in self.kwargs:
+            return self.queryset
         return self.queryset.filter(Q(is_global=True) | Q(created_by=self.request.user))
 
 

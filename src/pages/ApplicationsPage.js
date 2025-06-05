@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { apiClient } from '../utils/auth';
-import { formatDate } from '../utils/formatDate'; // see Utility section below
+import { formatDate } from '../utils/formatDate';
+import { useTranslation } from 'react-i18next';
+
 
 const ApplicationsPage = () => {
   const [applications, setApplications] = useState([]);
@@ -9,6 +11,7 @@ const ApplicationsPage = () => {
   const [error, setError] = useState(null);
   // Track which application IDs have their answers shown
   const [showAnswers, setShowAnswers] = useState({});
+  const { t } = useTranslation();
 
   useEffect(() => {
     const fetchApplications = async () => {

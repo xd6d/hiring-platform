@@ -3,6 +3,7 @@ import {useNavigate} from 'react-router-dom';
 import {API_URL} from '../config/apiConfig';
 import {setAuthToken} from '../utils/auth';
 import {User, Briefcase} from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const SignUpPage = ({setGlobalAppMessage, refreshHeader}) => {
     const [stage, setStage] = useState('chooseRole');
@@ -17,6 +18,7 @@ const SignUpPage = ({setGlobalAppMessage, refreshHeader}) => {
     });
     const [errors, setErrors] = useState({});
     const [loading, setLoading] = useState(false);
+  const { t } = useTranslation();
 
     const navigate = useNavigate();
 

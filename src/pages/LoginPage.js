@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {API_URL} from '../config/apiConfig';
 import {setAuthToken} from '../utils/auth';
+import { useTranslation } from 'react-i18next';
 
 const LoginPage = ({refreshHeader}) => {
     const [email, setEmail] = useState('');
@@ -10,6 +11,7 @@ const LoginPage = ({refreshHeader}) => {
     const [loading, setLoading] = useState(false);
 
     const navigate = useNavigate();
+  const { t } = useTranslation();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
