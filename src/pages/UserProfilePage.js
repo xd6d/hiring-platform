@@ -1,38 +1,30 @@
-import React, {useEffect, useState, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {apiClient} from '../utils/auth';
 import {useNavigate} from 'react-router-dom';
-import {
-    DndContext,
-    closestCenter,
-    useSensor,
-    useSensors,
-    PointerSensor,
-} from '@dnd-kit/core';
-import {
-    SortableContext,
-    useSortable,
-    verticalListSortingStrategy,
-    arrayMove,
-} from '@dnd-kit/sortable';
+import {closestCenter, DndContext, PointerSensor, useSensor, useSensors,} from '@dnd-kit/core';
+import {arrayMove, SortableContext, useSortable, verticalListSortingStrategy,} from '@dnd-kit/sortable';
 import {CSS} from '@dnd-kit/utilities';
 import {
+    Award,
+    Briefcase,
+    Clock,
+    Edit2,
+    File,
+    FileText,
+    GraduationCap,
+    GripVertical,
+    Image,
     Pencil,
     Plus,
-    X,
+    Shield,
     Trash2,
-    GripVertical,
-    Edit2,
-    Image,
-    File,
-    Clock,
-    GraduationCap,
-    FileText,
-    Award, Shield, Briefcase, User
+    User,
+    X
 } from 'lucide-react';
 import defaultProfilePicture from '../assets/default_profile_picture.png';
-import { useTranslation } from 'react-i18next';
+import {useTranslation} from 'react-i18next';
 
-const SortableItem = ({tag, onDelete}) => {
+const SortableItem = ({tag, onDelete, t}) => {
     const {
         attributes,
         listeners,
@@ -70,7 +62,7 @@ const SortableItem = ({tag, onDelete}) => {
             <button
                 onClick={() => onDelete(tag.id)}
                 className="ml-2 text-red-500 hover:text-red-700"
-                title="Remove tag"
+                title={t('remove_tag')}
             >
                 <Trash2 size={16}/>
             </button>
@@ -102,7 +94,7 @@ const UserProfilePage = ({refreshHeader}) => {
     const [selectedFileType, setSelectedFileType] = useState('');
     const [fileUploadError, setFileUploadError] = useState(null);
     const [isUploading, setIsUploading] = useState(false);
-  const { t } = useTranslation();
+    const { t } = useTranslation();
 
     const navigate = useNavigate();
     const sensors = useSensors(useSensor(PointerSensor));
@@ -111,7 +103,7 @@ const UserProfilePage = ({refreshHeader}) => {
         const fetchUser = async () => {
             try {
                 const response = await apiClient('users/me/', {method: 'GET'});
-                if (!response.ok) throw new Error('Failed to fetch user data');
+                if (!response.ok) throw new Error(t('failed_to_fetch_user_data'));
                 const data = await response.json();
                 setUser(data);
                 setFieldValues({
@@ -133,7 +125,6 @@ const UserProfilePage = ({refreshHeader}) => {
     }, []);
 
     const handleFieldUpdate = async (field) => {
-        // Clear any existing error for this field before sending
         setFieldErrors(prev => ({...prev, [field]: null}));
 
         try {
@@ -148,13 +139,13 @@ const UserProfilePage = ({refreshHeader}) => {
                 const messageToShow =
                     Array.isArray(messages) && messages.length > 0
                         ? messages[0]
-                        : 'Invalid value';
+                        : t('invalid_value');
                 setFieldErrors(prev => ({...prev, [field]: messageToShow}));
                 return;
             }
 
             if (!response.ok) {
-                throw new Error('Failed to update');
+                throw new Error(t('failed_to_update'));
             }
 
             const updatedUser = await response.json();
@@ -169,12 +160,12 @@ const UserProfilePage = ({refreshHeader}) => {
     const fetchFileTypes = async () => {
         try {
             const response = await apiClient('files/types/', {method: 'GET'});
-            if (!response.ok) throw new Error('Failed to fetch file types');
+            if (!response.ok) throw new Error(t('failed_to_fetch_file_types'));
             const data = await response.json();
             setFileTypes(data);
             if (data.length > 0) setSelectedFileType(data[0].name);
         } catch (err) {
-            console.error('Error fetching file types:', err);
+            console.error(t('error_fetching_file_types'), ":", err);
         }
     };
 
@@ -186,12 +177,12 @@ const UserProfilePage = ({refreshHeader}) => {
         const fileExtension = file.name.split('.').pop().toLowerCase();
 
         if (!allowedExtensions.includes(`.${fileExtension}`)) {
-            setFileUploadError('Only PNG, JPEG, JPG, and PDF files are allowed');
+            setFileUploadError(t('only_png_jpeg_jpg_pdf_allowed'));
             return;
         }
 
         if (!selectedFileType) {
-            setFileUploadError('Please select a file type');
+            setFileUploadError(t('please_select_file_type'));
             return;
         }
 
@@ -210,14 +201,13 @@ const UserProfilePage = ({refreshHeader}) => {
 
             if (response.status === 400) {
                 const errorData = await response.json();
-                const errorMessage = errorData.file?.[0] || 'Invalid file';
+                const errorMessage = errorData.file?.[0] || t('invalid_file');
                 setFileUploadError(errorMessage);
                 return;
             }
 
-            if (!response.ok) throw new Error('Failed to upload file');
+            if (!response.ok) throw new Error(t('failed_to_upload_file'));
 
-            // Refresh user data to show the new file
             const userResponse = await apiClient('users/me/', {method: 'GET'});
             if (userResponse.ok) {
                 const userData = await userResponse.json();
@@ -227,7 +217,7 @@ const UserProfilePage = ({refreshHeader}) => {
             setFileUploadError(err.message);
         } finally {
             setIsUploading(false);
-            e.target.value = ''; // Reset file input
+            e.target.value = '';
         }
     };
 
@@ -239,14 +229,14 @@ const UserProfilePage = ({refreshHeader}) => {
                 method: 'DELETE'
             });
 
-            if (!response.ok) throw new Error('Failed to delete file');
+            if (!response.ok) throw new Error(t('failed_to_delete_file'));
 
             setUser(prev => ({
                 ...prev,
                 files: prev.files.filter(file => file.id !== deleteFileModal.fileId)
             }));
         } catch (err) {
-            alert(`Error deleting file: ${err.message}`);
+            alert(`${t('error_deleting_file')}: ${err.message}`);
         } finally {
             setDeleteFileModal({isOpen: false, fileId: null, fileName: ''});
         }
@@ -254,11 +244,9 @@ const UserProfilePage = ({refreshHeader}) => {
 
     const handlePhoneChange = (e) => {
         let digits = e.target.value.replace(/\D/g, '');
-        // Ensure country code '380' at start
         if (!digits.startsWith('380')) {
             digits = '380' + digits;
         }
-        // Limit to 12 digits (3 for country, 2 for area, 3 for prefix, 2-2 for lines)
         if (digits.length > 12) {
             digits = digits.slice(0, 12);
         }
@@ -287,7 +275,7 @@ const UserProfilePage = ({refreshHeader}) => {
     const openTagsModal = async () => {
         try {
             const response = await apiClient('tags/groups/', {method: 'GET'});
-            if (!response.ok) throw new Error('Failed to fetch tags');
+            if (!response.ok) throw new Error(t('failed_to_fetch_tags'));
             const data = await response.json();
             setTagGroups(data);
 
@@ -312,7 +300,7 @@ const UserProfilePage = ({refreshHeader}) => {
             }));
 
             if (payload.length === 0) {
-                alert('No new tags selected.');
+                alert(t('no_new_tags_selected'));
                 setTagsModalOpen(false);
                 return;
             }
@@ -322,7 +310,7 @@ const UserProfilePage = ({refreshHeader}) => {
                 body: JSON.stringify(payload),
             });
 
-            if (!response.ok) throw new Error('Failed to save tags');
+            if (!response.ok) throw new Error(t('failed_to_save_tags'));
 
             const addedTags = [];
             tagGroups.forEach((group) => {
@@ -347,7 +335,7 @@ const UserProfilePage = ({refreshHeader}) => {
     const handleDeleteTag = async (tagId) => {
         try {
             const response = await apiClient(`users/me/tags/${tagId}/`, {method: 'DELETE'});
-            if (!response.ok) throw new Error('Failed to delete tag');
+            if (!response.ok) throw new Error(t('failed_to_delete_tag'));
 
             setUser((prevUser) => ({
                 ...prevUser,
@@ -381,7 +369,7 @@ const UserProfilePage = ({refreshHeader}) => {
                     body: JSON.stringify({position: newIndex + 1}),
                 });
 
-                if (!response.ok) throw new Error('Failed to update tag position');
+                if (!response.ok) throw new Error(t('failed_to_update_tag_position'));
             } catch (err) {
                 alert(err.message);
             }
@@ -406,7 +394,7 @@ const UserProfilePage = ({refreshHeader}) => {
 
         const validTypes = ['image/png', 'image/jpeg', 'image/jpg'];
         if (!validTypes.includes(file.type)) {
-            alert('Please upload a PNG or JPEG file.');
+            alert(t('please_upload_png_jpeg'));
             return;
         }
 
@@ -428,17 +416,17 @@ const UserProfilePage = ({refreshHeader}) => {
                 }
             } else {
                 const errData = await response.json();
-                throw new Error(errData.detail || `Upload failed: ${response.status}`);
+                throw new Error(errData.detail || `${t('upload_failed')}: ${response.status}`);
             }
         } catch (uploadErr) {
-            alert(`Error uploading image: ${uploadErr.message}`);
+            alert(`${t('error_uploading_image')}: ${uploadErr.message}`);
         } finally {
             e.target.value = '';
         }
     };
 
-    if (loading) return <div className="p-4 text-center">Loading...</div>;
-    if (error) return <div className="p-4 text-red-500">Error: {error}</div>;
+    if (loading) return <div className="p-4 text-center">{t('loading')}...</div>;
+    if (error) return <div className="p-4 text-red-500">{t('error')}: {error}</div>;
     if (!user) {
         return null;
     }
@@ -447,7 +435,7 @@ const UserProfilePage = ({refreshHeader}) => {
         <div className="pt-8 px-4 sm:px-6 max-w-2xl mx-auto">
             <div className="bg-white rounded-lg shadow-sm p-6">
                 <div className="flex justify-between items-start mb-6">
-                    <h1 className="text-2xl font-bold text-gray-800">Profile Settings</h1>
+                    <h1 className="text-2xl font-bold text-gray-800">{t('profile_settings')}</h1>
                     <div className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${
                         user.role === 'ADMIN'
                             ? 'bg-purple-100 text-purple-800'
@@ -462,7 +450,6 @@ const UserProfilePage = ({refreshHeader}) => {
                     </div>
                 </div>
 
-                {/* Profile Picture Section */}
                 <div className="flex flex-col items-center mb-6">
                     <div className="relative w-32 h-32 mb-4">
                         <img
@@ -489,19 +476,17 @@ const UserProfilePage = ({refreshHeader}) => {
                         {user.first_name} {user.last_name}
                     </h2>
                     <p className="text-gray-500 mb-2">{user.email}</p>
-
                 </div>
 
-                {/* Personal Information Section */}
                 <div className="mb-8">
                     <h2 className="text-lg font-semibold text-gray-800 mb-4 pb-2 border-b border-gray-100">
-                        Personal Information
+                        {t('personal_information')}
                     </h2>
                     <div className="space-y-4">
                         {['first_name', 'last_name', 'email', 'phone_number'].map((field) => (
                             <div key={field} className="grid grid-cols-1 sm:grid-cols-3 gap-4 items-start">
                                 <label className="text-sm font-medium text-gray-700 sm:col-span-1 capitalize">
-                                    {field.replace('_', ' ')}
+                                    {t(field)}
                                 </label>
                                 <div className="sm:col-span-2">
                                     {editField === field ? (
@@ -546,20 +531,20 @@ const UserProfilePage = ({refreshHeader}) => {
                                                     onClick={() => setEditField(null)}
                                                     className="px-3 py-1 text-sm text-gray-600 hover:text-gray-800"
                                                 >
-                                                    Cancel
+                                                    {t('cancel')}
                                                 </button>
                                                 <button
                                                     onClick={() => handleFieldUpdate(field)}
                                                     className="px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
                                                 >
-                                                    Save
+                                                    {t('save')}
                                                 </button>
                                             </div>
                                         </div>
                                     ) : (
                                         <div className="flex items-center justify-between">
                                             <p className="text-gray-800">
-                                                {user[field] || <span className="text-gray-400">Not set</span>}
+                                                {user[field] || <span className="text-gray-400">{t('not_set')}</span>}
                                             </p>
                                             <button
                                                 onClick={() => handlePencilClick(field)}
@@ -575,15 +560,14 @@ const UserProfilePage = ({refreshHeader}) => {
                     </div>
                 </div>
 
-                {/* Tags Section */}
                 <div className="mb-8">
                     <div className="flex justify-between items-center mb-4 pb-2 border-b border-gray-100">
-                        <h2 className="text-lg font-semibold text-gray-800">Your Tags</h2>
+                        <h2 className="text-lg font-semibold text-gray-800">{t('your_tags')}</h2>
                         <button
                             onClick={openTagsModal}
                             className="flex items-center gap-1 text-sm bg-blue-500 text-white px-3 py-1.5 rounded hover:bg-blue-600"
                         >
-                            <Plus size={16}/> Add tags
+                            <Plus size={16}/> {t('add_tags')}
                         </button>
                     </div>
 
@@ -606,29 +590,30 @@ const UserProfilePage = ({refreshHeader}) => {
                                                 setTagToDelete(tagId);
                                                 setDeleteModalOpen(true);
                                             }}
+                                            t={t}
                                         />
                                     ))}
                                 </div>
                             </SortableContext>
                             <div className="mt-2 text-xs text-gray-500 flex items-center">
                                 <GripVertical size={12} className="mr-1"/>
-                                <span>Drag to reorder tags</span>
+                                <span>{t('drag_to_reorder_tags')}</span>
                             </div>
                         </DndContext>
                     ) : (
                         <div className="bg-gray-50 rounded-lg p-4 text-center">
-                            <p className="text-gray-500">You haven't added any tags yet</p>
+                            <p className="text-gray-500">{t('no_tags_added_yet')}</p>
                         </div>
                     )}
                 </div>
 
                 <div className="mb-8">
                     <div className="flex justify-between items-center mb-4 pb-2 border-b border-gray-100">
-                        <h2 className="text-lg font-semibold text-gray-800">Your Files</h2>
+                        <h2 className="text-lg font-semibold text-gray-800">{t('your_files')}</h2>
                         <div className="flex items-center space-x-3">
                             <label
                                 className="flex items-center gap-1 text-sm bg-blue-500 text-white px-3 py-1.5 rounded hover:bg-blue-600 cursor-pointer">
-                                <Plus size={16}/> Upload File
+                                <Plus size={16}/> {t('upload_file')}
                                 <input
                                     type="file"
                                     accept=".png,.jpeg,.jpg,.pdf"
@@ -658,7 +643,7 @@ const UserProfilePage = ({refreshHeader}) => {
                     )}
 
                     {isUploading && (
-                        <div className="mb-4 text-blue-500 text-sm">Uploading file...</div>
+                        <div className="mb-4 text-blue-500 text-sm">{t('uploading_file')}...</div>
                     )}
 
                     {user.files && user.files.length > 0 ? (
@@ -701,17 +686,17 @@ const UserProfilePage = ({refreshHeader}) => {
                                                 <div className="flex items-center space-x-2">
                                                     {file.type && (
                                                         <span className="text-xs text-gray-500">
-            Type: {file.type}
-        </span>
+                                                            {t('type')}: {file.type}
+                                                        </span>
                                                     )}
                                                     <span className="font-medium text-gray-800"
                                                           title={file.user_filename}>
-                                        {displayName}
-                                    </span>
+                                                        {displayName}
+                                                    </span>
                                                     <span
                                                         className="text-xs text-gray-500 bg-gray-200 px-2 py-0.5 rounded-full">
-                                        {file.extension.toUpperCase()}
-                                    </span>
+                                                        {file.extension.toUpperCase()}
+                                                    </span>
                                                 </div>
                                                 <div className="flex items-center text-xs text-gray-500 mt-1">
                                                     <Clock size={12} className="mr-1"/>
@@ -727,7 +712,7 @@ const UserProfilePage = ({refreshHeader}) => {
                                                     fileName: file.user_filename
                                                 })}
                                                 className="p-2 text-gray-500 hover:text-red-500 rounded-full hover:bg-gray-200"
-                                                title="Delete"
+                                                title={t('delete')}
                                             >
                                                 <Trash2 size={18}/>
                                             </button>
@@ -738,23 +723,21 @@ const UserProfilePage = ({refreshHeader}) => {
                         </div>
                     ) : (
                         <div className="bg-gray-50 rounded-lg p-4 text-center">
-                            <p className="text-gray-500">No files uploaded yet</p>
+                            <p className="text-gray-500">{t('no_files_uploaded_yet')}</p>
                         </div>
                     )}
                 </div>
 
-                {/* Sign Out Section */}
                 <div className="flex justify-center border-t border-gray-100 pt-6">
                     <button
                         onClick={handleSignOut}
                         className="px-4 py-2 text-red-500 border border-red-500 rounded-md hover:bg-red-50 transition-colors"
                     >
-                        Sign Out
+                        {t('sign_out')}
                     </button>
                 </div>
             </div>
 
-            {/* Tags Modal */}
             {tagsModalOpen && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
                     <div className="relative bg-white p-6 rounded-lg max-w-lg w-full max-h-[80vh] overflow-y-auto">
@@ -764,7 +747,7 @@ const UserProfilePage = ({refreshHeader}) => {
                         >
                             <X size={20}/>
                         </button>
-                        <h2 className="text-xl font-bold text-gray-800 mb-4">Select Tags</h2>
+                        <h2 className="text-xl font-bold text-gray-800 mb-4">{t('select_tags')}</h2>
                         <div className="space-y-6">
                             {tagGroups.map((group) => (
                                 <div key={group.id}>
@@ -803,20 +786,19 @@ const UserProfilePage = ({refreshHeader}) => {
                                 onClick={() => setTagsModalOpen(false)}
                                 className="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200"
                             >
-                                Cancel
+                                {t('cancel')}
                             </button>
                             <button
                                 onClick={saveTags}
                                 className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
                             >
-                                Save Changes
+                                {t('save_changes')}
                             </button>
                         </div>
                     </div>
                 </div>
             )}
 
-            {/* Delete Confirmation Modal */}
             {deleteModalOpen && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
                     <div className="relative bg-white p-6 rounded-lg max-w-sm w-full">
@@ -826,21 +808,20 @@ const UserProfilePage = ({refreshHeader}) => {
                         >
                             <X size={20}/>
                         </button>
-                        <h2 className="text-xl font-bold text-gray-800 mb-3">Confirm Removal</h2>
-                        <p className="text-gray-600 mb-6">Are you sure you want to remove this tag from your
-                            profile?</p>
+                        <h2 className="text-xl font-bold text-gray-800 mb-3">{t('confirm_removal')}</h2>
+                        <p className="text-gray-600 mb-6">{t('confirm_remove_tag_message')}</p>
                         <div className="flex justify-end space-x-3">
                             <button
                                 onClick={() => setDeleteModalOpen(false)}
                                 className="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200"
                             >
-                                Cancel
+                                {t('cancel')}
                             </button>
                             <button
                                 onClick={() => handleDeleteTag(tagToDelete)}
                                 className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600"
                             >
-                                Remove Tag
+                                {t('remove_tag')}
                             </button>
                         </div>
                     </div>
@@ -856,27 +837,25 @@ const UserProfilePage = ({refreshHeader}) => {
                         >
                             <X size={20}/>
                         </button>
-                        <h2 className="text-xl font-bold text-gray-800 mb-3">Confirm Deletion</h2>
+                        <h2 className="text-xl font-bold text-gray-800 mb-3">{t('confirm_deletion')}</h2>
                         <p className="text-gray-600 mb-6">
-                            Are you sure you want to delete <span className="font-medium">"
-                            {deleteFileModal.fileName.length > 30
+                            {t('confirmation_deletion', {fileName: deleteFileModal.fileName.length > 30
                                 ? `${deleteFileModal.fileName.substring(0, 15)}...${deleteFileModal.fileName.substring(deleteFileModal.fileName.length - 10)}`
                                 : deleteFileModal.fileName
-                            }"
-    </span>?
+                            })}
                         </p>
                         <div className="flex justify-end space-x-3">
                             <button
                                 onClick={() => setDeleteFileModal({isOpen: false, fileId: null, fileName: ''})}
                                 className="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200"
                             >
-                                Cancel
+                                {t('cancel')}
                             </button>
                             <button
                                 onClick={handleDeleteFile}
                                 className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600"
                             >
-                                Delete
+                                {t('delete')}
                             </button>
                         </div>
                     </div>

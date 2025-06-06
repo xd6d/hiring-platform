@@ -79,7 +79,7 @@ const ApplicationsPage = () => {
                     to={`/vacancies/${vac.id}`}
                     className="text-blue-600 hover:underline"
                 >
-                  {t('applied_for_from', { vac: { name: vac.name }, vacCreated })}
+                  {t('applied_for_from', { vacName: vac.name, vacCreated })}
                 </Link>
               </h2>
 

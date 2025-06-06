@@ -8,7 +8,7 @@ const VacanciesPage = () => {
     const [vacancies, setVacancies] = useState([]);
     const [vacLoading, setVacLoading] = useState(true);
     const [vacError, setVacError] = useState(null);
-  const { t } = useTranslation();
+    const { t } = useTranslation();
 
     const [searchTerm, setSearchTerm] = useState('');
 
@@ -104,7 +104,7 @@ const VacanciesPage = () => {
     return (
         <div className="p-4 md:p-6 max-w-7xl mx-auto">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
-                <h1 className="text-2xl md:text-3xl font-bold text-gray-800">Job Vacancies</h1>
+                <h1 className="text-2xl md:text-3xl font-bold text-gray-800">{t('job_vacancies')}</h1>
 
                 <div className="w-full md:w-auto flex items-center gap-3">
                     <button
@@ -112,7 +112,7 @@ const VacanciesPage = () => {
                         className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
                     >
                         <Filter className="h-4 w-4"/>
-                        <span>Filters</span>
+                        <span>{t('filters')}</span>
                     </button>
 
                     <form onSubmit={handleSearch} className="flex-1 md:flex-none md:w-80">
@@ -123,7 +123,7 @@ const VacanciesPage = () => {
                                 type="text"
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
-                                placeholder="Search vacancies..."
+                                placeholder={`${t('search_vacancies')}...`}
                                 className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                             />
                         </div>
@@ -138,12 +138,12 @@ const VacanciesPage = () => {
                         <div className="mb-6">
                             <label className="flex items-center justify-between cursor-pointer">
                                 <div className="flex items-center">
-                                    <span className="font-medium text-gray-700">Personalized search</span>
+                                    <span className="font-medium text-gray-700">{t('personalized_search')}</span>
                                     <div className="group relative ml-2">
                                         <Info className="h-4 w-4 text-gray-500 cursor-pointer"/>
                                         <div
                                             className="absolute left-full ml-2 w-72 p-2 text-xs text-white bg-gray-800 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-normal z-10">
-                                            Shows vacancies tailored to your profile and preferences
+                                            {t('shows_vacancies_tailored_to_your_profile_and_preferences')}
                                         </div>
                                     </div>
                                 </div>
@@ -167,24 +167,22 @@ const VacanciesPage = () => {
 
                         <div className="mb-4">
                             <div className="flex items-center">
-                                <h2 className="text-lg font-semibold text-gray-800">Filter by Tags</h2>
+                                <h2 className="text-lg font-semibold text-gray-800">{t('filter_by_tags')}</h2>
                                 <div className="group relative ml-2">
                                     <Info className="h-4 w-4 text-gray-500 cursor-pointer"/>
                                     <div
                                         className="absolute left-full ml-2 w-72 p-2 text-xs text-white bg-gray-800 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-normal z-10">
-                                        You can select any number of tags. The more tags you choose, the
-                                        more vacancies will appear. A vacancy is displayed if it has at
-                                        least one tag matching your selected tags.
+                                        {t('you_can_select_any_number_of_tags')}
                                     </div>
                                 </div>
                             </div>
-                            <p className="text-sm text-gray-500 mt-1">Select tags to filter vacancies</p>
+                            <p className="text-sm text-gray-500 mt-1">{t('select_tags_to_filter_vacancies')}</p>
                         </div>
 
                         {tagsLoading ? (
-                            <div className="text-gray-500 py-4">Loading tags...</div>
+                            <div className="text-gray-500 py-4">{`${t('loading_tags')}...`}</div>
                         ) : tagsError ? (
-                            <div className="text-red-500 py-4">Error: {tagsError}</div>
+                            <div className="text-red-500 py-4">{t('error')}: {tagsError}</div>
                         ) : (
                             <div className="space-y-4 max-h-[60vh] overflow-y-auto pr-2">
                                 {tagGroups.map((group) => (
@@ -232,7 +230,7 @@ const VacanciesPage = () => {
                                     </svg>
                                 </div>
                                 <div className="ml-3">
-                                    <p className="text-sm text-red-700">Error loading vacancies: {vacError}</p>
+                                    <p className="text-sm text-red-700">{t('error_loading_vacancies')}: {vacError}</p>
                                 </div>
                             </div>
                         </div>
@@ -248,7 +246,7 @@ const VacanciesPage = () => {
                                             <span
                                                 className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 absolute top-4 right-4"
                                             >
-                                                Applied ✓
+                                                {t('applied')} ✓
                                             </span>
                                         )}
 
@@ -269,9 +267,9 @@ const VacanciesPage = () => {
                                                         vacancy.work_format === 'REMOTE' ? 'bg-purple-100 text-purple-800' :
                                                             'bg-indigo-100 text-indigo-800'
                                                 }`}>
-                                                {vacancy.work_format === 'OFFICE' && 'Office'}
-                                                {vacancy.work_format === 'REMOTE' && 'Remote'}
-                                                {vacancy.work_format === 'HYBRID' && 'Hybrid'}
+                                                {vacancy.work_format === 'OFFICE' && t('office')}
+                                                {vacancy.work_format === 'REMOTE' && t('remote')}
+                                                {vacancy.work_format === 'HYBRID' && t('hybrid')}
                                             </span>
                                             {vacancy.cities.map((city, idx) => (
                                                 <span
@@ -301,7 +299,7 @@ const VacanciesPage = () => {
                                                 to={`/vacancies/${vacancy.id}`}
                                                 className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium text-sm transition-colors"
                                             >
-                                                View Details
+                                                {t('view_details')}
                                                 <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor"
                                                      viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -318,8 +316,8 @@ const VacanciesPage = () => {
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1}
                                               d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                                     </svg>
-                                    <h3 className="mt-2 text-lg font-medium text-gray-900">No vacancies found</h3>
-                                    <p className="mt-1 text-gray-500">Try adjusting your search or filter criteria</p>
+                                    <h3 className="mt-2 text-lg font-medium text-gray-900">{t('no_vacancies_found')}</h3>
+                                    <p className="mt-1 text-gray-500">{t('try_adjusting_your_search_or_filter_criteria')}</p>
                                 </div>
                             )}
                         </div>

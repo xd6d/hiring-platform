@@ -138,11 +138,11 @@ const VacancyDetailPage = () => {
   };
 
   if (loading || userLoading) {
-    return <div className="p-8 text-center">Loading vacancy details...</div>;
+    return <div className="p-8 text-center">{t('loading_vacancy_details')}...</div>;
   }
 
   if (error) {
-    return <div className="p-8 text-red-500 text-center">Error: {error}</div>;
+    return <div className="p-8 text-red-500 text-center">{t('error')}: {error}</div>;
   }
 
   if (userError) {
@@ -167,14 +167,14 @@ const VacancyDetailPage = () => {
             {/* Work Format and Cities */}
             <div className="flex flex-wrap gap-4 mb-4">
               <div className="flex items-center">
-                <span className="text-gray-700 font-medium mr-2">Work Format:</span>
+                <span className="text-gray-700 font-medium mr-2">{t('work_format')}:</span>
                 <span className="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
                   {vacancy.work_format}
                 </span>
               </div>
 
               <div className="flex items-center">
-                <span className="text-gray-700 font-medium mr-2">Locations:</span>
+                <span className="text-gray-700 font-medium mr-2">{t('locations')}:</span>
                 <div className="flex flex-wrap gap-2">
                   {vacancy.cities.map((city, idx) => (
                     <span key={idx} className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">
@@ -187,7 +187,7 @@ const VacancyDetailPage = () => {
 
             {/* Tags */}
             <div className="mb-4">
-              <span className="text-gray-700 font-medium mr-2">Skills:</span>
+              <span className="text-gray-700 font-medium mr-2">{t('skills')}:</span>
               <div className="flex flex-wrap gap-2 mt-2">
                 {vacancy.tags.map((tag) => (
                   <span key={tag.id} className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">
@@ -205,7 +205,7 @@ const VacancyDetailPage = () => {
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mx-auto mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
-                Application Submitted
+                {t('application_submitted')}
               </div>
             ) : (
               !showTemplate && user?.role !== 'RECRUITER' && (
@@ -216,7 +216,7 @@ const VacancyDetailPage = () => {
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clipRule="evenodd" />
                   </svg>
-                  Apply Now
+                  {t('apply_now')}
                 </button>
               )
             )}
@@ -227,18 +227,18 @@ const VacancyDetailPage = () => {
       {/* Application Form Section */}
       {!alreadyApplied && showTemplate && (
         <div className="bg-white rounded-lg shadow-md p-6 mb-8">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6 pb-2 border-b border-gray-200">Application Form</h2>
+          <h2 className="text-2xl font-bold text-gray-800 mb-6 pb-2 border-b border-gray-200">{t('application_form')}</h2>
 
           {templateLoading && (
             <div className="text-center py-8">
               <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500 mx-auto mb-4"></div>
-              <p>Loading application form...</p>
+              <p>{t('loading_application_form')}...</p>
             </div>
           )}
 
           {templateError && (
             <div className="bg-red-50 text-red-700 p-4 rounded-lg mb-6">
-              <p className="font-medium">Error loading template:</p>
+              <p className="font-medium">{t('error_loading_template')}:</p>
               <p>{templateError}</p>
             </div>
           )}
@@ -291,7 +291,7 @@ const VacancyDetailPage = () => {
                     <div className="space-y-3 mt-2">
                       {q.custom_requirements?.types?.length > 0 && (
                         <div className="text-sm text-gray-600 mb-2">
-                          <span className="font-medium">Accepted and required file types:</span>
+                          <span className="font-medium">{t('accepted_and_required_file_types')}:</span>
                           <div className="flex flex-wrap gap-2 mt-1">
                             {q.custom_requirements.types.map(type => (
                               <span
@@ -342,7 +342,7 @@ const VacancyDetailPage = () => {
 
               {submitError && (
                 <div className="bg-red-50 text-red-700 p-4 rounded-lg">
-                  <p className="font-medium">Submission error:</p>
+                  <p className="font-medium">{t('submission_error')}:</p>
                   <p>{submitError}</p>
                 </div>
               )}
@@ -355,7 +355,7 @@ const VacancyDetailPage = () => {
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
-                  Submit Application
+                  {t('submit_application')}
                 </button>
               </div>
             </div>

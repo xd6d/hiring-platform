@@ -1,56 +1,13 @@
-import React, {
-    useState,
-    useEffect,
-    useMemo,
-    useCallback
-} from 'react';
+import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {apiClient} from '../utils/auth';
-import {GripVertical, X, ChevronDown, ChevronUp, Search, Plus} from 'lucide-react';
-import {
-    DndContext,
-    closestCenter,
-    useSensor,
-    useSensors,
-    PointerSensor,
-} from '@dnd-kit/core';
-import {
-    SortableContext,
-    useSortable,
-    verticalListSortingStrategy,
-    arrayMove,
-} from '@dnd-kit/sortable';
-import {CSS} from '@dnd-kit/utilities';
+import {ChevronDown, ChevronUp, Plus, Search, X} from 'lucide-react';
+import {closestCenter, DndContext, PointerSensor, useSensor, useSensors,} from '@dnd-kit/core';
+import {arrayMove, SortableContext, verticalListSortingStrategy,} from '@dnd-kit/sortable';
 import ReactMarkdown from "react-markdown";
-import { useTranslation } from 'react-i18next';
+import {useTranslation} from 'react-i18next';
+import SortableTagItem from "../components/SortableTagItem";
 
-
-const SortableTagItem = ({tag, onRemove}) => {
-    const {attributes, listeners, setNodeRef, transform, transition} = useSortable({id: tag.id});
-    const style = {
-        transform: CSS.Transform.toString(transform),
-        transition,
-    };
-    return (
-        <div
-            ref={setNodeRef}
-            style={style}
-            className="flex items-center justify-between border border-gray-200 px-3 py-2 rounded-lg bg-white shadow-sm hover:shadow-md transition-shadow"
-        >
-            <div className="flex items-center">
-                <GripVertical
-                    className="cursor-move mr-2 text-gray-400 hover:text-gray-600" {...attributes} {...listeners} />
-                <span className="text-gray-700">{tag.name}</span>
-            </div>
-            <button
-                onClick={() => onRemove(tag.id)}
-                className="text-gray-400 hover:text-red-500 transition-colors"
-            >
-                <X size={16}/>
-            </button>
-        </div>
-    );
-};
 
 const CreateVacancyPage = () => {
     const [formData, setFormData] = useState({
@@ -163,29 +120,29 @@ const CreateVacancyPage = () => {
 
     const handleAddQuestion = () => {
         if (!newQuestion.name.trim()) {
-            setTemplateError('Question name is required');
+            setTemplateError(t('question_name_is_required'));
             return;
         }
 
         if (newQuestion.name.length > 100) {
-            setTemplateError('Question name cannot exceed 100 characters');
+            setTemplateError(t('question_name_cannot_exceed_100_characters'));
             return;
         }
 
         if (!newQuestion.type) {
-            setTemplateError('Question type is required');
+            setTemplateError(t('question_type_is_required'));
             return;
         }
 
         if (newQuestion.type === 'FILE' && selectedFileTypes.length === 0) {
-            setTemplateError('At least one file type must be selected');
+            setTemplateError(t('at_least_one_file_type_must_be_selected'));
             return;
         }
 
         // Validate max_length for text questions
         if (['SHORT_TEXT', 'LONG_TEXT'].includes(newQuestion.type)) {
             if (!newQuestion.max_length || newQuestion.max_length <= 0) {
-                setTemplateError('Max length must be a positive number for text questions');
+                setTemplateError(t('max_length_must_be_a_positive_number_for_text_questions'));
                 return;
             }
         }
@@ -228,7 +185,7 @@ const CreateVacancyPage = () => {
 
     const handleAddAnswer = () => {
         if (!currentAnswer.trim()) {
-            setTemplateError('Answer value is required');
+            setTemplateError(t('answer_value_is_required'));
             return;
         }
 
@@ -315,7 +272,7 @@ const CreateVacancyPage = () => {
 
     const handleCreateTemplate = async () => {
         if (!newTemplateData.name.trim()) {
-            setTemplateError('Template name is required');
+            setTemplateError(t('template_name_is_required'));
             return;
         }
 
@@ -353,10 +310,10 @@ const CreateVacancyPage = () => {
                 setQuestions([]);
             } else {
                 const errorData = await res.json();
-                setTemplateError(errorData.detail || 'Failed to create template');
+                setTemplateError(errorData.detail || t('failed_to_create_template'));
             }
         } catch (err) {
-            setTemplateError('Network error');
+            setTemplateError(t('network_error'));
         } finally {
             setLoading(false);
         }
@@ -368,7 +325,7 @@ const CreateVacancyPage = () => {
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18}/>
                 <input
                     type="text"
-                    placeholder="Search countries or cities..."
+                    placeholder={`${t('search_countries_or_cities')}...`}
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
@@ -410,7 +367,7 @@ const CreateVacancyPage = () => {
             </div>
             {formData.cities.length > 0 && (
                 <div className="bg-blue-50 p-3 rounded-lg">
-                    <h4 className="text-sm font-medium text-blue-800 mb-2">Selected Cities</h4>
+                    <h4 className="text-sm font-medium text-blue-800 mb-2">{t('selected_cities')}</h4>
                     <div className="flex flex-wrap gap-2">
                         {formData.cities.map(cityId => {
                             const country = countries.find(c => c.cities.some(ct => ct.id === cityId));
@@ -418,21 +375,21 @@ const CreateVacancyPage = () => {
                             return (
                                 <span key={cityId}
                                       className="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-sm">
-                  {city?.name}
+                                    {city?.name}
                                     <button
                                         onClick={() => handleCityToggle(cityId)}
                                         className="ml-2 text-blue-500 hover:text-blue-700"
                                     >
-                    <X size={14}/>
-                  </button>
-                </span>
+                                        <X size={14}/>
+                                    </button>
+                                </span>
                             );
                         })}
                     </div>
                 </div>
             )}
         </div>
-    ), [countries, formData.cities, handleCityToggle, searchTerm, filteredCountries, expandedCountry]);
+    ), [countries, formData.cities, handleCityToggle, searchTerm, filteredCountries, expandedCountry, t]);
 
     const tagsBlock = useMemo(() => (
         <div className="space-y-4">
@@ -476,7 +433,7 @@ const CreateVacancyPage = () => {
 
             {formData.tags.length > 0 && (
                 <div className="space-y-3">
-                    <h4 className="text-sm font-medium text-gray-700">Selected Tags (drag to reorder)</h4>
+                    <h4 className="text-sm font-medium text-gray-700">{t('selected_tags_drag_to_reorder')}</h4>
                     <DndContext
                         sensors={sensors}
                         collisionDetection={closestCenter}
@@ -496,7 +453,7 @@ const CreateVacancyPage = () => {
                 </div>
             )}
         </div>
-    ), [tagGroups, formData.tags, handleAddTag, handleRemoveTag, handleDragEnd, sensors, expandedTagGroup]);
+    ), [tagGroups, formData.tags, handleAddTag, handleRemoveTag, handleDragEnd, sensors, expandedTagGroup, t]);
 
     const handleSubmit = async e => {
         e.preventDefault();
@@ -518,10 +475,10 @@ const CreateVacancyPage = () => {
                 navigate(`/vacancies/${data.id}`);
             } else {
                 const errD = await res.json();
-                setError(errD.detail || 'Failed to create vacancy');
+                setError(errD.detail || t('failed_to_create_vacancy'));
             }
         } catch {
-            setError('Network error');
+            setError(t('network_error'));
         } finally {
             setLoading(false);
         }
@@ -563,7 +520,7 @@ const CreateVacancyPage = () => {
                                 value={formData.name}
                                 onChange={e => setFormData(fd => ({...fd, name: e.target.value}))}
                                 className="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
-                                placeholder="e.g. Senior Frontend Developer"
+                                placeholder={t('job_title_placeholder')}
                                 required
                             />
                         </div>
@@ -592,7 +549,7 @@ const CreateVacancyPage = () => {
                                     value={formData.description}
                                     onChange={e => setFormData(fd => ({...fd, description: e.target.value}))}
                                     className="w-full border border-gray-300 rounded-lg p-3 focus:ring-blue-500 focus:border-blue-500 min-h-[200px]"
-                                    placeholder="Enter job description in Markdown format..."
+                                    placeholder={`${t('description_placeholder')}...`}
                                     required
                                 />
                             )}
@@ -612,9 +569,9 @@ const CreateVacancyPage = () => {
                                     className="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
                                     required
                                 >
-                                    <option value="OFFICE">Office</option>
-                                    <option value="REMOTE">Remote</option>
-                                    <option value="HYBRID">Hybrid</option>
+                                    <option value="OFFICE">{t('office')}</option>
+                                    <option value="REMOTE">{t('remote')}</option>
+                                    <option value="HYBRID">{t('hybrid')}</option>
                                 </select>
                             </div>
 
@@ -625,10 +582,10 @@ const CreateVacancyPage = () => {
                                     <div className="flex-1 border border-gray-300 rounded-lg px-4 py-2 bg-white">
                                         {templateInfo ? (
                                             <span className="text-gray-700">
-                        {templateInfo.name} ({t('created')} {new Date(templateInfo.created_at).toLocaleDateString('en-GB', {
+                                                {templateInfo.name} ({t('created')} {new Date(templateInfo.created_at).toLocaleDateString('en-GB', {
                                                 day: '2-digit', month: 'short', year: 'numeric'
                                             })})
-                      </span>
+                                            </span>
                                         ) : (
                                             <span className="text-gray-400">{t('loading_default_template')}...</span>
                                         )}
@@ -650,7 +607,7 @@ const CreateVacancyPage = () => {
                                                 setShowChangeModal(true);
                                                 setSelectedTemplate(null);
                                             } catch {
-                                                console.error('Failed to load templates');
+                                                console.error(t('failed_to_load_templates'));
                                             }
                                         }}
                                         className="px-3 py-2 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-colors"
@@ -690,9 +647,9 @@ const CreateVacancyPage = () => {
                                             <path className="opacity-75" fill="currentColor"
                                                   d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                         </svg>
-                                        Creating Vacancy...
+                                        {t('creating_vacancy')}...
                                     </>
-                                ) : 'Create Vacancy'}
+                                ) : t('create_vacancy')}
                             </button>
                         </div>
                     </form>
@@ -706,7 +663,7 @@ const CreateVacancyPage = () => {
                         className="bg-white rounded-xl shadow-xl max-w-2xl w-full max-h-[90vh] overflow-hidden flex flex-col">
                         <div className="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
                             <h2 className="text-xl font-bold text-gray-800">
-                                Application Form Preview: {templateInfo.name}
+                                {t('application_form_preview')}: {templateInfo.name}
                             </h2>
                             <button
                                 onClick={() => setShowPreviewModal(false)}
@@ -727,67 +684,67 @@ const CreateVacancyPage = () => {
                                             <>
                                                 <input
                                                     type="text"
-                                                    placeholder="Your answer..."
+                                                    placeholder={t('your_answer')}
                                                     className="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
                                                 />
                                                 <p className="text-xs text-gray-500 mt-2">
-                                                    Max length: {q.max_length} characters
+                                                    {t('max_length')}: {q.max_length} {t('characters')}
                                                 </p>
                                             </>
                                         )}
                                         {q.type === 'LONG_TEXT' && (
                                             <>
-                        <textarea
-                            placeholder="Your answer..."
-                            className="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
-                            rows={4}
-                        />
+                                                <textarea
+                                                    placeholder={t('your_answer')}
+                                                    className="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                                                    rows={4}
+                                                />
                                                 <p className="text-xs text-gray-500 mt-2">
-                                                    Max length: {q.max_length} characters
+                                                    {t('max_length')}: {q.max_length} {t('characters')}
                                                 </p>
                                             </>
                                         )}
                                         {q.type === 'SINGLE_ANSWER' && (
-                                                <ul className="space-y-3 mt-3">
-                                                    {q.answers.map(ans => (
-                                                        <li
-                                                            key={ans.id}
-                                                            onClick={() =>
-                                                                setSelectedAnswers(sa => ({...sa, [q.id]: ans.id}))
-                                                            }
-                                                            className={`flex items-start p-3 rounded-lg cursor-pointer ${
+                                            <ul className="space-y-3 mt-3">
+                                                {q.answers.map(ans => (
+                                                    <li
+                                                        key={ans.id}
+                                                        onClick={() =>
+                                                            setSelectedAnswers(sa => ({...sa, [q.id]: ans.id}))
+                                                        }
+                                                        className={`flex items-start p-3 rounded-lg cursor-pointer ${
+                                                            selectedAnswers[q.id] === ans.id
+                                                                ? 'bg-blue-50 border border-blue-200'
+                                                                : 'hover:bg-gray-50 border border-transparent'
+                                                        }`}
+                                                    >
+                                                        <span
+                                                            className={`inline-flex items-center justify-center h-5 w-5 rounded-full mr-3 mt-0.5 flex-shrink-0 ${
                                                                 selectedAnswers[q.id] === ans.id
-                                                                    ? 'bg-blue-50 border border-blue-200'
-                                                                    : 'hover:bg-gray-50 border border-transparent'
-                                                            }`}
+                                                                    ? 'bg-blue-600 text-white'
+                                                                    : 'border border-gray-300'
+                                                            }`}>
+                                                        </span>
+                                                        <span className="text-gray-700">{ans.value}</span>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        )}
+                                        {q.type === 'FILE' && q.custom_requirements?.types?.length > 0 && (
+                                            <div className="mt-2">
+                                                <p className="text-xs font-medium text-gray-500">{t('required_types')}:</p>
+                                                <div className="flex flex-wrap gap-1 mt-1">
+                                                    {q.custom_requirements.types.map(type => (
+                                                        <span
+                                                            key={type}
+                                                            className="inline-flex items-center px-2 py-0.5 rounded-full bg-gray-100 text-gray-800 text-xs"
                                                         >
-                            <span
-                                className={`inline-flex items-center justify-center h-5 w-5 rounded-full mr-3 mt-0.5 flex-shrink-0 ${
-                                    selectedAnswers[q.id] === ans.id
-                                        ? 'bg-blue-600 text-white'
-                                        : 'border border-gray-300'
-                                }`}>
-                            </span>
-                                                            <span className="text-gray-700">{ans.value}</span>
-                                                        </li>
+                                                            {type}
+                                                        </span>
                                                     ))}
-                                                </ul>
-                                            )}
-                                    {q.type === 'FILE' && q.custom_requirements?.types?.length > 0 && (
-          <div className="mt-2">
-            <p className="text-xs font-medium text-gray-500">Required types:</p>
-            <div className="flex flex-wrap gap-1 mt-1">
-              {q.custom_requirements.types.map(type => (
-                <span
-                  key={type}
-                  className="inline-flex items-center px-2 py-0.5 rounded-full bg-gray-100 text-gray-800 text-xs"
-                >
-                  {type}
-                </span>
-              ))}
-            </div>
-          </div>
-        )}
+                                                </div>
+                                            </div>
+                                        )}
                                     </div>
                                 ))}
                             </form>
@@ -797,7 +754,7 @@ const CreateVacancyPage = () => {
                                 onClick={() => setShowPreviewModal(false)}
                                 className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
                             >
-                                Close Preview
+                                {t('close_preview')}
                             </button>
                         </div>
                     </div>
@@ -810,7 +767,7 @@ const CreateVacancyPage = () => {
                     <div
                         className="bg-white rounded-xl shadow-xl max-w-3xl w-full max-h-[90vh] overflow-hidden flex flex-col">
                         <div className="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
-                            <h2 className="text-xl font-bold text-gray-800">Select Application Template</h2>
+                            <h2 className="text-xl font-bold text-gray-800">{t('select_application_template')}</h2>
                             <button
                                 onClick={() => setShowChangeModal(false)}
                                 className="p-1 rounded-full hover:bg-gray-100 text-gray-500 hover:text-gray-700"
@@ -827,7 +784,7 @@ const CreateVacancyPage = () => {
                                 className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors flex items-center"
                             >
                                 <Plus size={18} className="mr-2"/>
-                                Create New Template
+                                {t('create_new_template')}
                             </button>
                         </div>
                         <div className="overflow-y-auto p-6">
@@ -846,7 +803,7 @@ const CreateVacancyPage = () => {
                                                     <div className="flex-1">
                                                         <h3 className="font-medium text-gray-800">{tpl.name}</h3>
                                                         <p className="text-sm text-gray-500">
-                                                            Created {new Date(tpl.created_at).toLocaleDateString('en-GB', {
+                                                            {t('created')} {new Date(tpl.created_at).toLocaleDateString('en-GB', {
                                                             day: '2-digit',
                                                             month: 'short',
                                                             year: 'numeric',
@@ -858,7 +815,7 @@ const CreateVacancyPage = () => {
                                                             onClick={() => setSelectedTemplate(isOpen ? null : tpl)}
                                                             className="px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded hover:bg-gray-200"
                                                         >
-                                                            {isOpen ? 'Hide Details' : 'Show Details'}
+                                                            {isOpen ? t('hide_details') : t('show_details')}
                                                         </button>
                                                         <button
                                                             onClick={() => {
@@ -871,7 +828,7 @@ const CreateVacancyPage = () => {
                                                             }}
                                                             className="px-3 py-1 text-sm bg-blue-50 text-blue-600 rounded hover:bg-blue-100"
                                                         >
-                                                            Select
+                                                            {t('select')}
                                                         </button>
                                                     </div>
                                                 </div>
@@ -894,23 +851,23 @@ const CreateVacancyPage = () => {
                                                                 <>
                                                                     <input
                                                                         type="text"
-                                                                        placeholder="Your answer..."
+                                                                        placeholder={t('your_answer')}
                                                                         className="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
                                                                     />
                                                                     <p className="text-xs text-gray-500 mt-2">
-                                                                        Max length: {q.max_length} characters
+                                                                        {t('max_length')}: {q.max_length} {t('characters')}
                                                                     </p>
                                                                 </>
                                                             )}
                                                             {q.type === 'LONG_TEXT' && (
                                                                 <>
-                                  <textarea
-                                      placeholder="Your answer..."
-                                      className="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
-                                      rows={4}
-                                  />
+                                                                    <textarea
+                                                                        placeholder={t('your_answer')}
+                                                                        className="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                                                                        rows={4}
+                                                                    />
                                                                     <p className="text-xs text-gray-500 mt-2">
-                                                                        Max length: {q.max_length} characters
+                                                                        {t('max_length')}: {q.max_length} {t('characters')}
                                                                     </p>
                                                                 </>
                                                             )}
@@ -928,21 +885,21 @@ const CreateVacancyPage = () => {
                                                                     ))}
                                                                 </ul>
                                                             )}
-                                                        {q.type === 'FILE' && q.custom_requirements?.types?.length > 0 && (
-          <div className="mt-2">
-            <p className="text-xs font-medium text-gray-500">Required types:</p>
-            <div className="flex flex-wrap gap-1 mt-1">
-              {q.custom_requirements.types.map(type => (
-                <span
-                  key={type}
-                  className="inline-flex items-center px-2 py-0.5 rounded-full bg-gray-100 text-gray-800 text-xs"
-                >
-                  {type}
-                </span>
-              ))}
-            </div>
-          </div>
-        )}
+                                                            {q.type === 'FILE' && q.custom_requirements?.types?.length > 0 && (
+                                                                <div className="mt-2">
+                                                                    <p className="text-xs font-medium text-gray-500">{t('required_types')}:</p>
+                                                                    <div className="flex flex-wrap gap-1 mt-1">
+                                                                        {q.custom_requirements.types.map(type => (
+                                                                            <span
+                                                                                key={type}
+                                                                                className="inline-flex items-center px-2 py-0.5 rounded-full bg-gray-100 text-gray-800 text-xs"
+                                                                            >
+                                                                                {type}
+                                                                            </span>
+                                                                        ))}
+                                                                    </div>
+                                                                </div>
+                                                            )}
                                                         </div>
                                                     ))}
                                                 </div>
@@ -957,7 +914,7 @@ const CreateVacancyPage = () => {
                                 onClick={() => setShowChangeModal(false)}
                                 className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors"
                             >
-                                Cancel
+                                {t('cancel')}
                             </button>
                         </div>
                     </div>
@@ -970,7 +927,7 @@ const CreateVacancyPage = () => {
                     <div
                         className="bg-white rounded-xl shadow-xl max-w-2xl w-full max-h-[90vh] overflow-hidden flex flex-col">
                         <div className="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
-                            <h2 className="text-xl font-bold text-gray-800">Create New Template</h2>
+                            <h2 className="text-xl font-bold text-gray-800">{t('create_new_template')}</h2>
                             <button
                                 onClick={() => {
                                     setShowCreateTemplateModal(false);
@@ -994,7 +951,7 @@ const CreateVacancyPage = () => {
                                 <div className="space-y-4">
                                     <div className="space-y-2">
                                         <label className="block text-sm font-medium text-gray-700">
-                                            Template Name *
+                                            {t('template_name')} *
                                         </label>
                                         <input
                                             type="text"
@@ -1005,10 +962,10 @@ const CreateVacancyPage = () => {
                                             })}
                                             maxLength={300}
                                             className="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
-                                            placeholder="Enter template name"
+                                            placeholder={t('enter_template_name')}
                                         />
                                         <p className="text-xs text-gray-500">
-                                            {newTemplateData.name.length}/300 characters
+                                            {newTemplateData.name.length}/300 {t('characters')}
                                         </p>
                                     </div>
 
@@ -1024,20 +981,20 @@ const CreateVacancyPage = () => {
                                             className="h-4 w-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500"
                                         />
                                         <label htmlFor="is-global" className="ml-2 block text-sm text-gray-700">
-                                            Global Template (available to all users)
+                                            {t('global_template_available_to_all_users')}
                                         </label>
                                     </div>
                                 </div>
 
                                 <div className="space-y-4">
                                     <div className="flex justify-between items-center">
-                                        <h3 className="text-lg font-medium text-gray-800">Questions</h3>
+                                        <h3 className="text-lg font-medium text-gray-800">{t('questions')}</h3>
                                         <button
                                             type="button"
                                             onClick={() => setShowQuestionForm(true)}
                                             className="px-3 py-1 bg-blue-600 text-white rounded-lg hover:bg-blue-700 text-sm"
                                         >
-                                            Add Question
+                                            {t('add_new_question')}
                                         </button>
                                     </div>
 
@@ -1050,12 +1007,11 @@ const CreateVacancyPage = () => {
                                                             <p className="font-medium">{q.name}</p>
                                                             <p className="text-sm text-gray-500">{q.type}</p>
                                                             {q.max_length && (
-                                                                <p className="text-xs text-gray-500">Max
-                                                                    length: {q.max_length}</p>
+                                                                <p className="text-xs text-gray-500">{t('max_length')}: {q.max_length}</p>
                                                             )}
                                                             {q.type === 'SINGLE_ANSWER' && q.answers?.length > 0 && (
                                                                 <div className="mt-2">
-                                                                    <p className="text-xs font-medium text-gray-500">Options:</p>
+                                                                    <p className="text-xs font-medium text-gray-500">{t('options')}:</p>
                                                                     <ul className="text-xs text-gray-500 list-disc list-inside">
                                                                         {q.answers.map((a, idx) => (
                                                                             <li key={idx}>{a.value}</li>
@@ -1065,19 +1021,19 @@ const CreateVacancyPage = () => {
                                                             )}
                                                             {q.type === 'FILE' && q.custom_requirements?.types?.length > 0 && (
                                                                 <div className="mt-2">
-                                                                    <p className="text-xs font-medium text-gray-500">Required types:</p>
+                                                                    <p className="text-xs font-medium text-gray-500">{t('required_types')}:</p>
                                                                     <div className="flex flex-wrap gap-1 mt-1">
                                                                         {q.custom_requirements.types.map(type => (
                                                                             <span key={type}
                                                                                   className="inline-flex items-center px-2 py-0.5 rounded-full bg-gray-100 text-gray-800 text-xs">
-          {type}
-        </span>
+                                                                                {type}
+                                                                            </span>
                                                                         ))}
                                                                     </div>
                                                                 </div>
                                                             )}
                                                             <p className="text-xs text-gray-500">
-                                                                {q.is_required ? 'Required' : 'Optional'}
+                                                                {q.is_required ? t('required') : t('optional')}
                                                             </p>
                                                         </div>
                                                         <div className="flex space-x-2">
@@ -1089,7 +1045,7 @@ const CreateVacancyPage = () => {
                                                                 }}
                                                                 className="text-blue-500 hover:text-blue-700"
                                                             >
-                                                                Edit
+                                                                {t('edit')}
                                                             </button>
                                                             <button
                                                                 onClick={() => {
@@ -1105,7 +1061,7 @@ const CreateVacancyPage = () => {
                                             ))}
                                         </div>
                                     ) : (
-                                        <p className="text-sm text-gray-500">No questions added yet</p>
+                                        <p className="text-sm text-gray-500">{t('no_questions_added_yet')}</p>
                                     )}
                                 </div>
                             </div>
@@ -1113,11 +1069,11 @@ const CreateVacancyPage = () => {
                             {/* Question Form */}
                             {showQuestionForm && (
                                 <div className="mt-6 border-t pt-6 space-y-4">
-                                    <h3 className="text-lg font-medium text-gray-800">Add New Question</h3>
+                                    <h3 className="text-lg font-medium text-gray-800">{t('add_new_question')}</h3>
 
                                     <div className="space-y-2">
                                         <label className="block text-sm font-medium text-gray-700">
-                                            Question Name *
+                                            {t('question_name')} *
                                         </label>
                                         <input
                                             type="text"
@@ -1131,13 +1087,13 @@ const CreateVacancyPage = () => {
                                             placeholder="Enter question text"
                                         />
                                         <p className="text-xs text-gray-500">
-                                            {newQuestion.name.length}/100 characters
+                                            {newQuestion.name.length}/100 {t('characters')}
                                         </p>
                                     </div>
 
                                     <div className="space-y-2">
                                         <label className="block text-sm font-medium text-gray-700">
-                                            Question Type *
+                                            {t('question_type')} *
                                         </label>
                                         <select
                                             value={newQuestion.type}
@@ -1160,7 +1116,7 @@ const CreateVacancyPage = () => {
                                     {['SHORT_TEXT', 'LONG_TEXT'].includes(newQuestion.type) && (
                                         <div className="space-y-2">
                                             <label className="block text-sm font-medium text-gray-700">
-                                                Max Length *
+                                                {t('max_length')} *
                                             </label>
                                             <input
                                                 type="number"
@@ -1171,7 +1127,7 @@ const CreateVacancyPage = () => {
                                                 })}
                                                 min="1"
                                                 className="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
-                                                placeholder="Enter maximum length"
+                                                placeholder={t("enter_maximum_length")}
                                             />
                                         </div>
                                     )}
@@ -1179,7 +1135,7 @@ const CreateVacancyPage = () => {
                                     {newQuestion.type === 'SINGLE_ANSWER' && (
                                         <div className="space-y-3">
                                             <div className="flex justify-between items-center">
-                                                <h4 className="text-sm font-medium text-gray-700">Answers</h4>
+                                                <h4 className="text-sm font-medium text-gray-700">{t('answers')}</h4>
                                                 <button
                                                     type="button"
                                                     onClick={() => {
@@ -1189,7 +1145,7 @@ const CreateVacancyPage = () => {
                                                     }}
                                                     className="px-2 py-1 bg-blue-50 text-blue-600 rounded text-sm hover:bg-blue-100"
                                                 >
-                                                    Add Answer
+                                                    {t('add_answer')}
                                                 </button>
                                             </div>
 
@@ -1216,7 +1172,7 @@ const CreateVacancyPage = () => {
                                                     ))}
                                                 </div>
                                             ) : (
-                                                <p className="text-sm text-gray-500">No answers added yet</p>
+                                                <p className="text-sm text-gray-500">{t('no_answers_added_yet')}</p>
                                             )}
                                         </div>
                                     )}
@@ -1224,7 +1180,7 @@ const CreateVacancyPage = () => {
                                     {newQuestion.type === 'FILE' && (
                                         <div className="space-y-2">
                                             <label className="block text-sm font-medium text-gray-700">
-                                                Required types *
+                                                {t('required_types')} *
                                             </label>
                                             <div
                                                 className="max-h-40 overflow-y-auto border border-gray-200 rounded p-2">
@@ -1245,12 +1201,12 @@ const CreateVacancyPage = () => {
                                                         ))}
                                                     </div>
                                                 ) : (
-                                                    <p className="text-sm text-gray-500">Loading file types...</p>
+                                                    <p className="text-sm text-gray-500">{t('loading_file_types')}...</p>
                                                 )}
                                             </div>
                                             {selectedFileTypes.length > 0 && (
                                                 <div className="mt-2">
-                                                    <p className="text-xs font-medium text-gray-500">Selected types:</p>
+                                                    <p className="text-xs font-medium text-gray-500">{t('selected_types')}:</p>
                                                     <div className="flex flex-wrap gap-1 mt-1">
                                                         {selectedFileTypes.map(type => (
                                                             <span key={type}
@@ -1284,7 +1240,7 @@ const CreateVacancyPage = () => {
                                                     }}
                                                     className="px-2 py-1 bg-blue-50 text-blue-600 rounded text-sm hover:bg-blue-100"
                                                 >
-                                                    Add Answer
+                                                    {t('add_answer')}
                                                 </button>
                                             </div>
 
@@ -1304,7 +1260,7 @@ const CreateVacancyPage = () => {
                                                     ))}
                                                 </div>
                                             ) : (
-                                                <p className="text-sm text-gray-500">No answers added yet</p>
+                                                <p className="text-sm text-gray-500">{t('no_answers_added_yet')}</p>
                                             )}
                                         </div>
                                     )}
@@ -1315,7 +1271,7 @@ const CreateVacancyPage = () => {
                                             className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
                                             <div className="bg-white rounded-lg p-6 w-full max-w-md">
                                                 <div className="flex justify-between items-center mb-4">
-                                                    <h3 className="text-lg font-medium">Add Answer</h3>
+                                                    <h3 className="text-lg font-medium">{t('add_answer')}</h3>
                                                     <button
                                                         onClick={() => {
                                                             setShowAnswerForm(false);
@@ -1336,7 +1292,7 @@ const CreateVacancyPage = () => {
 
                                                     <div>
                                                         <label className="block text-sm font-medium text-gray-700 mb-1">
-                                                            Answer Value *
+                                                            {t('answer_value')} *
                                                         </label>
                                                         <input
                                                             type="text"
@@ -1356,14 +1312,14 @@ const CreateVacancyPage = () => {
                                                             }}
                                                             className="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300"
                                                         >
-                                                            Cancel
+                                                            {t('cancel')}
                                                         </button>
                                                         <button
                                                             type="button"
                                                             onClick={handleAddAnswer}
                                                             className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
                                                         >
-                                                            Add Answer
+                                                            {t('add_answer')}
                                                         </button>
                                                     </div>
                                                 </div>
@@ -1383,7 +1339,7 @@ const CreateVacancyPage = () => {
                                             className="h-4 w-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500"
                                         />
                                         <label htmlFor="is-required" className="ml-2 block text-sm text-gray-700">
-                                            Required question
+                                            {t('required_question')}
                                         </label>
                                     </div>
 
@@ -1393,14 +1349,14 @@ const CreateVacancyPage = () => {
                                             onClick={() => setShowQuestionForm(false)}
                                             className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300"
                                         >
-                                            Cancel
+                                            {t('cancel')}
                                         </button>
                                         <button
                                             type="button"
                                             onClick={handleAddQuestion}
                                             className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
                                         >
-                                            Add Question
+                                            {t('add_question')}
                                         </button>
                                     </div>
                                 </div>
@@ -1417,7 +1373,7 @@ const CreateVacancyPage = () => {
                                 }}
                                 className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors"
                             >
-                                Cancel
+                                {t('cancel')}
                             </button>
                             <button
                                 onClick={handleCreateTemplate}
@@ -1426,7 +1382,7 @@ const CreateVacancyPage = () => {
                                     loading || questions.length === 0 ? 'opacity-70 cursor-not-allowed' : ''
                                 }`}
                             >
-                                {loading ? 'Creating...' : 'Create Template'}
+                                {loading ? `${t('creating')}...` : t('create_template')}
                             </button>
                         </div>
                     </div>
