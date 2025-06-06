@@ -2,8 +2,6 @@
     {
         "model": "dict.country",
         "pk": 1,
-        "fields": {
-            "name": "Ukraine"
-        }
+        "fields": {}
     }
 ]

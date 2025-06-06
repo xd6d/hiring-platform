@@ -1,0 +1,8318 @@
+[
+    {
+        "model": "dict.citytranslation",
+        "pk": 1,
+        "fields": {
+            "city": 0,
+            "name": "Kyiv",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 2,
+        "fields": {
+            "city": 0,
+            "name": "Київ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 3,
+        "fields": {
+            "city": 1,
+            "name": "Kharkiv",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 4,
+        "fields": {
+            "city": 1,
+            "name": "Харків",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 5,
+        "fields": {
+            "city": 2,
+            "name": "Odesa",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 6,
+        "fields": {
+            "city": 2,
+            "name": "Одеса",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 7,
+        "fields": {
+            "city": 3,
+            "name": "Dnipro",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 8,
+        "fields": {
+            "city": 3,
+            "name": "Дніпро",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 9,
+        "fields": {
+            "city": 4,
+            "name": "Donetsk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 10,
+        "fields": {
+            "city": 4,
+            "name": "Донецьк",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 11,
+        "fields": {
+            "city": 5,
+            "name": "Lviv",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 12,
+        "fields": {
+            "city": 5,
+            "name": "Львів",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 13,
+        "fields": {
+            "city": 6,
+            "name": "Zaporizhzhia",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 14,
+        "fields": {
+            "city": 6,
+            "name": "Запоріжжя",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 15,
+        "fields": {
+            "city": 7,
+            "name": "BazalТtove",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 16,
+        "fields": {
+            "city": 7,
+            "name": "Базалтове",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 17,
+        "fields": {
+            "city": 8,
+            "name": "Kryvyi Rih",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 18,
+        "fields": {
+            "city": 8,
+            "name": "Кривий Ріг",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 19,
+        "fields": {
+            "city": 9,
+            "name": "Sevastopol",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 20,
+        "fields": {
+            "city": 9,
+            "name": "Севастополь",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 21,
+        "fields": {
+            "city": 10,
+            "name": "Mykolaiv",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 22,
+        "fields": {
+            "city": 10,
+            "name": "Миколаїв",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 23,
+        "fields": {
+            "city": 11,
+            "name": "Luhansk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 24,
+        "fields": {
+            "city": 11,
+            "name": "Луганськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 25,
+        "fields": {
+            "city": 12,
+            "name": "Vinnytsia",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 26,
+        "fields": {
+            "city": 12,
+            "name": "Вінниця",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 27,
+        "fields": {
+            "city": 13,
+            "name": "Makiivka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 28,
+        "fields": {
+            "city": 13,
+            "name": "Макіївка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 29,
+        "fields": {
+            "city": 14,
+            "name": "Simferopol",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 30,
+        "fields": {
+            "city": 14,
+            "name": "Сімферополь",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 31,
+        "fields": {
+            "city": 15,
+            "name": "Chernihiv",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 32,
+        "fields": {
+            "city": 15,
+            "name": "Чернігів",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 33,
+        "fields": {
+            "city": 16,
+            "name": "Poltava",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 34,
+        "fields": {
+            "city": 16,
+            "name": "Полтава",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 35,
+        "fields": {
+            "city": 17,
+            "name": "Kherson",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 36,
+        "fields": {
+            "city": 17,
+            "name": "Херсон",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 37,
+        "fields": {
+            "city": 18,
+            "name": "Khmelnytskyi",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 38,
+        "fields": {
+            "city": 18,
+            "name": "Хмельницький",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 39,
+        "fields": {
+            "city": 19,
+            "name": "Cherkasy",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 40,
+        "fields": {
+            "city": 19,
+            "name": "Черкаси",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 41,
+        "fields": {
+            "city": 20,
+            "name": "Chernivtsi",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 42,
+        "fields": {
+            "city": 20,
+            "name": "Чернівці",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 43,
+        "fields": {
+            "city": 21,
+            "name": "Zhytomyr",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 44,
+        "fields": {
+            "city": 21,
+            "name": "Житомир",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 45,
+        "fields": {
+            "city": 22,
+            "name": "Sumy",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 46,
+        "fields": {
+            "city": 22,
+            "name": "Суми",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 47,
+        "fields": {
+            "city": 23,
+            "name": "Rivne",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 48,
+        "fields": {
+            "city": 23,
+            "name": "Рівне",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 49,
+        "fields": {
+            "city": 24,
+            "name": "Horlivka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 50,
+        "fields": {
+            "city": 24,
+            "name": "Горлівка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 51,
+        "fields": {
+            "city": 25,
+            "name": "Ivano-Frankivsk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 52,
+        "fields": {
+            "city": 25,
+            "name": "Івано-Франківськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 53,
+        "fields": {
+            "city": 26,
+            "name": "Kamianske",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 54,
+        "fields": {
+            "city": 26,
+            "name": "Кам’янське",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 55,
+        "fields": {
+            "city": 27,
+            "name": "Ternopil",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 56,
+        "fields": {
+            "city": 27,
+            "name": "Тернопіль",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 57,
+        "fields": {
+            "city": 28,
+            "name": "Lutsk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 58,
+        "fields": {
+            "city": 28,
+            "name": "Луцьк",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 59,
+        "fields": {
+            "city": 29,
+            "name": "Kropyvnytskyi",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 60,
+        "fields": {
+            "city": 29,
+            "name": "Кропивницький",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 61,
+        "fields": {
+            "city": 30,
+            "name": "Kremenchuk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 62,
+        "fields": {
+            "city": 30,
+            "name": "Кременчук",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 63,
+        "fields": {
+            "city": 31,
+            "name": "Bila Tserkva",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 64,
+        "fields": {
+            "city": 31,
+            "name": "Біла Церква",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 65,
+        "fields": {
+            "city": 32,
+            "name": "Kerch",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 66,
+        "fields": {
+            "city": 32,
+            "name": "Керч",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 67,
+        "fields": {
+            "city": 33,
+            "name": "Melitopol",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 68,
+        "fields": {
+            "city": 33,
+            "name": "Мелітополь",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 69,
+        "fields": {
+            "city": 34,
+            "name": "Kramatorsk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 70,
+        "fields": {
+            "city": 34,
+            "name": "Краматорськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 71,
+        "fields": {
+            "city": 35,
+            "name": "Mariupol",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 72,
+        "fields": {
+            "city": 35,
+            "name": "Маріуполь",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 73,
+        "fields": {
+            "city": 36,
+            "name": "Uzhhorod",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 74,
+        "fields": {
+            "city": 36,
+            "name": "Ужгород",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 75,
+        "fields": {
+            "city": 37,
+            "name": "Brovary",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 76,
+        "fields": {
+            "city": 37,
+            "name": "Бровари",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 77,
+        "fields": {
+            "city": 38,
+            "name": "Berdiansk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 78,
+        "fields": {
+            "city": 38,
+            "name": "Бердянськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 79,
+        "fields": {
+            "city": 39,
+            "name": "Yevpatoriia",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 80,
+        "fields": {
+            "city": 39,
+            "name": "Євпаторія",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 81,
+        "fields": {
+            "city": 40,
+            "name": "Nikopol",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 82,
+        "fields": {
+            "city": 40,
+            "name": "Нікополь",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 83,
+        "fields": {
+            "city": 41,
+            "name": "Sloviansk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 84,
+        "fields": {
+            "city": 41,
+            "name": "Слов’янськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 85,
+        "fields": {
+            "city": 42,
+            "name": "Pavlohrad",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 86,
+        "fields": {
+            "city": 42,
+            "name": "Павлоград",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 87,
+        "fields": {
+            "city": 43,
+            "name": "Sievierodonetsk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 88,
+        "fields": {
+            "city": 43,
+            "name": "Сєвєродонецьк",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 89,
+        "fields": {
+            "city": 44,
+            "name": "Kamianets-Podilskyi",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 90,
+        "fields": {
+            "city": 44,
+            "name": "Кам’янець-Подільський",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 91,
+        "fields": {
+            "city": 45,
+            "name": "Lysychansk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 92,
+        "fields": {
+            "city": 45,
+            "name": "Лисичанськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 93,
+        "fields": {
+            "city": 46,
+            "name": "Mukacheve",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 94,
+        "fields": {
+            "city": 46,
+            "name": "Мукачево",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 95,
+        "fields": {
+            "city": 47,
+            "name": "Konotop",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 96,
+        "fields": {
+            "city": 47,
+            "name": "Конотоп",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 97,
+        "fields": {
+            "city": 48,
+            "name": "Uman",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 98,
+        "fields": {
+            "city": 48,
+            "name": "Умань",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 99,
+        "fields": {
+            "city": 49,
+            "name": "Krasnyi Luch",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 100,
+        "fields": {
+            "city": 49,
+            "name": "Красний Луч",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 101,
+        "fields": {
+            "city": 50,
+            "name": "Khrustalnyi",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 102,
+        "fields": {
+            "city": 50,
+            "name": "Хрустальний",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 103,
+        "fields": {
+            "city": 51,
+            "name": "Yalta",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 104,
+        "fields": {
+            "city": 51,
+            "name": "Ялта",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 105,
+        "fields": {
+            "city": 52,
+            "name": "Yenakiieve",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 106,
+        "fields": {
+            "city": 52,
+            "name": "Єнакієве",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 107,
+        "fields": {
+            "city": 53,
+            "name": "Oleksandriia",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 108,
+        "fields": {
+            "city": 53,
+            "name": "Олександрія",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 109,
+        "fields": {
+            "city": 54,
+            "name": "Stakhanov",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 110,
+        "fields": {
+            "city": 54,
+            "name": "Стаханов",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 111,
+        "fields": {
+            "city": 55,
+            "name": "Drohobych",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 112,
+        "fields": {
+            "city": 55,
+            "name": "Дрогобич",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 113,
+        "fields": {
+            "city": 56,
+            "name": "Berdychiv",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 114,
+        "fields": {
+            "city": 56,
+            "name": "Бердичів",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 115,
+        "fields": {
+            "city": 57,
+            "name": "Shostka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 116,
+        "fields": {
+            "city": 57,
+            "name": "Шостка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 117,
+        "fields": {
+            "city": 58,
+            "name": "Bakhmut",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 118,
+        "fields": {
+            "city": 58,
+            "name": "Бахмут",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 119,
+        "fields": {
+            "city": 59,
+            "name": "Izmail",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 120,
+        "fields": {
+            "city": 59,
+            "name": "Ізмаїл",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 121,
+        "fields": {
+            "city": 60,
+            "name": "Novomoskovsk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 122,
+        "fields": {
+            "city": 60,
+            "name": "Новомосковськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 123,
+        "fields": {
+            "city": 61,
+            "name": "Fedosiia",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 124,
+        "fields": {
+            "city": 61,
+            "name": "Феодосія",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 125,
+        "fields": {
+            "city": 62,
+            "name": "Kovel",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 126,
+        "fields": {
+            "city": 62,
+            "name": "Ковель",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 127,
+        "fields": {
+            "city": 63,
+            "name": "Kostiantynivka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 128,
+        "fields": {
+            "city": 63,
+            "name": "Костянтинівка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 129,
+        "fields": {
+            "city": 64,
+            "name": "Nizhyn",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 130,
+        "fields": {
+            "city": 64,
+            "name": "Ніжин",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 131,
+        "fields": {
+            "city": 65,
+            "name": "Smila",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 132,
+        "fields": {
+            "city": 65,
+            "name": "Сміла",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 133,
+        "fields": {
+            "city": 66,
+            "name": "Irpin",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 134,
+        "fields": {
+            "city": 66,
+            "name": "Ірпінь",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 135,
+        "fields": {
+            "city": 67,
+            "name": "Kalush",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 136,
+        "fields": {
+            "city": 67,
+            "name": "Калуш",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 137,
+        "fields": {
+            "city": 68,
+            "name": "Chervonohrad",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 138,
+        "fields": {
+            "city": 68,
+            "name": "Червоноград",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 139,
+        "fields": {
+            "city": 69,
+            "name": "Boryspil",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 140,
+        "fields": {
+            "city": 69,
+            "name": "Бориспіль",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 141,
+        "fields": {
+            "city": 70,
+            "name": "Dovzhansk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 142,
+        "fields": {
+            "city": 70,
+            "name": "Довжанськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 143,
+        "fields": {
+            "city": 71,
+            "name": "Pervomaisk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 144,
+        "fields": {
+            "city": 71,
+            "name": "Первомайськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 145,
+        "fields": {
+            "city": 72,
+            "name": "Korosten",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 146,
+        "fields": {
+            "city": 72,
+            "name": "Коростень",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 147,
+        "fields": {
+            "city": 73,
+            "name": "Kolomyia",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 148,
+        "fields": {
+            "city": 73,
+            "name": "Коломия",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 149,
+        "fields": {
+            "city": 74,
+            "name": "Stryi",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 150,
+        "fields": {
+            "city": 74,
+            "name": "Стрий",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 151,
+        "fields": {
+            "city": 75,
+            "name": "Chornomorsk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 152,
+        "fields": {
+            "city": 75,
+            "name": "Чорноморськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 153,
+        "fields": {
+            "city": 76,
+            "name": "Khartsyzk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 154,
+        "fields": {
+            "city": 76,
+            "name": "Харцизьк",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 155,
+        "fields": {
+            "city": 77,
+            "name": "Rubizhne",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 156,
+        "fields": {
+            "city": 77,
+            "name": "Рубіжне",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 157,
+        "fields": {
+            "city": 78,
+            "name": "Novohrad-Volynskyi",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 158,
+        "fields": {
+            "city": 78,
+            "name": "Новоград-Волинський",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 159,
+        "fields": {
+            "city": 79,
+            "name": "Druzhkivka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 160,
+        "fields": {
+            "city": 79,
+            "name": "Дружківка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 161,
+        "fields": {
+            "city": 80,
+            "name": "Chystiakove",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 162,
+        "fields": {
+            "city": 80,
+            "name": "Чистякове",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 163,
+        "fields": {
+            "city": 81,
+            "name": "Lozova",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 164,
+        "fields": {
+            "city": 81,
+            "name": "Лозова",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 165,
+        "fields": {
+            "city": 82,
+            "name": "Enerhodar",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 166,
+        "fields": {
+            "city": 82,
+            "name": "Енергодар",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 167,
+        "fields": {
+            "city": 83,
+            "name": "Antratsyt",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 168,
+        "fields": {
+            "city": 83,
+            "name": "Антрацит",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 169,
+        "fields": {
+            "city": 84,
+            "name": "Pryluky",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 170,
+        "fields": {
+            "city": 84,
+            "name": "Прилуки",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 171,
+        "fields": {
+            "city": 85,
+            "name": "Horishni Plavni",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 172,
+        "fields": {
+            "city": 85,
+            "name": "Горішні Плавні",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 173,
+        "fields": {
+            "city": 86,
+            "name": "Novovolynsk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 174,
+        "fields": {
+            "city": 86,
+            "name": "Нововолинськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 175,
+        "fields": {
+            "city": 87,
+            "name": "Snizhne",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 176,
+        "fields": {
+            "city": 87,
+            "name": "Сніжне",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 177,
+        "fields": {
+            "city": 88,
+            "name": "Shakhtarsk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 178,
+        "fields": {
+            "city": 88,
+            "name": "Шахтарськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 179,
+        "fields": {
+            "city": 89,
+            "name": "Bilhorod-Dnistrovskyi",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 180,
+        "fields": {
+            "city": 89,
+            "name": "Білгород-Дністровський",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 181,
+        "fields": {
+            "city": 90,
+            "name": "Okhtyrka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 182,
+        "fields": {
+            "city": 90,
+            "name": "Охтирка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 183,
+        "fields": {
+            "city": 91,
+            "name": "Myrnohrad",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 184,
+        "fields": {
+            "city": 91,
+            "name": "Мирноград",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 185,
+        "fields": {
+            "city": 92,
+            "name": "Rovenky",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 186,
+        "fields": {
+            "city": 92,
+            "name": "Ровеньки",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 187,
+        "fields": {
+            "city": 93,
+            "name": "Marhanets",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 188,
+        "fields": {
+            "city": 93,
+            "name": "Марганець",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 189,
+        "fields": {
+            "city": 94,
+            "name": "Izium",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 190,
+        "fields": {
+            "city": 94,
+            "name": "Ізюм",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 191,
+        "fields": {
+            "city": 95,
+            "name": "Brianka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 192,
+        "fields": {
+            "city": 95,
+            "name": "Брянка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 193,
+        "fields": {
+            "city": 96,
+            "name": "Nova Kakhovka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 194,
+        "fields": {
+            "city": 96,
+            "name": "Нова Каховка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 195,
+        "fields": {
+            "city": 97,
+            "name": "Lubny",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 196,
+        "fields": {
+            "city": 97,
+            "name": "Лубни",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 197,
+        "fields": {
+            "city": 98,
+            "name": "Fastiv",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 198,
+        "fields": {
+            "city": 98,
+            "name": "Фастів",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 199,
+        "fields": {
+            "city": 99,
+            "name": "Svitlovodsk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 200,
+        "fields": {
+            "city": 99,
+            "name": "Світловодськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 201,
+        "fields": {
+            "city": 100,
+            "name": "Vyshneve",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 202,
+        "fields": {
+            "city": 100,
+            "name": "Вишневе",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 203,
+        "fields": {
+            "city": 101,
+            "name": "Krasnodon",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 204,
+        "fields": {
+            "city": 101,
+            "name": "Краснодон",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 205,
+        "fields": {
+            "city": 102,
+            "name": "Zhovti Vody",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 206,
+        "fields": {
+            "city": 102,
+            "name": "Жовті Води",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 207,
+        "fields": {
+            "city": 103,
+            "name": "Varash",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 208,
+        "fields": {
+            "city": 103,
+            "name": "Вараш",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 209,
+        "fields": {
+            "city": 104,
+            "name": "Shepetivka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 210,
+        "fields": {
+            "city": 104,
+            "name": "Шепетівка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 211,
+        "fields": {
+            "city": 105,
+            "name": "Podilsk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 212,
+        "fields": {
+            "city": 105,
+            "name": "Подільськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 213,
+        "fields": {
+            "city": 106,
+            "name": "Dzhankoi",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 214,
+        "fields": {
+            "city": 106,
+            "name": "Джанкой",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 215,
+        "fields": {
+            "city": 107,
+            "name": "Yuzhnoukrainsk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 216,
+        "fields": {
+            "city": 107,
+            "name": "Южноукраїнськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 217,
+        "fields": {
+            "city": 108,
+            "name": "Volodymyrivka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 218,
+        "fields": {
+            "city": 108,
+            "name": "Володимирівка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 219,
+        "fields": {
+            "city": 109,
+            "name": "Myrhorod",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 220,
+        "fields": {
+            "city": 109,
+            "name": "Миргород",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 221,
+        "fields": {
+            "city": 110,
+            "name": "Romny",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 222,
+        "fields": {
+            "city": 110,
+            "name": "Ромни",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 223,
+        "fields": {
+            "city": 111,
+            "name": "Pokrov",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 224,
+        "fields": {
+            "city": 111,
+            "name": "Покров",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 225,
+        "fields": {
+            "city": 112,
+            "name": "Bucha",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 226,
+        "fields": {
+            "city": 112,
+            "name": "Буча",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 227,
+        "fields": {
+            "city": 113,
+            "name": "Vasylkiv",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 228,
+        "fields": {
+            "city": 113,
+            "name": "Васильків",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 229,
+        "fields": {
+            "city": 114,
+            "name": "Dubno",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 230,
+        "fields": {
+            "city": 114,
+            "name": "Дубно",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 231,
+        "fields": {
+            "city": 115,
+            "name": "Netishyn",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 232,
+        "fields": {
+            "city": 115,
+            "name": "Нетішин",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 233,
+        "fields": {
+            "city": 116,
+            "name": "Pervomaisk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 234,
+        "fields": {
+            "city": 116,
+            "name": "Первомайськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 235,
+        "fields": {
+            "city": 117,
+            "name": "Slavuta",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 236,
+        "fields": {
+            "city": 117,
+            "name": "Славута",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 237,
+        "fields": {
+            "city": 118,
+            "name": "Kakhovka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 238,
+        "fields": {
+            "city": 118,
+            "name": "Каховка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 239,
+        "fields": {
+            "city": 119,
+            "name": "Boyarka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 240,
+        "fields": {
+            "city": 119,
+            "name": "Боярка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 241,
+        "fields": {
+            "city": 120,
+            "name": "Sambir",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 242,
+        "fields": {
+            "city": 120,
+            "name": "Самбір",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 243,
+        "fields": {
+            "city": 121,
+            "name": "Yasynuvata",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 244,
+        "fields": {
+            "city": 121,
+            "name": "Ясинувата",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 245,
+        "fields": {
+            "city": 122,
+            "name": "Starokostiantyniv",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 246,
+        "fields": {
+            "city": 122,
+            "name": "Старокостянтинів",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 247,
+        "fields": {
+            "city": 123,
+            "name": "Zhmerynka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 248,
+        "fields": {
+            "city": 123,
+            "name": "Жмеринка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 249,
+        "fields": {
+            "city": 124,
+            "name": "Voznesensk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 250,
+        "fields": {
+            "city": 124,
+            "name": "Вознесенськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 251,
+        "fields": {
+            "city": 125,
+            "name": "Obukhiv",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 252,
+        "fields": {
+            "city": 125,
+            "name": "Обухів",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 253,
+        "fields": {
+            "city": 126,
+            "name": "Yuzhne",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 254,
+        "fields": {
+            "city": 126,
+            "name": "Южне",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 255,
+        "fields": {
+            "city": 127,
+            "name": "Boryslav",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 256,
+        "fields": {
+            "city": 127,
+            "name": "Борислав",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 257,
+        "fields": {
+            "city": 128,
+            "name": "Hlukhiv",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 258,
+        "fields": {
+            "city": 128,
+            "name": "Глухів",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 259,
+        "fields": {
+            "city": 129,
+            "name": "Novoyavorovskoye",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 260,
+        "fields": {
+            "city": 129,
+            "name": "Новояворівське",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 261,
+        "fields": {
+            "city": 130,
+            "name": "Chuhuiv",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 262,
+        "fields": {
+            "city": 130,
+            "name": "Чугуїв",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 263,
+        "fields": {
+            "city": 131,
+            "name": "Kostopil",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 264,
+        "fields": {
+            "city": 131,
+            "name": "Костопіль",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 265,
+        "fields": {
+            "city": 132,
+            "name": "Mohyliv-Podilskyi",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 266,
+        "fields": {
+            "city": 132,
+            "name": "Могилів-Подільський",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 267,
+        "fields": {
+            "city": 133,
+            "name": "Synelnykove",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 268,
+        "fields": {
+            "city": 133,
+            "name": "Синельникове",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 269,
+        "fields": {
+            "city": 134,
+            "name": "Novyi Rozdil",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 270,
+        "fields": {
+            "city": 134,
+            "name": "Новий Розділ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 271,
+        "fields": {
+            "city": 135,
+            "name": "Tokmak",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 272,
+        "fields": {
+            "city": 135,
+            "name": "Токмак",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 273,
+        "fields": {
+            "city": 136,
+            "name": "Ternivka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 274,
+        "fields": {
+            "city": 136,
+            "name": "Тернівка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 275,
+        "fields": {
+            "city": 137,
+            "name": "Alushta",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 276,
+        "fields": {
+            "city": 137,
+            "name": "Алушта",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 277,
+        "fields": {
+            "city": 138,
+            "name": "Sarny",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 278,
+        "fields": {
+            "city": 138,
+            "name": "Сарни",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 279,
+        "fields": {
+            "city": 139,
+            "name": "Pervomaiskyi",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 280,
+        "fields": {
+            "city": 139,
+            "name": "Первомайський",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 281,
+        "fields": {
+            "city": 140,
+            "name": "Truskavets",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 282,
+        "fields": {
+            "city": 140,
+            "name": "Трускавець",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 283,
+        "fields": {
+            "city": 141,
+            "name": "Chortkiv",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 284,
+        "fields": {
+            "city": 141,
+            "name": "Чортків",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 285,
+        "fields": {
+            "city": 142,
+            "name": "Dobropillia",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 286,
+        "fields": {
+            "city": 142,
+            "name": "Добропілля",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 287,
+        "fields": {
+            "city": 143,
+            "name": "Khust",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 288,
+        "fields": {
+            "city": 143,
+            "name": "Хуст",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 289,
+        "fields": {
+            "city": 144,
+            "name": "Bakhchysarai",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 290,
+        "fields": {
+            "city": 144,
+            "name": "Бахчисарай",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 291,
+        "fields": {
+            "city": 145,
+            "name": "Khrestivka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 292,
+        "fields": {
+            "city": 145,
+            "name": "Хрестівка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 293,
+        "fields": {
+            "city": 146,
+            "name": "Zolotonosha",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 294,
+        "fields": {
+            "city": 146,
+            "name": "Золотоноша",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 295,
+        "fields": {
+            "city": 147,
+            "name": "PershotravensТk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 296,
+        "fields": {
+            "city": 147,
+            "name": "Першотравенськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 297,
+        "fields": {
+            "city": 148,
+            "name": "Khmilnyk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 298,
+        "fields": {
+            "city": 148,
+            "name": "Хмільник",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 299,
+        "fields": {
+            "city": 149,
+            "name": "Kirovsk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 300,
+        "fields": {
+            "city": 149,
+            "name": "Кіровськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 301,
+        "fields": {
+            "city": 150,
+            "name": "Holubivske",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 302,
+        "fields": {
+            "city": 150,
+            "name": "Голубівське",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 303,
+        "fields": {
+            "city": 151,
+            "name": "Kupiansk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 304,
+        "fields": {
+            "city": 151,
+            "name": "Куп’янськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 305,
+        "fields": {
+            "city": 152,
+            "name": "Balakliia",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 306,
+        "fields": {
+            "city": 152,
+            "name": "Балаклія",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 307,
+        "fields": {
+            "city": 153,
+            "name": "Pereyaslav-KhmelТnytsТkyy",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 308,
+        "fields": {
+            "city": 153,
+            "name": "Переяслав-Хмельницький",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 309,
+        "fields": {
+            "city": 154,
+            "name": "Yany Kapu",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 310,
+        "fields": {
+            "city": 154,
+            "name": "Яни Капу",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 311,
+        "fields": {
+            "city": 155,
+            "name": "SofiyivsТka Borshchahivka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 312,
+        "fields": {
+            "city": 155,
+            "name": "Софіївська Борщагівка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 313,
+        "fields": {
+            "city": 156,
+            "name": "Haisyn",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 314,
+        "fields": {
+            "city": 156,
+            "name": "Гайсин",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 315,
+        "fields": {
+            "city": 157,
+            "name": "Vynohradiv",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 316,
+        "fields": {
+            "city": 157,
+            "name": "Виноградів",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 317,
+        "fields": {
+            "city": 158,
+            "name": "Malyn",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 318,
+        "fields": {
+            "city": 158,
+            "name": "Малин",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 319,
+        "fields": {
+            "city": 159,
+            "name": "Saky",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 320,
+        "fields": {
+            "city": 159,
+            "name": "Саки",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 321,
+        "fields": {
+            "city": 160,
+            "name": "Perevalsk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 322,
+        "fields": {
+            "city": 160,
+            "name": "Перевальськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 323,
+        "fields": {
+            "city": 161,
+            "name": "Zdolbuniv",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 324,
+        "fields": {
+            "city": 161,
+            "name": "Здолбунів",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 325,
+        "fields": {
+            "city": 162,
+            "name": "Slavutych",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 326,
+        "fields": {
+            "city": 162,
+            "name": "Славутич",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 327,
+        "fields": {
+            "city": 163,
+            "name": "Armiansk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 328,
+        "fields": {
+            "city": 163,
+            "name": "Армянськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 329,
+        "fields": {
+            "city": 164,
+            "name": "Debaltseve",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 330,
+        "fields": {
+            "city": 164,
+            "name": "Дебальцеве",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 331,
+        "fields": {
+            "city": 165,
+            "name": "Korostyshiv",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 332,
+        "fields": {
+            "city": 165,
+            "name": "Коростишів",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 333,
+        "fields": {
+            "city": 166,
+            "name": "Oleshky",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 334,
+        "fields": {
+            "city": 166,
+            "name": "Олешки",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 335,
+        "fields": {
+            "city": 167,
+            "name": "Zolochiv",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 336,
+        "fields": {
+            "city": 167,
+            "name": "Золочів",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 337,
+        "fields": {
+            "city": 168,
+            "name": "Lebedyn",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 338,
+        "fields": {
+            "city": 168,
+            "name": "Лебедин",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 339,
+        "fields": {
+            "city": 169,
+            "name": "Pesochin",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 340,
+        "fields": {
+            "city": 169,
+            "name": "Пісочин",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 341,
+        "fields": {
+            "city": 170,
+            "name": "Berehove",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 342,
+        "fields": {
+            "city": 170,
+            "name": "Берегове",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 343,
+        "fields": {
+            "city": 171,
+            "name": "Polonne",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 344,
+        "fields": {
+            "city": 171,
+            "name": "Полонне",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 345,
+        "fields": {
+            "city": 172,
+            "name": "Kaniv",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 346,
+        "fields": {
+            "city": 172,
+            "name": "Канів",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 347,
+        "fields": {
+            "city": 173,
+            "name": "Brody",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 348,
+        "fields": {
+            "city": 173,
+            "name": "Броди",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 349,
+        "fields": {
+            "city": 174,
+            "name": "Vyshhorod",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 350,
+        "fields": {
+            "city": 174,
+            "name": "Вишгород",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 351,
+        "fields": {
+            "city": 175,
+            "name": "Hadyach",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 352,
+        "fields": {
+            "city": 175,
+            "name": "Гадяч",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 353,
+        "fields": {
+            "city": 176,
+            "name": "Dokuchaievsk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 354,
+        "fields": {
+            "city": 176,
+            "name": "Докучаєвськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 355,
+        "fields": {
+            "city": 177,
+            "name": "Nadvirna",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 356,
+        "fields": {
+            "city": 177,
+            "name": "Надвірна",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 357,
+        "fields": {
+            "city": 178,
+            "name": "Ladyzhyn",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 358,
+        "fields": {
+            "city": 178,
+            "name": "Ладижин",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 359,
+        "fields": {
+            "city": 179,
+            "name": "Molodohvardiisk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 360,
+        "fields": {
+            "city": 179,
+            "name": "Молодогвардійськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 361,
+        "fields": {
+            "city": 180,
+            "name": "Koziatyn",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 362,
+        "fields": {
+            "city": 180,
+            "name": "Козятин",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 363,
+        "fields": {
+            "city": 181,
+            "name": "Krolevets",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 364,
+        "fields": {
+            "city": 181,
+            "name": "Кролевець",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 365,
+        "fields": {
+            "city": 182,
+            "name": "Vilnohirsk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 366,
+        "fields": {
+            "city": 182,
+            "name": "Вільногірськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 367,
+        "fields": {
+            "city": 183,
+            "name": "Selydove",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 368,
+        "fields": {
+            "city": 183,
+            "name": "Селидове",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 369,
+        "fields": {
+            "city": 184,
+            "name": "Bilohorodka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 370,
+        "fields": {
+            "city": 184,
+            "name": "Білогородка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 371,
+        "fields": {
+            "city": 185,
+            "name": "Znamianka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 372,
+        "fields": {
+            "city": 185,
+            "name": "Знам’янка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 373,
+        "fields": {
+            "city": 186,
+            "name": "Merefa",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 374,
+        "fields": {
+            "city": 186,
+            "name": "Мерефа",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 375,
+        "fields": {
+            "city": 187,
+            "name": "Volnovakha",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 376,
+        "fields": {
+            "city": 187,
+            "name": "Волноваха",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 377,
+        "fields": {
+            "city": 188,
+            "name": "Kremenets",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 378,
+        "fields": {
+            "city": 188,
+            "name": "Кременець",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 379,
+        "fields": {
+            "city": 189,
+            "name": "Dolyna",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 380,
+        "fields": {
+            "city": 189,
+            "name": "Долина",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 381,
+        "fields": {
+            "city": 190,
+            "name": "Sukhodilsk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 382,
+        "fields": {
+            "city": 190,
+            "name": "Суходільськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 383,
+        "fields": {
+            "city": 191,
+            "name": "Sokal",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 384,
+        "fields": {
+            "city": 191,
+            "name": "Сокаль",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 385,
+        "fields": {
+            "city": 192,
+            "name": "Stebnyk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 386,
+        "fields": {
+            "city": 192,
+            "name": "Стебник",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 387,
+        "fields": {
+            "city": 193,
+            "name": "Lyman",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 388,
+        "fields": {
+            "city": 193,
+            "name": "Лиман",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 389,
+        "fields": {
+            "city": 194,
+            "name": "Liubotyn",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 390,
+        "fields": {
+            "city": 194,
+            "name": "Люботин",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 391,
+        "fields": {
+            "city": 195,
+            "name": "Krasnohrad",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 392,
+        "fields": {
+            "city": 195,
+            "name": "Красноград",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 393,
+        "fields": {
+            "city": 196,
+            "name": "Okhmalynka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 394,
+        "fields": {
+            "city": 196,
+            "name": "Охмальнка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 395,
+        "fields": {
+            "city": 197,
+            "name": "TrostyanetsТ",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 396,
+        "fields": {
+            "city": 197,
+            "name": "Тростянець",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 397,
+        "fields": {
+            "city": 198,
+            "name": "Vynnyky",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 398,
+        "fields": {
+            "city": 198,
+            "name": "Винники",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 399,
+        "fields": {
+            "city": 199,
+            "name": "Yahotyn",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 400,
+        "fields": {
+            "city": 199,
+            "name": "Яготин",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 401,
+        "fields": {
+            "city": 200,
+            "name": "Henichesk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 402,
+        "fields": {
+            "city": 200,
+            "name": "Генічеськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 403,
+        "fields": {
+            "city": 201,
+            "name": "Kiliia",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 404,
+        "fields": {
+            "city": 201,
+            "name": "Кілія",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 405,
+        "fields": {
+            "city": 202,
+            "name": "Kalynivka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 406,
+        "fields": {
+            "city": 202,
+            "name": "Калинівка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 407,
+        "fields": {
+            "city": 203,
+            "name": "Hostomel",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 408,
+        "fields": {
+            "city": 203,
+            "name": "Гостомель",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 409,
+        "fields": {
+            "city": 204,
+            "name": "Khotyn",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 410,
+        "fields": {
+            "city": 204,
+            "name": "Хотин",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 411,
+        "fields": {
+            "city": 205,
+            "name": "Krasyliv",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 412,
+        "fields": {
+            "city": 205,
+            "name": "Красилів",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 413,
+        "fields": {
+            "city": 206,
+            "name": "Volochysk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 414,
+        "fields": {
+            "city": 206,
+            "name": "Волочиськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 415,
+        "fields": {
+            "city": 207,
+            "name": "Dolynska",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 416,
+        "fields": {
+            "city": 207,
+            "name": "Долинська",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 417,
+        "fields": {
+            "city": 208,
+            "name": "Piatykhatky",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 418,
+        "fields": {
+            "city": 208,
+            "name": "П’ятихатки",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 419,
+        "fields": {
+            "city": 209,
+            "name": "Kreminna",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 420,
+        "fields": {
+            "city": 209,
+            "name": "Кремінна",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 421,
+        "fields": {
+            "city": 210,
+            "name": "Polohy",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 422,
+        "fields": {
+            "city": 210,
+            "name": "Пологи",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 423,
+        "fields": {
+            "city": 211,
+            "name": "Amvrosiivka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 424,
+        "fields": {
+            "city": 211,
+            "name": "Амвросіївка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 425,
+        "fields": {
+            "city": 212,
+            "name": "Kivsharivka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 426,
+        "fields": {
+            "city": 212,
+            "name": "Ківшарівка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 427,
+        "fields": {
+            "city": 213,
+            "name": "Zuhres",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 428,
+        "fields": {
+            "city": 213,
+            "name": "Зугрес",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 429,
+        "fields": {
+            "city": 214,
+            "name": "Balta",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 430,
+        "fields": {
+            "city": 214,
+            "name": "Балта",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 431,
+        "fields": {
+            "city": 215,
+            "name": "Pelahiivka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 432,
+        "fields": {
+            "city": 215,
+            "name": "Пелагіївка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 433,
+        "fields": {
+            "city": 216,
+            "name": "Horodok",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 434,
+        "fields": {
+            "city": 216,
+            "name": "Городок",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 435,
+        "fields": {
+            "city": 217,
+            "name": "Dniprorudne",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 436,
+        "fields": {
+            "city": 217,
+            "name": "Дніпрорудне",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 437,
+        "fields": {
+            "city": 218,
+            "name": "Reni",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 438,
+        "fields": {
+            "city": 218,
+            "name": "Рені",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 439,
+        "fields": {
+            "city": 219,
+            "name": "KotsyubynsТke",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 440,
+        "fields": {
+            "city": 219,
+            "name": "Коцюбинське",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 441,
+        "fields": {
+            "city": 220,
+            "name": "Vovchansk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 442,
+        "fields": {
+            "city": 220,
+            "name": "Вовчанськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 443,
+        "fields": {
+            "city": 221,
+            "name": "Rozdilna",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 444,
+        "fields": {
+            "city": 221,
+            "name": "Роздільна",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 445,
+        "fields": {
+            "city": 222,
+            "name": "Derhachi",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 446,
+        "fields": {
+            "city": 222,
+            "name": "Дергачі",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 447,
+        "fields": {
+            "city": 223,
+            "name": "Korsun-Shevchenkivskyi",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 448,
+        "fields": {
+            "city": 223,
+            "name": "Корсунь-Шевченківський",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 449,
+        "fields": {
+            "city": 224,
+            "name": "Berezhany",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 450,
+        "fields": {
+            "city": 224,
+            "name": "Бережани",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 451,
+        "fields": {
+            "city": 225,
+            "name": "Svalyava",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 452,
+        "fields": {
+            "city": 225,
+            "name": "Свалява",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 453,
+        "fields": {
+            "city": 226,
+            "name": "Verkhnodniprovsk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 454,
+        "fields": {
+            "city": 226,
+            "name": "Верхньодніпровськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 455,
+        "fields": {
+            "city": 227,
+            "name": "Skadovsk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 456,
+        "fields": {
+            "city": 227,
+            "name": "Скадовськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 457,
+        "fields": {
+            "city": 228,
+            "name": "Bakhmach",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 458,
+        "fields": {
+            "city": 228,
+            "name": "Бахмач",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 459,
+        "fields": {
+            "city": 229,
+            "name": "Krasnohorivka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 460,
+        "fields": {
+            "city": 229,
+            "name": "Красногорівка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 461,
+        "fields": {
+            "city": 230,
+            "name": "Sudak",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 462,
+        "fields": {
+            "city": 230,
+            "name": "Судак",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 463,
+        "fields": {
+            "city": 231,
+            "name": "Apostolove",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 464,
+        "fields": {
+            "city": 231,
+            "name": "Апостолове",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 465,
+        "fields": {
+            "city": 232,
+            "name": "Bilohirsk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 466,
+        "fields": {
+            "city": 232,
+            "name": "Білогірськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 467,
+        "fields": {
+            "city": 233,
+            "name": "Shpola",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 468,
+        "fields": {
+            "city": 233,
+            "name": "Шпола",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 469,
+        "fields": {
+            "city": 234,
+            "name": "Yuvileine",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 470,
+        "fields": {
+            "city": 234,
+            "name": "Ювілейне",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 471,
+        "fields": {
+            "city": 235,
+            "name": "Zvenyhorodka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 472,
+        "fields": {
+            "city": 235,
+            "name": "Звенигородка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 473,
+        "fields": {
+            "city": 236,
+            "name": "Svatove",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 474,
+        "fields": {
+            "city": 236,
+            "name": "Сватове",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 475,
+        "fields": {
+            "city": 237,
+            "name": "Horodok",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 476,
+        "fields": {
+            "city": 237,
+            "name": "Городок",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 477,
+        "fields": {
+            "city": 238,
+            "name": "Novoukrainka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 478,
+        "fields": {
+            "city": 238,
+            "name": "НовоУкраїнка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 479,
+        "fields": {
+            "city": 239,
+            "name": "Berezan",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 480,
+        "fields": {
+            "city": 239,
+            "name": "Березань",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 481,
+        "fields": {
+            "city": 240,
+            "name": "Iziaslav",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 482,
+        "fields": {
+            "city": 240,
+            "name": "Ізяслав",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 483,
+        "fields": {
+            "city": 241,
+            "name": "Starobilsk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 484,
+        "fields": {
+            "city": 241,
+            "name": "Старобільськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 485,
+        "fields": {
+            "city": 242,
+            "name": "Vatutine",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 486,
+        "fields": {
+            "city": 242,
+            "name": "Ватутіне",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 487,
+        "fields": {
+            "city": 243,
+            "name": "Dunaivtsi",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 488,
+        "fields": {
+            "city": 243,
+            "name": "Дунаївці",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 489,
+        "fields": {
+            "city": 244,
+            "name": "Bilopillya",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 490,
+        "fields": {
+            "city": 244,
+            "name": "Білопілля",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 491,
+        "fields": {
+            "city": 245,
+            "name": "Rakhiv",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 492,
+        "fields": {
+            "city": 245,
+            "name": "Рахів",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 493,
+        "fields": {
+            "city": 246,
+            "name": "Taromske",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 494,
+        "fields": {
+            "city": 246,
+            "name": "Таромське",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 495,
+        "fields": {
+            "city": 247,
+            "name": "Ilovaisk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 496,
+        "fields": {
+            "city": 247,
+            "name": "Іловайськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 497,
+        "fields": {
+            "city": 248,
+            "name": "Bar",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 498,
+        "fields": {
+            "city": 248,
+            "name": "Бар",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 499,
+        "fields": {
+            "city": 249,
+            "name": "Ovruch",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 500,
+        "fields": {
+            "city": 249,
+            "name": "Овруч",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 501,
+        "fields": {
+            "city": 250,
+            "name": "Chervonopartyzansk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 502,
+        "fields": {
+            "city": 250,
+            "name": "Червонопартизанськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 503,
+        "fields": {
+            "city": 251,
+            "name": "Skvyra",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 504,
+        "fields": {
+            "city": 251,
+            "name": "Сквира",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 505,
+        "fields": {
+            "city": 252,
+            "name": "Novyi Buh",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 506,
+        "fields": {
+            "city": 252,
+            "name": "Новий Буг",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 507,
+        "fields": {
+            "city": 253,
+            "name": "Pyryatyn",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 508,
+        "fields": {
+            "city": 253,
+            "name": "Пирятин",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 509,
+        "fields": {
+            "city": 254,
+            "name": "Putyvl",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 510,
+        "fields": {
+            "city": 254,
+            "name": "Путивль",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 511,
+        "fields": {
+            "city": 255,
+            "name": "Bolhrad",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 512,
+        "fields": {
+            "city": 255,
+            "name": "Болград",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 513,
+        "fields": {
+            "city": 256,
+            "name": "Ostroh",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 514,
+        "fields": {
+            "city": 256,
+            "name": "Острог",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 515,
+        "fields": {
+            "city": 257,
+            "name": "Burshtyn",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 516,
+        "fields": {
+            "city": 257,
+            "name": "Бурштин",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 517,
+        "fields": {
+            "city": 258,
+            "name": "Slobozhanske",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 518,
+        "fields": {
+            "city": 258,
+            "name": "Слобожанське",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 519,
+        "fields": {
+            "city": 259,
+            "name": "Bilozerske",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 520,
+        "fields": {
+            "city": 259,
+            "name": "Білозерське",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 521,
+        "fields": {
+            "city": 260,
+            "name": "Bohodukhiv",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 522,
+        "fields": {
+            "city": 260,
+            "name": "Богодухів",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 523,
+        "fields": {
+            "city": 261,
+            "name": "Mykolaiv",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 524,
+        "fields": {
+            "city": 261,
+            "name": "Миколаїв",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 525,
+        "fields": {
+            "city": 262,
+            "name": "Artsyz",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 526,
+        "fields": {
+            "city": 262,
+            "name": "Арциз",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 527,
+        "fields": {
+            "city": 263,
+            "name": "VilТnyansТk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 528,
+        "fields": {
+            "city": 263,
+            "name": "Вільнянськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 529,
+        "fields": {
+            "city": 264,
+            "name": "Sadovoye",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 530,
+        "fields": {
+            "city": 264,
+            "name": "Садове",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 531,
+        "fields": {
+            "city": 265,
+            "name": "Mykolaivka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 532,
+        "fields": {
+            "city": 265,
+            "name": "Миколаївка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 533,
+        "fields": {
+            "city": 266,
+            "name": "Ukrainka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 534,
+        "fields": {
+            "city": 266,
+            "name": "Українка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 535,
+        "fields": {
+            "city": 267,
+            "name": "Storozhynets",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 536,
+        "fields": {
+            "city": 267,
+            "name": "Сторожинець",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 537,
+        "fields": {
+            "city": 268,
+            "name": "Karlivka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 538,
+        "fields": {
+            "city": 268,
+            "name": "Карлівка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 539,
+        "fields": {
+            "city": 269,
+            "name": "Novohrodivka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 540,
+        "fields": {
+            "city": 269,
+            "name": "Новогродівка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 541,
+        "fields": {
+            "city": 270,
+            "name": "Velykodolynske",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 542,
+        "fields": {
+            "city": 270,
+            "name": "Великодолинське",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 543,
+        "fields": {
+            "city": 271,
+            "name": "Haivoron",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 544,
+        "fields": {
+            "city": 271,
+            "name": "Гайворон",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 545,
+        "fields": {
+            "city": 272,
+            "name": "Tulchyn",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 546,
+        "fields": {
+            "city": 272,
+            "name": "Тульчин",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 547,
+        "fields": {
+            "city": 273,
+            "name": "Zhovkva",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 548,
+        "fields": {
+            "city": 273,
+            "name": "Жовква",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 549,
+        "fields": {
+            "city": 274,
+            "name": "Kivertsi",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 550,
+        "fields": {
+            "city": 274,
+            "name": "Ківерці",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 551,
+        "fields": {
+            "city": 275,
+            "name": "Zmiiv",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 552,
+        "fields": {
+            "city": 275,
+            "name": "Зміїв",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 553,
+        "fields": {
+            "city": 276,
+            "name": "Radomyshl",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 554,
+        "fields": {
+            "city": 276,
+            "name": "Радомишль",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 555,
+        "fields": {
+            "city": 277,
+            "name": "Slobozhanske",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 556,
+        "fields": {
+            "city": 277,
+            "name": "Слобожанське",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 557,
+        "fields": {
+            "city": 278,
+            "name": "Ochakiv",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 558,
+        "fields": {
+            "city": 278,
+            "name": "Очаків",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 559,
+        "fields": {
+            "city": 279,
+            "name": "Nyzhnia Krynka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 560,
+        "fields": {
+            "city": 279,
+            "name": "Нижня Кринка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 561,
+        "fields": {
+            "city": 280,
+            "name": "Hola Prystan",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 562,
+        "fields": {
+            "city": 280,
+            "name": "Гола Пристань",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 563,
+        "fields": {
+            "city": 281,
+            "name": "Bunhe",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 564,
+        "fields": {
+            "city": 281,
+            "name": "Бунге",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 565,
+        "fields": {
+            "city": 282,
+            "name": "Zbarazh",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 566,
+        "fields": {
+            "city": 282,
+            "name": "Збараж",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 567,
+        "fields": {
+            "city": 283,
+            "name": "Solonytsivka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 568,
+        "fields": {
+            "city": 283,
+            "name": "Солоницівка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 569,
+        "fields": {
+            "city": 284,
+            "name": "Zhashkiv",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 570,
+        "fields": {
+            "city": 284,
+            "name": "Жашків",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 571,
+        "fields": {
+            "city": 285,
+            "name": "Terebovlya",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 572,
+        "fields": {
+            "city": 285,
+            "name": "Теребовля",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 573,
+        "fields": {
+            "city": 286,
+            "name": "Kaharlyk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 574,
+        "fields": {
+            "city": 286,
+            "name": "Кагарлик",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 575,
+        "fields": {
+            "city": 287,
+            "name": "Mala Vyska",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 576,
+        "fields": {
+            "city": 287,
+            "name": "Мала Виска",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 577,
+        "fields": {
+            "city": 288,
+            "name": "Berezne",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 578,
+        "fields": {
+            "city": 288,
+            "name": "Березне",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 579,
+        "fields": {
+            "city": 289,
+            "name": "Horodyshche",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 580,
+        "fields": {
+            "city": 289,
+            "name": "Городище",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 581,
+        "fields": {
+            "city": 290,
+            "name": "Zolote",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 582,
+        "fields": {
+            "city": 290,
+            "name": "Золоте",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 583,
+        "fields": {
+            "city": 291,
+            "name": "Nosivka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 584,
+        "fields": {
+            "city": 291,
+            "name": "Носівка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 585,
+        "fields": {
+            "city": 292,
+            "name": "Talne",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 586,
+        "fields": {
+            "city": 292,
+            "name": "Тальне",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 587,
+        "fields": {
+            "city": 293,
+            "name": "Yavoriv",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 588,
+        "fields": {
+            "city": 293,
+            "name": "Яворів",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 589,
+        "fields": {
+            "city": 294,
+            "name": "Zelenodolsk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 590,
+        "fields": {
+            "city": 294,
+            "name": "Зеленодольськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 591,
+        "fields": {
+            "city": 295,
+            "name": "Perehinske",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 592,
+        "fields": {
+            "city": 295,
+            "name": "Перегінське",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 593,
+        "fields": {
+            "city": 296,
+            "name": "Petrovske",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 594,
+        "fields": {
+            "city": 296,
+            "name": "Петровське",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 595,
+        "fields": {
+            "city": 297,
+            "name": "Tetiiv",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 596,
+        "fields": {
+            "city": 297,
+            "name": "Тетіїв",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 597,
+        "fields": {
+            "city": 298,
+            "name": "Antonivka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 598,
+        "fields": {
+            "city": 298,
+            "name": "Антонівка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 599,
+        "fields": {
+            "city": 299,
+            "name": "Hvardiiske",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 600,
+        "fields": {
+            "city": 299,
+            "name": "Гвардійське",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 601,
+        "fields": {
+            "city": 300,
+            "name": "Vasylivka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 602,
+        "fields": {
+            "city": 300,
+            "name": "Василівка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 603,
+        "fields": {
+            "city": 301,
+            "name": "Prymorskyi",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 604,
+        "fields": {
+            "city": 301,
+            "name": "Приморський",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 605,
+        "fields": {
+            "city": 302,
+            "name": "Khorol",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 606,
+        "fields": {
+            "city": 302,
+            "name": "Хорол",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 607,
+        "fields": {
+            "city": 303,
+            "name": "Borodyanka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 608,
+        "fields": {
+            "city": 303,
+            "name": "Бородянка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 609,
+        "fields": {
+            "city": 304,
+            "name": "Rozhyshche",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 610,
+        "fields": {
+            "city": 304,
+            "name": "Рожище",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 611,
+        "fields": {
+            "city": 305,
+            "name": "Novhorod-Siverskyi",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 612,
+        "fields": {
+            "city": 305,
+            "name": "Новгород-Сіверський",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 613,
+        "fields": {
+            "city": 306,
+            "name": "Biliaivka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 614,
+        "fields": {
+            "city": 306,
+            "name": "Біляївка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 615,
+        "fields": {
+            "city": 307,
+            "name": "Stanytsia Luhanska",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 616,
+        "fields": {
+            "city": 307,
+            "name": "Станиця Луганська",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 617,
+        "fields": {
+            "city": 308,
+            "name": "Chasiv Yar",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 618,
+        "fields": {
+            "city": 308,
+            "name": "Часів Яр",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 619,
+        "fields": {
+            "city": 309,
+            "name": "Koriukivka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 620,
+        "fields": {
+            "city": 309,
+            "name": "Корюківка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 621,
+        "fields": {
+            "city": 310,
+            "name": "Hnivan",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 622,
+        "fields": {
+            "city": 310,
+            "name": "Гнівань",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 623,
+        "fields": {
+            "city": 311,
+            "name": "Bashtanka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 624,
+        "fields": {
+            "city": 311,
+            "name": "Баштанка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 625,
+        "fields": {
+            "city": 312,
+            "name": "Buchach",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 626,
+        "fields": {
+            "city": 312,
+            "name": "Бучач",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 627,
+        "fields": {
+            "city": 313,
+            "name": "Kamianka-Dniprovska",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 628,
+        "fields": {
+            "city": 313,
+            "name": "Кам’янка-Дніпровська",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 629,
+        "fields": {
+            "city": 314,
+            "name": "Snihurivka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 630,
+        "fields": {
+            "city": 314,
+            "name": "Снігурівка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 631,
+        "fields": {
+            "city": 315,
+            "name": "Uzyn",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 632,
+        "fields": {
+            "city": 315,
+            "name": "Узин",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 633,
+        "fields": {
+            "city": 316,
+            "name": "Beryslav",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 634,
+        "fields": {
+            "city": 316,
+            "name": "Берислав",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 635,
+        "fields": {
+            "city": 317,
+            "name": "Zhdanivka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 636,
+        "fields": {
+            "city": 317,
+            "name": "Жданівка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 637,
+        "fields": {
+            "city": 318,
+            "name": "Krykhivtsi",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 638,
+        "fields": {
+            "city": 318,
+            "name": "Крихівці",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 639,
+        "fields": {
+            "city": 319,
+            "name": "Kotelva",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 640,
+        "fields": {
+            "city": 319,
+            "name": "Котельва",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 641,
+        "fields": {
+            "city": 320,
+            "name": "Bershad",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 642,
+        "fields": {
+            "city": 320,
+            "name": "Бершадь",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 643,
+        "fields": {
+            "city": 321,
+            "name": "Manevychi",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 644,
+        "fields": {
+            "city": 321,
+            "name": "Маневичі",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 645,
+        "fields": {
+            "city": 322,
+            "name": "Kamin-Kashyrskyi",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 646,
+        "fields": {
+            "city": 322,
+            "name": "Камінь-Каширський",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 647,
+        "fields": {
+            "city": 323,
+            "name": "Mykhailivka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 648,
+        "fields": {
+            "city": 323,
+            "name": "Михайлівка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 649,
+        "fields": {
+            "city": 324,
+            "name": "Nova Odesa",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 650,
+        "fields": {
+            "city": 324,
+            "name": "Нова Одеса",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 651,
+        "fields": {
+            "city": 325,
+            "name": "Horodnia",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 652,
+        "fields": {
+            "city": 325,
+            "name": "Городня",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 653,
+        "fields": {
+            "city": 326,
+            "name": "Liubashivka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 654,
+        "fields": {
+            "city": 326,
+            "name": "Любашівка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 655,
+        "fields": {
+            "city": 327,
+            "name": "Kalmiuske",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 656,
+        "fields": {
+            "city": 327,
+            "name": "Кальміуське",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 657,
+        "fields": {
+            "city": 328,
+            "name": "Vakhrusheve",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 658,
+        "fields": {
+            "city": 328,
+            "name": "Вахрушеве",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 659,
+        "fields": {
+            "city": 329,
+            "name": "Nemyriv",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 660,
+        "fields": {
+            "city": 329,
+            "name": "Немирів",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 661,
+        "fields": {
+            "city": 330,
+            "name": "Shchastia",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 662,
+        "fields": {
+            "city": 330,
+            "name": "Щастя",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 663,
+        "fields": {
+            "city": 331,
+            "name": "Ovidiopol",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 664,
+        "fields": {
+            "city": 331,
+            "name": "Овідіополь",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 665,
+        "fields": {
+            "city": 332,
+            "name": "Zimna Voda",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 666,
+        "fields": {
+            "city": 332,
+            "name": "Зимна Вода",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 667,
+        "fields": {
+            "city": 333,
+            "name": "Chornomorske",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 668,
+        "fields": {
+            "city": 333,
+            "name": "Чорноморське",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 669,
+        "fields": {
+            "city": 334,
+            "name": "Vasylkivka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 670,
+        "fields": {
+            "city": 334,
+            "name": "Васильківка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 671,
+        "fields": {
+            "city": 335,
+            "name": "Baryshivka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 672,
+        "fields": {
+            "city": 335,
+            "name": "Баришівка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 673,
+        "fields": {
+            "city": 336,
+            "name": "Baranivka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 674,
+        "fields": {
+            "city": 336,
+            "name": "Баранівка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 675,
+        "fields": {
+            "city": 337,
+            "name": "Prymorsk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 676,
+        "fields": {
+            "city": 337,
+            "name": "Приморськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 677,
+        "fields": {
+            "city": 338,
+            "name": "Dachne",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 678,
+        "fields": {
+            "city": 338,
+            "name": "Дачне",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 679,
+        "fields": {
+            "city": 339,
+            "name": "Kurman",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 680,
+        "fields": {
+            "city": 339,
+            "name": "Курман",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 681,
+        "fields": {
+            "city": 340,
+            "name": "Svitlodarsk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 682,
+        "fields": {
+            "city": 340,
+            "name": "Світлодарськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 683,
+        "fields": {
+            "city": 341,
+            "name": "Myronivka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 684,
+        "fields": {
+            "city": 341,
+            "name": "Миронівка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 685,
+        "fields": {
+            "city": 342,
+            "name": "Illintsi",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 686,
+        "fields": {
+            "city": 342,
+            "name": "Іллінці",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 687,
+        "fields": {
+            "city": 343,
+            "name": "Yakymivka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 688,
+        "fields": {
+            "city": 343,
+            "name": "Якимівка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 689,
+        "fields": {
+            "city": 344,
+            "name": "Novoazovsk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 690,
+        "fields": {
+            "city": 344,
+            "name": "Новоазовськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 691,
+        "fields": {
+            "city": 345,
+            "name": "Lokhvytsya",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 692,
+        "fields": {
+            "city": 345,
+            "name": "Лохвиця",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 693,
+        "fields": {
+            "city": 346,
+            "name": "Kamianka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 694,
+        "fields": {
+            "city": 346,
+            "name": "Кам’янка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 695,
+        "fields": {
+            "city": 347,
+            "name": "Rokytne",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 696,
+        "fields": {
+            "city": 347,
+            "name": "Рокитне",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 697,
+        "fields": {
+            "city": 348,
+            "name": "Mena",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 698,
+        "fields": {
+            "city": 348,
+            "name": "Мена",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 699,
+        "fields": {
+            "city": 349,
+            "name": "Siversk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 700,
+        "fields": {
+            "city": 349,
+            "name": "Сіверськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 701,
+        "fields": {
+            "city": 350,
+            "name": "Tatarbunary",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 702,
+        "fields": {
+            "city": 350,
+            "name": "Татарбунари",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 703,
+        "fields": {
+            "city": 351,
+            "name": "Novomyrhorod",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 704,
+        "fields": {
+            "city": 351,
+            "name": "Новомиргород",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 705,
+        "fields": {
+            "city": 352,
+            "name": "Sosnivka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 706,
+        "fields": {
+            "city": 352,
+            "name": "Соснівка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 707,
+        "fields": {
+            "city": 353,
+            "name": "Yampil",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 708,
+        "fields": {
+            "city": 353,
+            "name": "Ямпіль",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 709,
+        "fields": {
+            "city": 354,
+            "name": "Ukrainsk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 710,
+        "fields": {
+            "city": 354,
+            "name": "Українськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 711,
+        "fields": {
+            "city": 355,
+            "name": "Borshchiv",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 712,
+        "fields": {
+            "city": 355,
+            "name": "Борщів",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 713,
+        "fields": {
+            "city": 356,
+            "name": "Snovsk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 714,
+        "fields": {
+            "city": 356,
+            "name": "Сновськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 715,
+        "fields": {
+            "city": 357,
+            "name": "Lymanka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 716,
+        "fields": {
+            "city": 357,
+            "name": "Лиманка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 717,
+        "fields": {
+            "city": 358,
+            "name": "Ivankiv",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 718,
+        "fields": {
+            "city": 358,
+            "name": "Іванків",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 719,
+        "fields": {
+            "city": 359,
+            "name": "Hrebinka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 720,
+        "fields": {
+            "city": 359,
+            "name": "Гребінка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 721,
+        "fields": {
+            "city": 360,
+            "name": "Bobrovytsia",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 722,
+        "fields": {
+            "city": 360,
+            "name": "Бобровиця",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 723,
+        "fields": {
+            "city": 361,
+            "name": "Novotroitske",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 724,
+        "fields": {
+            "city": 361,
+            "name": "Новотроїцьке",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 725,
+        "fields": {
+            "city": 362,
+            "name": "Soledar",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 726,
+        "fields": {
+            "city": 362,
+            "name": "Соледар",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 727,
+        "fields": {
+            "city": 363,
+            "name": "Mospyne",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 728,
+        "fields": {
+            "city": 363,
+            "name": "Моспине",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 729,
+        "fields": {
+            "city": 364,
+            "name": "Novodnistrovsk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 730,
+        "fields": {
+            "city": 364,
+            "name": "Новодністровськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 731,
+        "fields": {
+            "city": 365,
+            "name": "Nova Vodolaha",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 732,
+        "fields": {
+            "city": 365,
+            "name": "Нова Водолага",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 733,
+        "fields": {
+            "city": 366,
+            "name": "Krasnoilsk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 734,
+        "fields": {
+            "city": 366,
+            "name": "Красноїльськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 735,
+        "fields": {
+            "city": 367,
+            "name": "Radyvyliv",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 736,
+        "fields": {
+            "city": 367,
+            "name": "Радивилів",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 737,
+        "fields": {
+            "city": 368,
+            "name": "Kamianka-Buzka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 738,
+        "fields": {
+            "city": 368,
+            "name": "Кам’янка-Бузька",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 739,
+        "fields": {
+            "city": 369,
+            "name": "Bobrynets",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 740,
+        "fields": {
+            "city": 369,
+            "name": "Бобринець",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 741,
+        "fields": {
+            "city": 370,
+            "name": "Ichnia",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 742,
+        "fields": {
+            "city": 370,
+            "name": "Ічня",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 743,
+        "fields": {
+            "city": 371,
+            "name": "Valky",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 744,
+        "fields": {
+            "city": 371,
+            "name": "Валки",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 745,
+        "fields": {
+            "city": 372,
+            "name": "Hirnyk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 746,
+        "fields": {
+            "city": 372,
+            "name": "Гірник",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 747,
+        "fields": {
+            "city": 373,
+            "name": "Zhydachiv",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 748,
+        "fields": {
+            "city": 373,
+            "name": "Жидачів",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 749,
+        "fields": {
+            "city": 374,
+            "name": "Inkerman",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 750,
+        "fields": {
+            "city": 374,
+            "name": "Інкерман",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 751,
+        "fields": {
+            "city": 375,
+            "name": "Haspra",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 752,
+        "fields": {
+            "city": 375,
+            "name": "Гаспра",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 753,
+        "fields": {
+            "city": 376,
+            "name": "LyubomlТ",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 754,
+        "fields": {
+            "city": 376,
+            "name": "Любомль",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 755,
+        "fields": {
+            "city": 377,
+            "name": "Bolekhiv",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 756,
+        "fields": {
+            "city": 377,
+            "name": "Болехів",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 757,
+        "fields": {
+            "city": 378,
+            "name": "Korolevo",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 758,
+        "fields": {
+            "city": 378,
+            "name": "Королево",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 759,
+        "fields": {
+            "city": 379,
+            "name": "Verkhivtseve",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 760,
+        "fields": {
+            "city": 379,
+            "name": "Верхівцеве",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 761,
+        "fields": {
+            "city": 380,
+            "name": "Tavriisk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 762,
+        "fields": {
+            "city": 380,
+            "name": "Таврійськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 763,
+        "fields": {
+            "city": 381,
+            "name": "Letychiv",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 764,
+        "fields": {
+            "city": 381,
+            "name": "Летичів",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 765,
+        "fields": {
+            "city": 382,
+            "name": "Sartana",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 766,
+        "fields": {
+            "city": 382,
+            "name": "Сартана",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 767,
+        "fields": {
+            "city": 383,
+            "name": "Olevsk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 768,
+        "fields": {
+            "city": 383,
+            "name": "Олевськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 769,
+        "fields": {
+            "city": 384,
+            "name": "Novooleksiivka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 770,
+        "fields": {
+            "city": 384,
+            "name": "Новоолексіївка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 771,
+        "fields": {
+            "city": 385,
+            "name": "Teplodar",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 772,
+        "fields": {
+            "city": 385,
+            "name": "Теплодар",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 773,
+        "fields": {
+            "city": 386,
+            "name": "Khrystynivka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 774,
+        "fields": {
+            "city": 386,
+            "name": "Христинівка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 775,
+        "fields": {
+            "city": 387,
+            "name": "Rodynske",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 776,
+        "fields": {
+            "city": 387,
+            "name": "Родинське",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 777,
+        "fields": {
+            "city": 388,
+            "name": "Sieverne",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 778,
+        "fields": {
+            "city": 388,
+            "name": "Сіверне",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 779,
+        "fields": {
+            "city": 389,
+            "name": "Derazhnia",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 780,
+        "fields": {
+            "city": 389,
+            "name": "Деражня",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 781,
+        "fields": {
+            "city": 390,
+            "name": "Dubliany",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 782,
+        "fields": {
+            "city": 390,
+            "name": "Дубляни",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 783,
+        "fields": {
+            "city": 391,
+            "name": "Novgorodskoye",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 784,
+        "fields": {
+            "city": 391,
+            "name": "Новгородське",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 785,
+        "fields": {
+            "city": 392,
+            "name": "Sniatyn",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 786,
+        "fields": {
+            "city": 392,
+            "name": "Снятин",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 787,
+        "fields": {
+            "city": 393,
+            "name": "Tarashcha",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 788,
+        "fields": {
+            "city": 393,
+            "name": "Тараща",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 789,
+        "fields": {
+            "city": 394,
+            "name": "Radekhiv",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 790,
+        "fields": {
+            "city": 394,
+            "name": "Радехів",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 791,
+        "fields": {
+            "city": 395,
+            "name": "Pereshchepyne",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 792,
+        "fields": {
+            "city": 395,
+            "name": "Перещепине",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 793,
+        "fields": {
+            "city": 396,
+            "name": "Vysokyi",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 794,
+        "fields": {
+            "city": 396,
+            "name": "Високий",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 795,
+        "fields": {
+            "city": 397,
+            "name": "Shyroke",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 796,
+        "fields": {
+            "city": 397,
+            "name": "Широке",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 797,
+        "fields": {
+            "city": 398,
+            "name": "Ratne",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 798,
+        "fields": {
+            "city": 398,
+            "name": "Ратне",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 799,
+        "fields": {
+            "city": 399,
+            "name": "Zymohiria",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 800,
+        "fields": {
+            "city": 399,
+            "name": "Зимогір’я",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 801,
+        "fields": {
+            "city": 400,
+            "name": "Pokrovske",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 802,
+        "fields": {
+            "city": 400,
+            "name": "Покровське",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 803,
+        "fields": {
+            "city": 401,
+            "name": "Kobeliaky",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 804,
+        "fields": {
+            "city": 401,
+            "name": "Кобеляки",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 805,
+        "fields": {
+            "city": 402,
+            "name": "Syurte",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 806,
+        "fields": {
+            "city": 402,
+            "name": "Сюртe",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 807,
+        "fields": {
+            "city": 403,
+            "name": "Borzna",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 808,
+        "fields": {
+            "city": 403,
+            "name": "Борзна",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 809,
+        "fields": {
+            "city": 404,
+            "name": "Bilenke",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 810,
+        "fields": {
+            "city": 404,
+            "name": "Біленьке",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 811,
+        "fields": {
+            "city": 405,
+            "name": "Mizhhiria",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 812,
+        "fields": {
+            "city": 405,
+            "name": "Міжгір’я",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 813,
+        "fields": {
+            "city": 406,
+            "name": "Berezivka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 814,
+        "fields": {
+            "city": 406,
+            "name": "Березівка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 815,
+        "fields": {
+            "city": 407,
+            "name": "Chaplynka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 816,
+        "fields": {
+            "city": 407,
+            "name": "Чаплинка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 817,
+        "fields": {
+            "city": 408,
+            "name": "Novopskov",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 818,
+        "fields": {
+            "city": 408,
+            "name": "Новопсков",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 819,
+        "fields": {
+            "city": 409,
+            "name": "Makariv",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 820,
+        "fields": {
+            "city": 409,
+            "name": "Макарів",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 821,
+        "fields": {
+            "city": 410,
+            "name": "Dymka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 822,
+        "fields": {
+            "city": 410,
+            "name": "Димка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 823,
+        "fields": {
+            "city": 411,
+            "name": "Pustomyty",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 824,
+        "fields": {
+            "city": 411,
+            "name": "Пустомити",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 825,
+        "fields": {
+            "city": 412,
+            "name": "Dubrovytsya",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 826,
+        "fields": {
+            "city": 412,
+            "name": "Дубровиця",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 827,
+        "fields": {
+            "city": 413,
+            "name": "Vesele",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 828,
+        "fields": {
+            "city": 413,
+            "name": "Веселе",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 829,
+        "fields": {
+            "city": 414,
+            "name": "Chornobaivka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 830,
+        "fields": {
+            "city": 414,
+            "name": "Чорнобаївка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 831,
+        "fields": {
+            "city": 415,
+            "name": "Teplohirsk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 832,
+        "fields": {
+            "city": 415,
+            "name": "Теплогірськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 833,
+        "fields": {
+            "city": 416,
+            "name": "Bilozerka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 834,
+        "fields": {
+            "city": 416,
+            "name": "Білозерка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 835,
+        "fields": {
+            "city": 417,
+            "name": "Smoline",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 836,
+        "fields": {
+            "city": 417,
+            "name": "Смоліне",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 837,
+        "fields": {
+            "city": 418,
+            "name": "Hlyboka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 838,
+        "fields": {
+            "city": 418,
+            "name": "Глибока",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 839,
+        "fields": {
+            "city": 419,
+            "name": "Pohrebyshche",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 840,
+        "fields": {
+            "city": 419,
+            "name": "Погребище",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 841,
+        "fields": {
+            "city": 420,
+            "name": "Zinkiv",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 842,
+        "fields": {
+            "city": 420,
+            "name": "Зіньків",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 843,
+        "fields": {
+            "city": 421,
+            "name": "Irshava",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 844,
+        "fields": {
+            "city": 421,
+            "name": "Іршава",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 845,
+        "fields": {
+            "city": 422,
+            "name": "Obukhivka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 846,
+        "fields": {
+            "city": 422,
+            "name": "Обухівка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 847,
+        "fields": {
+            "city": 423,
+            "name": "Bezliudivka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 848,
+        "fields": {
+            "city": 423,
+            "name": "Безлюдівка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 849,
+        "fields": {
+            "city": 424,
+            "name": "Cherniakhiv",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 850,
+        "fields": {
+            "city": 424,
+            "name": "Черняхів",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 851,
+        "fields": {
+            "city": 425,
+            "name": "Pokotylivka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 852,
+        "fields": {
+            "city": 425,
+            "name": "Покотилівка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 853,
+        "fields": {
+            "city": 426,
+            "name": "Velykyi Bychkiv",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 854,
+        "fields": {
+            "city": 426,
+            "name": "Великий Бичків",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 855,
+        "fields": {
+            "city": 427,
+            "name": "Hirske",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 856,
+        "fields": {
+            "city": 427,
+            "name": "Гірське",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 857,
+        "fields": {
+            "city": 428,
+            "name": "Marinka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 858,
+        "fields": {
+            "city": 428,
+            "name": "Мар’їнка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 859,
+        "fields": {
+            "city": 429,
+            "name": "Mostyska",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 860,
+        "fields": {
+            "city": 429,
+            "name": "Мостиська",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 861,
+        "fields": {
+            "city": 430,
+            "name": "Velyki Luchky",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 862,
+        "fields": {
+            "city": 430,
+            "name": "Великі Лучки",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 863,
+        "fields": {
+            "city": 431,
+            "name": "Pivnichne",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 864,
+        "fields": {
+            "city": 431,
+            "name": "Північне",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 865,
+        "fields": {
+            "city": 432,
+            "name": "Reshetylivka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 866,
+        "fields": {
+            "city": 432,
+            "name": "Решетилівка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 867,
+        "fields": {
+            "city": 433,
+            "name": "Velyka Dymerka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 868,
+        "fields": {
+            "city": 433,
+            "name": "Велика Димерка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 869,
+        "fields": {
+            "city": 434,
+            "name": "Stryzhavka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 870,
+        "fields": {
+            "city": 434,
+            "name": "Стрижавка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 871,
+        "fields": {
+            "city": 435,
+            "name": "Novyi Svit",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 872,
+        "fields": {
+            "city": 435,
+            "name": "Новий Світ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 873,
+        "fields": {
+            "city": 436,
+            "name": "Kalanchak",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 874,
+        "fields": {
+            "city": 436,
+            "name": "Каланчак",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 875,
+        "fields": {
+            "city": 437,
+            "name": "Tysmenytsia",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 876,
+        "fields": {
+            "city": 437,
+            "name": "Тисмениця",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 877,
+        "fields": {
+            "city": 438,
+            "name": "Hlobyne",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 878,
+        "fields": {
+            "city": 438,
+            "name": "Глобине",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 879,
+        "fields": {
+            "city": 439,
+            "name": "Khodoriv",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 880,
+        "fields": {
+            "city": 439,
+            "name": "Ходорів",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 881,
+        "fields": {
+            "city": 440,
+            "name": "Yasenivskyi",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 882,
+        "fields": {
+            "city": 440,
+            "name": "Ясенівський",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 883,
+        "fields": {
+            "city": 441,
+            "name": "Hurzuf",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 884,
+        "fields": {
+            "city": 441,
+            "name": "Гурзуф",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 885,
+        "fields": {
+            "city": 442,
+            "name": "Zalishchyky",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 886,
+        "fields": {
+            "city": 442,
+            "name": "Заліщики",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 887,
+        "fields": {
+            "city": 443,
+            "name": "Horokhiv",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 888,
+        "fields": {
+            "city": 443,
+            "name": "Горохів",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 889,
+        "fields": {
+            "city": 444,
+            "name": "Tiachiv",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 890,
+        "fields": {
+            "city": 444,
+            "name": "Тячів",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 891,
+        "fields": {
+            "city": 445,
+            "name": "Monastyryshche",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 892,
+        "fields": {
+            "city": 445,
+            "name": "Монастирище",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 893,
+        "fields": {
+            "city": 446,
+            "name": "Horodenka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 894,
+        "fields": {
+            "city": 446,
+            "name": "Городенка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 895,
+        "fields": {
+            "city": 447,
+            "name": "Hlevakha",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 896,
+        "fields": {
+            "city": 447,
+            "name": "Глеваха",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 897,
+        "fields": {
+            "city": 448,
+            "name": "Kozova",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 898,
+        "fields": {
+            "city": 448,
+            "name": "Козова",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 899,
+        "fields": {
+            "city": 449,
+            "name": "Nyzhnohirskyi",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 900,
+        "fields": {
+            "city": 449,
+            "name": "Нижньогірський",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 901,
+        "fields": {
+            "city": 450,
+            "name": "Volodymyrets",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 902,
+        "fields": {
+            "city": 450,
+            "name": "Володимирець",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 903,
+        "fields": {
+            "city": 451,
+            "name": "Tlumach",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 904,
+        "fields": {
+            "city": 451,
+            "name": "Тлумач",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 905,
+        "fields": {
+            "city": 452,
+            "name": "Busk",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 906,
+        "fields": {
+            "city": 452,
+            "name": "Буськ",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 907,
+        "fields": {
+            "city": 453,
+            "name": "Chop",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 908,
+        "fields": {
+            "city": 453,
+            "name": "Чоп",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 909,
+        "fields": {
+            "city": 454,
+            "name": "Ilarionove",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 910,
+        "fields": {
+            "city": 454,
+            "name": "Іларіонове",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 911,
+        "fields": {
+            "city": 455,
+            "name": "Pomichna",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 912,
+        "fields": {
+            "city": 455,
+            "name": "Помічна",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 913,
+        "fields": {
+            "city": 456,
+            "name": "Liubymivka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 914,
+        "fields": {
+            "city": 456,
+            "name": "Любимівка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 915,
+        "fields": {
+            "city": 457,
+            "name": "Nerubaiske",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 916,
+        "fields": {
+            "city": 457,
+            "name": "Нерубайське",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 917,
+        "fields": {
+            "city": 458,
+            "name": "Uspenka",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 918,
+        "fields": {
+            "city": 458,
+            "name": "Успенка",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 919,
+        "fields": {
+            "city": 459,
+            "name": "Sokyriany",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 920,
+        "fields": {
+            "city": 459,
+            "name": "Сокиряни",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 921,
+        "fields": {
+            "city": 460,
+            "name": "Chyhyryn",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 922,
+        "fields": {
+            "city": 460,
+            "name": "Чигирин",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 923,
+        "fields": {
+            "city": 461,
+            "name": "Biloziria",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.citytranslation",
+        "pk": 924,
+        "fields": {
+            "city": 461,
+            "name": "Білозір’я",
+            "language_code": "uk"
+        }
+    }
+]

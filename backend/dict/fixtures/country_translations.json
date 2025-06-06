@@ -1,0 +1,20 @@
+[
+    {
+        "model": "dict.countrytranslation",
+        "pk": 1,
+        "fields": {
+            "country": 1,
+            "name": "Ukraine",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "dict.countrytranslation",
+        "pk": 2,
+        "fields": {
+            "country": 1,
+            "name": "Україна",
+            "language_code": "uk"
+        }
+    }
+]

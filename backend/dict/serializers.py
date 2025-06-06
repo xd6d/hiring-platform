@@ -1,15 +1,14 @@
-from rest_framework import serializers
-
+from api.serializers import NameTranslationSerializer
 from dict.models import City, Country
 
 
-class CitySerializer(serializers.ModelSerializer):
+class CitySerializer(NameTranslationSerializer):
     class Meta:
         model = City
-        exclude = ("country", )
+        fields = ("name", )
 
 
-class CountrySerializer(serializers.ModelSerializer):
+class CountrySerializer(NameTranslationSerializer):
     cities = CitySerializer(many=True)
 
     class Meta:
