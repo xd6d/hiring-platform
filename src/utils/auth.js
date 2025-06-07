@@ -1,4 +1,5 @@
 import {API_URL} from '../config/apiConfig';
+import i18n from '../i18n';
 
 export const getAuthToken = () => localStorage.getItem('access');
 export const getRefreshToken = () => localStorage.getItem('refresh');
@@ -33,6 +34,7 @@ export const apiClient = async (endpoint, options = {}, retry = true) => {
     // Start with any headers passed in options, plus Authorization if we have a token
     const headers = {
         ...(token ? {Authorization: `Bearer ${token}`} : {}),
+        'Accept-Language': i18n.language,
         ...options.headers,
     };
 

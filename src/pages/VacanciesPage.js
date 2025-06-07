@@ -8,7 +8,7 @@ const VacanciesPage = () => {
     const [vacancies, setVacancies] = useState([]);
     const [vacLoading, setVacLoading] = useState(true);
     const [vacError, setVacError] = useState(null);
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
 
     const [searchTerm, setSearchTerm] = useState('');
 
@@ -56,7 +56,7 @@ const VacanciesPage = () => {
     useEffect(() => {
         fetchVacancies();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [i18n.language]);
 
     useEffect(() => {
         const fetchTagGroups = async () => {

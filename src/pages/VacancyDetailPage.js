@@ -27,7 +27,7 @@ const VacancyDetailPage = () => {
   const [user, setUser] = useState(null);
   const [userLoading, setUserLoading] = useState(true);
   const [userError, setUserError] = useState(null);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -66,7 +66,7 @@ const VacancyDetailPage = () => {
     };
 
     fetchVacancy();
-  }, [id]);
+  }, [id, i18n.language]);
 
   const handleApplyNow = async () => {
     if (!vacancy) return;

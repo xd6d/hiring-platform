@@ -57,7 +57,7 @@ const CreateVacancyPage = () => {
     const navigate = useNavigate();
     const sensors = useSensors(useSensor(PointerSensor));
     const [isPreview, setIsPreview] = useState(false);
-  const { t } = useTranslation();
+    const { t, i18n  } = useTranslation();
 
     useEffect(() => {
         (async () => {
@@ -84,7 +84,7 @@ const CreateVacancyPage = () => {
                 console.error(err);
             }
         })();
-    }, []);
+    }, [i18n.language]);
 
     useEffect(() => {
         if (showCreateTemplateModal && !fileTypes.length) {

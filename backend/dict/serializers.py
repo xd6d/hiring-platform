@@ -5,7 +5,7 @@ from dict.models import City, Country
 class CitySerializer(NameTranslationSerializer):
     class Meta:
         model = City
-        fields = ("name", )
+        fields = ("name", "id")
 
 
 class CountrySerializer(NameTranslationSerializer):
