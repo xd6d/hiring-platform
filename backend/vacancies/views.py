@@ -1,4 +1,4 @@
-from django.db.models import OuterRef, ExpressionWrapper, F, Subquery, FloatField, Sum
+from django.db.models import OuterRef, ExpressionWrapper, F, Subquery, FloatField, Sum, Prefetch
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import viewsets
 from rest_framework.filters import SearchFilter
@@ -6,6 +6,9 @@ from rest_framework.generics import ListAPIView, CreateAPIView
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 
 from accounts.models import UserTag
+from api.utils import get_language_code
+from dict.models import City, CityTranslation
+from tags.models import Tag, TagTranslation
 from vacancies.filters import VacancyFilter
 from vacancies.models import Vacancy, Application, ApplicationStatus, VacancyTag
 from vacancies.serializers import VacancySerializer, ApplicationCandidateSerializer, ApplicationStatusSerializer, \
@@ -13,7 +16,7 @@ from vacancies.serializers import VacancySerializer, ApplicationCandidateSeriali
 
 
 class VacancyModelViewSet(viewsets.ModelViewSet):
-    queryset = Vacancy.objects.order_by("-created_at")
+    queryset = Vacancy.objects.none()  # mock for swagger
     serializer_class = VacancySerializer
     permission_classes = (IsAuthenticatedOrReadOnly,)
     filter_backends = [DjangoFilterBackend, SearchFilter]
@@ -22,6 +25,18 @@ class VacancyModelViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save(created_by=self.request.user)
+
+    def get_queryset(self):
+        language_code = get_language_code()
+
+        return Vacancy.objects.prefetch_related(
+            Prefetch("tags", queryset=Tag.objects.prefetch_related(
+                Prefetch("translations", TagTranslation.objects.filter(language_code=language_code)),
+            ).order_by("vacancytag__position")),
+            Prefetch("cities", queryset=City.objects.prefetch_related(
+                Prefetch("translations", CityTranslation.objects.filter(language_code=language_code))
+            ).order_by("-population"))
+        ).order_by("-created_at")
 
 
 class ApplicationModelViewSet(viewsets.ModelViewSet):
@@ -80,6 +95,7 @@ class VacancySearchListAPIView(ListAPIView):
             return Vacancy.objects.none()
 
         user = self.request.user
+        language_code = get_language_code()
 
         user_tags_qs = UserTag.objects.filter(user=user).values('tag')
 
@@ -103,6 +119,14 @@ class VacancySearchListAPIView(ListAPIView):
             Vacancy.objects
             .annotate(match_score=Subquery(vacancy_tag_match_qs, output_field=FloatField()))
             .filter(match_score__isnull=False)
+            .prefetch_related(
+                Prefetch("tags", queryset=Tag.objects.prefetch_related(
+                    Prefetch("translations", TagTranslation.objects.filter(language_code=language_code)),
+                ).order_by("vacancytag__position")),
+                Prefetch("cities", queryset=City.objects.prefetch_related(
+                    Prefetch("translations", CityTranslation.objects.filter(language_code=language_code))
+                ).order_by("-population"))
+            )
             .order_by('-match_score')
         )
 

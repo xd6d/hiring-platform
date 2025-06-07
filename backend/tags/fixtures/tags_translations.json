@@ -1,0 +1,542 @@
+[
+    {
+        "model": "tags.tagtranslation",
+        "pk": 1,
+        "fields": {
+            "tag": 1,
+            "name": "Робота в команді",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 2,
+        "fields": {
+            "tag": 1,
+            "name": "Teamwork",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 3,
+        "fields": {
+            "tag": 2,
+            "name": "Емпатія",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 4,
+        "fields": {
+            "tag": 2,
+            "name": "Empathy",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 5,
+        "fields": {
+            "tag": 3,
+            "name": "Вирішення конфліктів",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 6,
+        "fields": {
+            "tag": 3,
+            "name": "Conflict Resolution",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 7,
+        "fields": {
+            "tag": 4,
+            "name": "Python",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 8,
+        "fields": {
+            "tag": 4,
+            "name": "Python",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 9,
+        "fields": {
+            "tag": 5,
+            "name": "Docker",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 10,
+        "fields": {
+            "tag": 5,
+            "name": "Docker",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 11,
+        "fields": {
+            "tag": 6,
+            "name": "Git",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 12,
+        "fields": {
+            "tag": 6,
+            "name": "Git",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 13,
+        "fields": {
+            "tag": 7,
+            "name": "Стратегічне мислення",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 14,
+        "fields": {
+            "tag": 7,
+            "name": "Strategic Thinking",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 15,
+        "fields": {
+            "tag": 8,
+            "name": "Прийняття рішень",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 16,
+        "fields": {
+            "tag": 8,
+            "name": "Decision Making",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 17,
+        "fields": {
+            "tag": 9,
+            "name": "Лідерство в команді",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 18,
+        "fields": {
+            "tag": 9,
+            "name": "Team Leadership",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 19,
+        "fields": {
+            "tag": 10,
+            "name": "Публічні виступи",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 20,
+        "fields": {
+            "tag": 10,
+            "name": "Public Speaking",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 21,
+        "fields": {
+            "tag": 11,
+            "name": "Активне слухання",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 22,
+        "fields": {
+            "tag": 11,
+            "name": "Active Listening",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 23,
+        "fields": {
+            "tag": 12,
+            "name": "Навички письма",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 24,
+        "fields": {
+            "tag": 12,
+            "name": "Writing Skills",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 25,
+        "fields": {
+            "tag": 13,
+            "name": "Аналітичне мислення",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 26,
+        "fields": {
+            "tag": 13,
+            "name": "Analytical Thinking",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 27,
+        "fields": {
+            "tag": 14,
+            "name": "Креативність у розв’язанні проблем",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 28,
+        "fields": {
+            "tag": 14,
+            "name": "Creativity in Problem Solving",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 29,
+        "fields": {
+            "tag": 15,
+            "name": "Логічне мислення",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 30,
+        "fields": {
+            "tag": 15,
+            "name": "Logical Reasoning",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 31,
+        "fields": {
+            "tag": 16,
+            "name": "JavaScript",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 32,
+        "fields": {
+            "tag": 16,
+            "name": "JavaScript",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 33,
+        "fields": {
+            "tag": 17,
+            "name": "Java",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 34,
+        "fields": {
+            "tag": 17,
+            "name": "Java",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 35,
+        "fields": {
+            "tag": 18,
+            "name": "C++",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 36,
+        "fields": {
+            "tag": 18,
+            "name": "C++",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 37,
+        "fields": {
+            "tag": 19,
+            "name": "SEO",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 38,
+        "fields": {
+            "tag": 19,
+            "name": "SEO",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 39,
+        "fields": {
+            "tag": 20,
+            "name": "Цифровий маркетинг",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 40,
+        "fields": {
+            "tag": 20,
+            "name": "Digital Marketing",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 41,
+        "fields": {
+            "tag": 21,
+            "name": "Залучення клієнтів",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 42,
+        "fields": {
+            "tag": 21,
+            "name": "Customer Acquisition",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 43,
+        "fields": {
+            "tag": 22,
+            "name": "UX-дизайн",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 44,
+        "fields": {
+            "tag": 22,
+            "name": "UX Design",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 45,
+        "fields": {
+            "tag": 23,
+            "name": "Графічний дизайн",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 46,
+        "fields": {
+            "tag": 23,
+            "name": "Graphic Design",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 47,
+        "fields": {
+            "tag": 24,
+            "name": "Створення каркасів",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 48,
+        "fields": {
+            "tag": 24,
+            "name": "Wireframing",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 49,
+        "fields": {
+            "tag": 25,
+            "name": "Візуалізація даних",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 50,
+        "fields": {
+            "tag": 25,
+            "name": "Data Visualization",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 51,
+        "fields": {
+            "tag": 26,
+            "name": "SQL",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 52,
+        "fields": {
+            "tag": 26,
+            "name": "SQL",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 53,
+        "fields": {
+            "tag": 27,
+            "name": "Статистичний аналіз",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 54,
+        "fields": {
+            "tag": 27,
+            "name": "Statistical Analysis",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 55,
+        "fields": {
+            "tag": 28,
+            "name": "Гнучкі методології",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 56,
+        "fields": {
+            "tag": 28,
+            "name": "Agile Methodologies",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 57,
+        "fields": {
+            "tag": 29,
+            "name": "Планування проєктів",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 58,
+        "fields": {
+            "tag": 29,
+            "name": "Project Planning",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 59,
+        "fields": {
+            "tag": 30,
+            "name": "Управління ризиками",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "tags.tagtranslation",
+        "pk": 60,
+        "fields": {
+            "tag": 30,
+            "name": "Risk Management",
+            "language_code": "en"
+        }
+    }
+]

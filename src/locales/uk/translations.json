@@ -8,7 +8,7 @@
     "admin": "Адміністратор",
     "no_applications_message": "Ви ще не подали жодної заявки.",
     "applied_for_from": "Подано на {{vacName}} від {{vacCreated}}",
-    "application_status:": "Статус заявки:",
+    "application_status": "Статус заявки",
     "applied_at": "Дата подачі",
     "show_answers": "Показати відповіді",
     "hide_answers": "Сховати відповіді",

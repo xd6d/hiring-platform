@@ -4,7 +4,7 @@ import { apiClient } from '../utils/auth';
 import { useTranslation } from 'react-i18next';
 
 const UserVacanciesPage = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [vacancies, setVacancies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -33,7 +33,7 @@ const UserVacanciesPage = () => {
     };
 
     fetchUserVacancies();
-  }, []);
+  }, [i18n.language]);
 
   if (loading) {
     return <div className="p-4 text-center">{t('loading')}...</div>;

@@ -1,9 +1,6 @@
 from django.db import transaction
-from django.db.models import Prefetch
 from rest_framework import serializers
 
-from api.utils import get_language_code
-from dict.models import CityTranslation
 from dict.serializers import CitySerializer
 from tags.serializers import TagSerializer
 from vacancies_templates.serializers import AnswerQuestionSerializer
@@ -38,15 +35,9 @@ class VacancySerializer(serializers.ModelSerializer):
 
     def to_representation(self, instance):
         representation = super().to_representation(instance)
-        representation["tags"] = TagSerializer(
-            instance.tags.order_by("vacancytag__position"), many=True  # todo: prefetch is better: see users-tags
-        ).data
-
-        language_code = get_language_code()
+        representation["tags"] = TagSerializer(instance.tags.all(), many=True).data
         representation["cities"] = [city["name"] for city in CitySerializer(
-            instance.cities.prefetch_related(
-                Prefetch("translations", CityTranslation.objects.filter(language_code=language_code)),
-            ).order_by("-population"),
+            instance.cities.all(),
             many=True
         ).data]
         representation["is_applied"] = (

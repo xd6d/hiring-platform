@@ -1,0 +1,182 @@
+[
+    {
+        "model": "tags.taggrouptranslation",
+        "pk": 1,
+        "fields": {
+            "tag_group": 1,
+            "name": "Міжособистісні навички",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "tags.taggrouptranslation",
+        "pk": 2,
+        "fields": {
+            "tag_group": 1,
+            "name": "Interpersonal Skills",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "tags.taggrouptranslation",
+        "pk": 3,
+        "fields": {
+            "tag_group": 2,
+            "name": "Інструменти та технології",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "tags.taggrouptranslation",
+        "pk": 4,
+        "fields": {
+            "tag_group": 2,
+            "name": "Tools & Technologies",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "tags.taggrouptranslation",
+        "pk": 5,
+        "fields": {
+            "tag_group": 3,
+            "name": "Менеджмент та лідерство",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "tags.taggrouptranslation",
+        "pk": 6,
+        "fields": {
+            "tag_group": 3,
+            "name": "Management & Leadership",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "tags.taggrouptranslation",
+        "pk": 7,
+        "fields": {
+            "tag_group": 4,
+            "name": "Комунікативні навички",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "tags.taggrouptranslation",
+        "pk": 8,
+        "fields": {
+            "tag_group": 4,
+            "name": "Communication Skills",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "tags.taggrouptranslation",
+        "pk": 9,
+        "fields": {
+            "tag_group": 5,
+            "name": "Розв'язання проблем і критичне мислення",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "tags.taggrouptranslation",
+        "pk": 10,
+        "fields": {
+            "tag_group": 5,
+            "name": "Problem Solving & Critical Thinking",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "tags.taggrouptranslation",
+        "pk": 11,
+        "fields": {
+            "tag_group": 6,
+            "name": "Мови програмування",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "tags.taggrouptranslation",
+        "pk": 12,
+        "fields": {
+            "tag_group": 6,
+            "name": "Programming Languages",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "tags.taggrouptranslation",
+        "pk": 13,
+        "fields": {
+            "tag_group": 7,
+            "name": "Маркетинг та продажі",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "tags.taggrouptranslation",
+        "pk": 14,
+        "fields": {
+            "tag_group": 7,
+            "name": "Marketing & Sales",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "tags.taggrouptranslation",
+        "pk": 15,
+        "fields": {
+            "tag_group": 8,
+            "name": "Дизайн та креативність",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "tags.taggrouptranslation",
+        "pk": 16,
+        "fields": {
+            "tag_group": 8,
+            "name": "Design & Creativity",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "tags.taggrouptranslation",
+        "pk": 17,
+        "fields": {
+            "tag_group": 9,
+            "name": "Аналіз даних та статистика",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "tags.taggrouptranslation",
+        "pk": 18,
+        "fields": {
+            "tag_group": 9,
+            "name": "Data Analysis & Statistics",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "tags.taggrouptranslation",
+        "pk": 19,
+        "fields": {
+            "tag_group": 10,
+            "name": "Управління проєктами",
+            "language_code": "uk"
+        }
+    },
+    {
+        "model": "tags.taggrouptranslation",
+        "pk": 20,
+        "fields": {
+            "tag_group": 10,
+            "name": "Project Management",
+            "language_code": "en"
+        }
+    }
+]

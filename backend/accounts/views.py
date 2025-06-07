@@ -8,8 +8,9 @@ from accounts.filters import CurrentUserFilterBackend
 from accounts.models import User, Role, UserTag, Company
 from accounts.serializers import UserPostSerializer, UserSerializer, RoleSerializer, CompanySerializer, \
     UserTagSerializer, UserTagPositionSerializer
+from api.utils import get_language_code
 from files.models import File
-from tags.models import Tag
+from tags.models import Tag, TagTranslation
 
 
 class UserCreateAPIView(CreateAPIView):
@@ -17,17 +18,24 @@ class UserCreateAPIView(CreateAPIView):
 
 
 class UserRetrieveView(RetrieveUpdateDestroyAPIView):
-    queryset = User.objects.select_related(
-        "photo"
-    ).prefetch_related(
-        Prefetch("tags", queryset=Tag.objects.order_by("usertag__position")),
-        Prefetch("files", queryset=File.objects.filter(user_photo__isnull=True).select_related("type")),
-    ).all()
+    queryset = User.objects.none()  # mock for swagger
     serializer_class = UserSerializer
     permission_classes = [IsAuthenticated]
 
+    def get_queryset(self):
+        language_code = get_language_code()
+
+        return User.objects.select_related(
+            "photo"
+        ).prefetch_related(
+            Prefetch("tags", queryset=Tag.objects.prefetch_related(
+                Prefetch("translations", TagTranslation.objects.filter(language_code=language_code)),
+            ).order_by("usertag__position")),
+            Prefetch("files", queryset=File.objects.filter(user_photo__isnull=True).select_related("type")),
+        ).all()
+
     def get_object(self):
-        return self.queryset.get(pk=self.request.user.pk)
+        return self.get_queryset().get(pk=self.request.user.pk)
 
 
 class RoleListAPIView(ListAPIView):

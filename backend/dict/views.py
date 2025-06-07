@@ -1,9 +1,7 @@
 from django.db.models import Prefetch
-from django.utils import translation
 from rest_framework.generics import ListAPIView
 
 from api.utils import get_language_code
-from config.settings import DEFAULT_LANGUAGE_CODE, AVAILABLE_LANGUAGES
 from dict.models import Country, City, CountryTranslation, CityTranslation
 from dict.serializers import CountrySerializer
 
