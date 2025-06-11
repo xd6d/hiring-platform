@@ -100,22 +100,42 @@ const ApplicationsPage = () => {
               </button>
 
               {/* Conditionally render the answers section */}
-              {isOpen && (
-                <div className="mt-3 border-t pt-2">
-                  {application.answers.length > 0 ? (
-                    application.answers.map((ans, idx) => (
-                      <div key={idx} className="mb-2">
-                        <p className="text-sm">
-                          <span className="font-medium">{ans.question.name}:</span>{' '}
-                          {ans.value}
-                        </p>
-                      </div>
-                    ))
-                  ) : (
-                    <p className="text-sm text-gray-500">{t('no_answers_provided')}</p>
-                  )}
-                </div>
-              )}
+{isOpen && (
+  <div className="mt-3 border-t pt-2">
+    {application.answers.length > 0 ? (
+      application.answers.map((ans, idx) => (
+        <div key={idx} className="mb-2">
+          <p className="text-sm">
+            <span className="font-medium">{ans.question.name}:</span>{' '}
+            {ans.question.type === "FILE" ? (
+              <div className="mt-1 ml-4">
+                {ans.value.map((file, fileIdx) => (
+                  <div key={fileIdx} className="mb-1">
+                    <a
+                      href={file.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:underline"
+                    >
+                      {file.user_filename.length > 30
+                        ? `${file.user_filename.substring(0, 27)}...`
+                        : file.user_filename}
+                    </a>
+                    <span className="text-gray-500 text-xs ml-2">({file.type})</span>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              ans.value
+            )}
+          </p>
+        </div>
+      ))
+    ) : (
+      <p className="text-sm text-gray-500">{t('no_answers_provided')}</p>
+    )}
+  </div>
+)}
             </div>
           );
         })}

@@ -22,20 +22,6 @@ services:
     volumes:
       - hiring-platform-volume:/var/lib/postgresql/data
 
-  s3:
-    image: minio/minio:latest
-    container_name: ${S3_HOST_NAME}
-    ports:
-      - ${S3_PORT_API}:${S3_PORT_API}
-      - ${S3_PORT_WEB}:${S3_PORT_WEB}
-    environment:
-      S3_HOST: ${S3_HOST}
-      MINIO_ROOT_USER: ${S3_USER}
-      MINIO_ROOT_PASSWORD: ${S3_PASS}
-    command: server /data --console-address ":${S3_PORT_WEB}"
-    volumes:
-      - minio_data:/data
-
 #  frontend:
 #    image: node:20-alpine
 #    container_name: frontend
@@ -49,6 +35,20 @@ services:
 #      - CHOKIDAR_USEPOLLING=true
 #    depends_on:
 #      - py
+
+  s3:
+    image: minio/minio:latest
+    container_name: ${S3_HOST_NAME}
+    ports:
+      - ${S3_PORT_API}:${S3_PORT_API}
+      - ${S3_PORT_WEB}:${S3_PORT_WEB}
+    environment:
+      S3_HOST: ${S3_HOST}
+      MINIO_ROOT_USER: ${S3_USER}
+      MINIO_ROOT_PASSWORD: ${S3_PASS}
+    command: server /data --console-address ":${S3_PORT_WEB}"
+    volumes:
+      - minio_data:/data
 
 volumes:
   hiring-platform-volume:

@@ -94,7 +94,8 @@ const UserProfilePage = ({refreshHeader}) => {
     const [selectedFileType, setSelectedFileType] = useState('');
     const [fileUploadError, setFileUploadError] = useState(null);
     const [isUploading, setIsUploading] = useState(false);
-    const { t } = useTranslation();
+    const [deletePhotoModalOpen, setDeletePhotoModalOpen] = useState(false);
+    const {t} = useTranslation();
 
     const navigate = useNavigate();
     const sensors = useSensors(useSensor(PointerSensor));
@@ -154,6 +155,24 @@ const UserProfilePage = ({refreshHeader}) => {
             setFieldErrors(prev => ({...prev, [field]: null}));
         } catch (err) {
             alert(err.message);
+        }
+    };
+
+    const handleDeletePhoto = async () => {
+        try {
+            const response = await apiClient('users/me/delete-photo/', {
+                method: 'DELETE'
+            });
+
+            if (!response.ok) throw new Error(t('failed_to_delete_photo'));
+
+            setPhotoUrl(defaultProfilePicture);
+            setUser(prev => ({...prev, photo: null}));
+            refreshHeader();
+        } catch (err) {
+            alert(`${t('error_deleting_photo')}: ${err.message}`);
+        } finally {
+            setDeletePhotoModalOpen(false);
         }
     };
 
@@ -446,7 +465,7 @@ const UserProfilePage = ({refreshHeader}) => {
                         {user.role === 'ADMIN' && <Shield size={14} className="mr-1"/>}
                         {user.role === 'RECRUITER' && <Briefcase size={14} className="mr-1"/>}
                         {user.role === 'CANDIDATE' && <User size={14} className="mr-1"/>}
-                        {user.role.charAt(0) + user.role.slice(1).toLowerCase()}
+                        {t(user.role.toLowerCase())}
                     </div>
                 </div>
 
@@ -457,12 +476,22 @@ const UserProfilePage = ({refreshHeader}) => {
                             alt="Profile"
                             className="w-full h-full rounded-full object-cover border-2 border-gray-200"
                         />
+                        {user.photo && (
+                            <button
+                                type="button"
+                                onClick={() => setDeletePhotoModalOpen(true)}
+                                className="absolute bottom-0 left-0 bg-white rounded-full p-1.5 shadow-md hover:bg-gray-50 border border-gray-200"
+                                title={t('delete_profile_picture')}
+                            >
+                                <Trash2 size={18} className="text-red-500"/>
+                            </button>
+                        )}
                         <button
                             type="button"
                             onClick={() => fileInputRef.current?.click()}
                             className="absolute bottom-0 right-0 bg-white rounded-full p-1.5 shadow-md hover:bg-gray-50 border border-gray-200"
                         >
-                        <Edit2 size={18} className="text-gray-700"/>
+                            <Edit2 size={18} className="text-gray-700"/>
                         </button>
                         <input
                             type="file"
@@ -691,7 +720,15 @@ const UserProfilePage = ({refreshHeader}) => {
                                                     )}
                                                     <span className="font-medium text-gray-800"
                                                           title={file.user_filename}>
-                                                        {displayName}
+                                                        <a
+                                                            href={file.url}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="text-sm font-medium text-blue-600 hover:text-blue-800 truncate hover:underline"
+                                                            onClick={(e) => e.stopPropagation()}
+                                                        >
+                                                          {displayName}
+                                                        </a>
                                                     </span>
                                                     <span
                                                         className="text-xs text-gray-500 bg-gray-200 px-2 py-0.5 rounded-full">
@@ -839,9 +876,10 @@ const UserProfilePage = ({refreshHeader}) => {
                         </button>
                         <h2 className="text-xl font-bold text-gray-800 mb-3">{t('confirm_deletion')}</h2>
                         <p className="text-gray-600 mb-6">
-                            {t('confirmation_deletion', {fileName: deleteFileModal.fileName.length > 30
-                                ? `${deleteFileModal.fileName.substring(0, 15)}...${deleteFileModal.fileName.substring(deleteFileModal.fileName.length - 10)}`
-                                : deleteFileModal.fileName
+                            {t('confirmation_deletion', {
+                                fileName: deleteFileModal.fileName.length > 30
+                                    ? `${deleteFileModal.fileName.substring(0, 15)}...${deleteFileModal.fileName.substring(deleteFileModal.fileName.length - 10)}`
+                                    : deleteFileModal.fileName
                             })}
                         </p>
                         <div className="flex justify-end space-x-3">
@@ -853,6 +891,35 @@ const UserProfilePage = ({refreshHeader}) => {
                             </button>
                             <button
                                 onClick={handleDeleteFile}
+                                className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600"
+                            >
+                                {t('delete')}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {deletePhotoModalOpen && (
+                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                    <div className="relative bg-white p-6 rounded-lg max-w-sm w-full">
+                        <button
+                            onClick={() => setDeletePhotoModalOpen(false)}
+                            className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+                        >
+                            <X size={20}/>
+                        </button>
+                        <h2 className="text-xl font-bold text-gray-800 mb-3">{t('confirm_removal')}</h2>
+                        <p className="text-gray-600 mb-6">{t('confirm_remove_profile_picture')}</p>
+                        <div className="flex justify-end space-x-3">
+                            <button
+                                onClick={() => setDeletePhotoModalOpen(false)}
+                                className="px-4 py-2 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200"
+                            >
+                                {t('cancel')}
+                            </button>
+                            <button
+                                onClick={handleDeletePhoto}
                                 className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600"
                             >
                                 {t('delete')}

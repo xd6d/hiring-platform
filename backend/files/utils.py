@@ -12,13 +12,15 @@ def upload_file_path(instance, filename):
     return f"{instance.created_by.pk}/{uuid.uuid4()}{extension}"
 
 
-def generate_presigned_url(file_path, expires_in=900):
-    s3 = boto3.client(
-        's3',
-        endpoint_url=AWS_S3_ENDPOINT_GET_URL,
-        aws_access_key_id=AWS_ACCESS_KEY_ID,
-        aws_secret_access_key=AWS_SECRET_ACCESS_KEY
-    )
+s3 = boto3.client(
+    's3',
+    endpoint_url=AWS_S3_ENDPOINT_GET_URL,
+    aws_access_key_id=AWS_ACCESS_KEY_ID,
+    aws_secret_access_key=AWS_SECRET_ACCESS_KEY
+)
+
+
+def generate_presigned_url(file_path, expires_in=90):
     return s3.generate_presigned_url(
         'get_object',
         Params={'Bucket': AWS_STORAGE_BUCKET_NAME, 'Key': file_path},

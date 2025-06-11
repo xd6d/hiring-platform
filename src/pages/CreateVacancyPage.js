@@ -575,46 +575,48 @@ const CreateVacancyPage = () => {
                                 </select>
                             </div>
 
-                            {/* Application Template */}
-                            <div className="space-y-2">
-                                <label className="block text-sm font-medium text-gray-700">{t('application_form_template')}</label>
-                                <div className="flex items-center space-x-3">
-                                    <div className="flex-1 border border-gray-300 rounded-lg px-4 py-2 bg-white">
-                                        {templateInfo ? (
-                                            <span className="text-gray-700">
-                                                {templateInfo.name} ({t('created')} {new Date(templateInfo.created_at).toLocaleDateString('en-GB', {
-                                                day: '2-digit', month: 'short', year: 'numeric'
-                                            })})
-                                            </span>
-                                        ) : (
-                                            <span className="text-gray-400">{t('loading_default_template')}...</span>
-                                        )}
-                                    </div>
-                                    <button
-                                        type="button"
-                                        onClick={() => setShowPreviewModal(true)}
-                                        className="px-3 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
-                                    >
-                                        {t('preview')}
-                                    </button>
-                                    <button
-                                        type="button"
-                                        onClick={async () => {
-                                            try {
-                                                const res = await apiClient('templates/', {method: 'GET'});
-                                                if (!res.ok) throw new Error();
-                                                setAllTemplates(await res.json());
-                                                setShowChangeModal(true);
-                                                setSelectedTemplate(null);
-                                            } catch {
-                                                console.error(t('failed_to_load_templates'));
-                                            }
-                                        }}
-                                        className="px-3 py-2 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-colors"
-                                    >
-                                        {t('change')}
-                                    </button>
+
+                        </div>
+
+                        {/* Application Template */}
+                        <div className="space-y-2">
+                            <label className="block text-sm font-medium text-gray-700">{t('application_form_template')}</label>
+                            <div className="flex items-center space-x-3">
+                                <div className="flex-1 border border-gray-300 rounded-lg px-4 py-2 bg-white">
+                                    {templateInfo ? (
+                                        <span className="text-gray-700">
+                                            {templateInfo.name} ({t('created')} {new Date(templateInfo.created_at).toLocaleDateString('en-GB', {
+                                            day: '2-digit', month: 'short', year: 'numeric'
+                                        })})
+                                        </span>
+                                    ) : (
+                                        <span className="text-gray-400">{t('loading_default_template')}...</span>
+                                    )}
                                 </div>
+                                <button
+                                    type="button"
+                                    onClick={() => setShowPreviewModal(true)}
+                                    className="px-3 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
+                                >
+                                    {t('preview')}
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={async () => {
+                                        try {
+                                            const res = await apiClient('templates/', {method: 'GET'});
+                                            if (!res.ok) throw new Error();
+                                            setAllTemplates(await res.json());
+                                            setShowChangeModal(true);
+                                            setSelectedTemplate(null);
+                                        } catch {
+                                            console.error(t('failed_to_load_templates'));
+                                        }
+                                    }}
+                                    className="px-3 py-2 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-colors"
+                                >
+                                    {t('change')}
+                                </button>
                             </div>
                         </div>
 

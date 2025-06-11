@@ -14,7 +14,7 @@ class FileTypeSerializer(serializers.ModelSerializer):
 
 class FileSerializer(serializers.ModelSerializer):
     type = serializers.SlugRelatedField(slug_field='name', queryset=FileType.objects.all())
-    file = serializers.FileField(use_url=False, validators=[
+    file = serializers.FileField(use_url=False, write_only=True, validators=[
         FileExtensionValidator(allowed_extensions=ALLOWED_IMAGE_EXTENSIONS + ALLOWED_FILE_EXTENSIONS)
     ])
 

@@ -2,6 +2,7 @@ from django.db import transaction
 from rest_framework import serializers
 
 from files.models import File
+from files.serializers import FileSerializer
 from vacancies_templates.models import QuestionType, ApplicationTemplate, Question, Answer
 
 
@@ -59,13 +60,15 @@ class ApplicationTemplateSerializer(serializers.ModelSerializer):
 
 
 class QuestionShortSerializer(serializers.ModelSerializer):
+    type = serializers.SlugRelatedField(slug_field="name", read_only=True)
+
     class Meta:
         model = Question
-        fields = ("id", "name")
+        fields = ("id", "name", "type")
 
 
 class AnswerQuestionSerializer(serializers.ModelSerializer):
-    value = serializers.JSONField()
+    value = serializers.JSONField(write_only=True)
 
     class Meta:
         model = Answer
@@ -106,5 +109,9 @@ class AnswerQuestionSerializer(serializers.ModelSerializer):
 
     def to_representation(self, instance):
         representation = super().to_representation(instance)
-        representation["question"] = QuestionShortSerializer(instance.question).data
+        question = instance.question
+        representation["question"] = QuestionShortSerializer(question).data
+        representation["value"] = instance.value if question.type.name != "FILE" else (
+            FileSerializer(File.objects.filter(id__in=instance.value).all(), many=True, include_url=True).data
+        )
         return representation

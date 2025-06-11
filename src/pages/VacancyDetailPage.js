@@ -29,6 +29,8 @@ const VacancyDetailPage = () => {
   const [userError, setUserError] = useState(null);
   const { t, i18n } = useTranslation();
 
+  const [fieldErrors, setFieldErrors] = useState({});
+
   useEffect(() => {
     const fetchUser = async () => {
       try {
@@ -101,6 +103,25 @@ const VacancyDetailPage = () => {
   const handleSubmitResponse = async () => {
     if (!vacancy || !template) return;
     setSubmitError(null);
+    setFieldErrors({})
+
+    const newFieldErrors = {};
+    let hasErrors = false;
+
+    template.questions.forEach((q) => {
+    if (q.is_required) {
+      const answerValue = answersByQuestionId[q.id];
+      if (!answerValue || (typeof answerValue === 'string' && answerValue.trim() === '')) {
+        newFieldErrors[q.id] = t('field_required');
+        hasErrors = true;
+      }
+    }
+  });
+
+  if (hasErrors) {
+    setFieldErrors(newFieldErrors);
+    return;
+  }
 
     const answersPayload = template.questions.reduce((arr, q) => {
       const answerValue = answersByQuestionId[q.id];
@@ -128,6 +149,27 @@ const VacancyDetailPage = () => {
       if (response.status === 201) {
         setApplied(true);
         setShowTemplate(false);
+      } else if (response.status === 400) {
+          const errData = await response.json();
+
+          const newFieldErrors = {};
+          if (errData.answers && Array.isArray(errData.answers)) {
+            errData.answers.forEach((errorObj, index) => {
+              if (errorObj && Object.keys(errorObj).length > 0) {
+                const questionId = template.questions[index]?.id;
+                if (questionId) {
+                  const errorMessages = Object.values(errorObj).flat().join(' ');
+                  newFieldErrors[questionId] = errorMessages;
+                }
+              }
+            });
+          }
+
+          setFieldErrors(newFieldErrors);
+
+          if (errData.detail) {
+            setSubmitError(errData.detail);
+          }
       } else {
         const errData = await response.json();
         throw new Error(errData.detail || 'Failed to submit application.');
@@ -255,19 +297,25 @@ const VacancyDetailPage = () => {
                   </div>
 
                   {q.type === 'SHORT_TEXT' && (
+                    <>
                     <input
                       type="text"
                       className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
                       onChange={(e) => handleInputChange(q.id, e.target.value)}
                     />
+                      {fieldErrors[q.id] && <p className="text-red-500 text-sm mt-1">{fieldErrors[q.id]}</p>}
+                    </>
                   )}
 
                   {q.type === 'LONG_TEXT' && (
+                    <>
                     <textarea
                       className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
                       rows={5}
                       onChange={(e) => handleInputChange(q.id, e.target.value)}
                     />
+                      {fieldErrors[q.id] && <p className="text-red-500 text-sm mt-1">{fieldErrors[q.id]}</p>}
+                    </>
                   )}
 
                   {q.type === 'SINGLE_ANSWER' && q.answers && (
@@ -284,6 +332,7 @@ const VacancyDetailPage = () => {
                           <span className="text-gray-700">{opt.value}</span>
                         </label>
                       ))}
+                      {fieldErrors[q.id] && <p className="text-red-500 text-sm mt-1">{fieldErrors[q.id]}</p>}
                     </div>
                   )}
 
@@ -328,13 +377,24 @@ const VacancyDetailPage = () => {
                                 }}
                               />
                               <div className="flex-1 min-w-0">
-                                <p className="text-sm font-medium text-gray-700 truncate">{file.user_filename}</p>
+                                <a
+                                    href={file.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-sm font-medium text-blue-600 hover:text-blue-800 truncate hover:underline"
+                                    onClick={(e) => e.stopPropagation()}
+                                >
+                                  {file.user_filename.length > 50
+                                    ? `${file.user_filename.substring(0, 47)}...`
+                                    : file.user_filename}
+                                </a>
                                 <p className="text-xs text-gray-500">{file.type}</p>
                               </div>
                             </label>
                           );
                         })}
                       </div>
+                      {fieldErrors[q.id] && <p className="text-red-500 text-sm mt-1">{fieldErrors[q.id]}</p>}
                     </div>
                   )}
                 </div>

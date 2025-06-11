@@ -168,5 +168,11 @@
     "save_changes": "Save Changes",
     "save": "Save",
     "type": "Type",
-    "you_can_select_any_number_of_tags": "You can select any number of tags. The more tags you choose, the more vacancies will appear. A vacancy is displayed if it has at least one tag matching your selected tags."
+    "you_can_select_any_number_of_tags": "You can select any number of tags. The more tags you choose, the more vacancies will appear. A vacancy is displayed if it has at least one tag matching your selected tags.",
+    "failed_to_delete_photo": "Failed to delete profile picture",
+    "error_deleting_photo": "Error deleting profile picture",
+    "delete_profile_picture": "Delete profile picture",
+    "change_profile_picture": "Change profile picture",
+    "confirm_remove_profile_picture": "Are you sure you want to delete your profile picture?",
+    "field_required": "This field is required"
 }
