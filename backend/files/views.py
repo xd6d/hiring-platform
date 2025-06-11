@@ -3,15 +3,16 @@ from rest_framework.generics import CreateAPIView, ListAPIView
 from rest_framework.parsers import FormParser, MultiPartParser
 from rest_framework.permissions import IsAuthenticated
 
+from api.permissions import CreatedByPermission
 from .models import File, FileType
 from .serializers import FileSerializer, FilePhotoSerializer, FileTypeSerializer
 
 
-class FileModelViewSet(viewsets.ModelViewSet):  # todo: write read permission
+class FileModelViewSet(viewsets.ModelViewSet):
     queryset = File.objects.all()
     serializer_class = FileSerializer
     parser_classes = [MultiPartParser, FormParser]
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, CreatedByPermission]
 
     def perform_create(self, serializer):
         serializer.save(created_by=self.request.user)

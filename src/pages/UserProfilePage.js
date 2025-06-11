@@ -113,9 +113,14 @@ const UserProfilePage = ({refreshHeader}) => {
                     last_name: data.last_name,
                     phone_number: data.phone_number,
                 });
-                setPhotoUrl(data.photo?.url ?? defaultProfilePicture);
+                setPhotoUrl(data.photo ?? defaultProfilePicture);
 
-                await fetchFileTypes();
+                const typesRes = await apiClient('files/types/', {method: 'GET'});
+                if (typesRes.ok) {
+                    const types = await typesRes.json();
+                    setFileTypes(types);
+                    if (types.length > 0) setSelectedFileType(types[0].name);
+                }
             } catch (err) {
                 setError(err.message);
             } finally {
@@ -123,7 +128,7 @@ const UserProfilePage = ({refreshHeader}) => {
             }
         };
         fetchUser();
-    }, []);
+    }, [t]);
 
     const handleFieldUpdate = async (field) => {
         setFieldErrors(prev => ({...prev, [field]: null}));
@@ -176,17 +181,6 @@ const UserProfilePage = ({refreshHeader}) => {
         }
     };
 
-    const fetchFileTypes = async () => {
-        try {
-            const response = await apiClient('files/types/', {method: 'GET'});
-            if (!response.ok) throw new Error(t('failed_to_fetch_file_types'));
-            const data = await response.json();
-            setFileTypes(data);
-            if (data.length > 0) setSelectedFileType(data[0].name);
-        } catch (err) {
-            console.error(t('error_fetching_file_types'), ":", err);
-        }
-    };
 
     const handleFileUpload = async (e) => {
         const file = e.target.files?.[0];

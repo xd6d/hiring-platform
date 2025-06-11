@@ -77,3 +77,15 @@ class UserTagDestroyAPIView(DestroyAPIView, UpdateModelMixin):
 
     def patch(self, request, *args, **kwargs):
         return self.partial_update(request, *args, **kwargs)
+
+
+class UserPhotoDeleteAPIView(DestroyAPIView):
+    queryset = User.objects.all()
+
+    def get_object(self):
+        return self.get_queryset().get(pk=self.request.user.pk)
+
+    def perform_destroy(self, instance):
+        instance.photo.soft_delete()
+        instance.photo = None
+        instance.save()

@@ -3,6 +3,7 @@ from django.db.models import F
 from rest_framework import serializers
 
 from files.serializers import FileSerializer
+from files.utils import generate_presigned_url
 from tags.serializers import TagSerializer
 from .models import User, Company, Role, UserTag
 
@@ -60,7 +61,7 @@ class UserTagSerializer(serializers.ModelSerializer):
 class UserTagPositionSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserTag
-        fields = ("position", )
+        fields = ("position",)
 
     def update(self, instance, validated_data):
         model = self.Meta.model
@@ -89,7 +90,7 @@ class UserSerializer(serializers.ModelSerializer):
     role = serializers.StringRelatedField(source="role.name", read_only=True)
     company = CompanySerializer(read_only=True)
     tags = TagSerializer(many=True, read_only=True)
-    photo = FileSerializer(read_only=True, include_url=True)
+    photo = serializers.SerializerMethodField()
     files = FileSerializer(many=True, read_only=True, include_url=True)
 
     class Meta:
@@ -102,3 +103,11 @@ class UserSerializer(serializers.ModelSerializer):
         if self.partial:
             representation.pop("files")
         return representation
+
+    def get_photo(self, obj):
+        return generate_presigned_url(obj.photo.file.name) if obj.photo else None
+
+
+class UserShortSerializer(UserSerializer):
+    class Meta(UserSerializer.Meta):
+        fields = ("first_name", "last_name", "phone_number", "contacts", "photo")

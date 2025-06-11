@@ -174,5 +174,7 @@
     "delete_profile_picture": "Delete profile picture",
     "change_profile_picture": "Change profile picture",
     "confirm_remove_profile_picture": "Are you sure you want to delete your profile picture?",
-    "field_required": "This field is required"
+    "field_required": "This field is required",
+    "applications": "Applications",
+    "view_applications": "View Applications"
 }

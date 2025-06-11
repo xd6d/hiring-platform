@@ -1,6 +1,7 @@
 from django.db import transaction
 from rest_framework import serializers
 
+from accounts.serializers import UserShortSerializer
 from dict.serializers import CitySerializer
 from tags.serializers import TagSerializer
 from vacancies_templates.serializers import AnswerQuestionSerializer
@@ -16,10 +17,11 @@ class VacancyTagSerializer(serializers.ModelSerializer):
 
 class VacancySerializer(serializers.ModelSerializer):
     tags = VacancyTagSerializer(many=True, write_only=True)
+    is_applied = serializers.SerializerMethodField()
 
     class Meta:
         model = Vacancy
-        fields = ("id", "name", "description", "work_format", "tags", "application_template", "cities")
+        fields = ("id", "name", "description", "work_format", "tags", "application_template", "cities", "is_applied")
         extra_kwargs = {'cities': {'write_only': True}}
 
     def create(self, validated_data):
@@ -33,6 +35,10 @@ class VacancySerializer(serializers.ModelSerializer):
 
         return instance
 
+    def get_is_applied(self, instance):
+        return (self.context["request"].user.is_authenticated and
+                self.context["request"].user.applications.filter(vacancy_id=instance.id).exists())
+
     def to_representation(self, instance):
         representation = super().to_representation(instance)
         representation["tags"] = TagSerializer(instance.tags.all(), many=True).data
@@ -40,10 +46,6 @@ class VacancySerializer(serializers.ModelSerializer):
             instance.cities.all(),
             many=True
         ).data]
-        representation["is_applied"] = (
-                self.context["request"].user.is_authenticated
-                and self.context["request"].user.applications.filter(vacancy_id=instance.id).exists()
-        )
         return representation
 
 
@@ -105,13 +107,23 @@ class ApplicationCandidateSerializer(serializers.ModelSerializer):
 
         return instance
 
+
 class ApplicationRecruiterSerializer(serializers.ModelSerializer):
     status = serializers.SlugRelatedField(queryset=ApplicationStatus.objects.all(), slug_field="name")
     notes = serializers.StringRelatedField(read_only=True, many=True)
+    answers = AnswerQuestionSerializer(many=True)
+    created_by = UserShortSerializer(read_only=True)
 
     class Meta:
         model = Application
-        fields = ("vacancy", "status", "notes", "answers", "created_at", "created_by")
+        fields = ("status", "notes", "answers", "created_at", "created_by")
+
+
+class ApplicationUpdateSerializer(serializers.ModelSerializer):
+    status = serializers.SlugRelatedField(slug_field="name", queryset=ApplicationStatus.objects.all())
+    class Meta:
+        model = Application
+        fields = ("status", )
 
 
 class VacancyShortSerializer(serializers.ModelSerializer):
@@ -131,5 +143,7 @@ class ApplicationSerializer(serializers.ModelSerializer):
 
 
 class UserVacancySerializer(VacancySerializer):
+    applied = serializers.IntegerField(read_only=True)
+
     class Meta(VacancySerializer.Meta):
-        fields = ("id", "name", "description", "work_format", "tags", "cities")
+        fields = ("id", "name", "description", "work_format", "tags", "cities", "applied")

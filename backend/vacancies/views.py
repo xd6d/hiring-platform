@@ -1,18 +1,19 @@
-from django.db.models import OuterRef, ExpressionWrapper, F, Subquery, FloatField, Sum, Prefetch
+from django.db.models import OuterRef, ExpressionWrapper, F, Subquery, FloatField, Sum, Count
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import viewsets
 from rest_framework.filters import SearchFilter
-from rest_framework.generics import ListAPIView, CreateAPIView
+from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 
 from accounts.models import UserTag
+from api.permissions import CreatedByPermission, VacancyCreatedByPermission
 from api.utils import get_language_code
-from dict.models import City, CityTranslation
-from tags.models import Tag, TagTranslation
-from vacancies.filters import VacancyFilter
-from vacancies.models import Vacancy, Application, ApplicationStatus, VacancyTag
-from vacancies.serializers import VacancySerializer, ApplicationCandidateSerializer, ApplicationStatusSerializer, \
-    ApplicationNoteSerializer, ApplicationSerializer, UserVacancySerializer
+from .filters import VacancyFilter
+from .models import Vacancy, Application, ApplicationStatus, VacancyTag
+from .serializers import VacancySerializer, ApplicationCandidateSerializer, ApplicationStatusSerializer, \
+    ApplicationNoteSerializer, ApplicationSerializer, UserVacancySerializer, ApplicationRecruiterSerializer, \
+    ApplicationUpdateSerializer
+from .utils import get_prefetched_translations_for_vacancies
 
 
 class VacancyModelViewSet(viewsets.ModelViewSet):
@@ -30,22 +31,42 @@ class VacancyModelViewSet(viewsets.ModelViewSet):
         language_code = get_language_code()
 
         return Vacancy.objects.prefetch_related(
-            Prefetch("tags", queryset=Tag.objects.prefetch_related(
-                Prefetch("translations", TagTranslation.objects.filter(language_code=language_code)),
-            ).order_by("vacancytag__position")),
-            Prefetch("cities", queryset=City.objects.prefetch_related(
-                Prefetch("translations", CityTranslation.objects.filter(language_code=language_code))
-            ).order_by("-population"))
+            *get_prefetched_translations_for_vacancies(language_code)
         ).order_by("-created_at")
+
+
+class VacancyRecruiterRetrieveAPIView(RetrieveAPIView):
+    queryset = Vacancy.objects.none()  # mock for swagger
+    serializer_class = UserVacancySerializer
+    permission_classes = (IsAuthenticated, CreatedByPermission)
+
+    def get_queryset(self):
+        language_code = get_language_code()
+
+        return Vacancy.objects.prefetch_related(
+            *get_prefetched_translations_for_vacancies(language_code)
+        ).annotate(applied=Count("applications")).order_by("-created_at")
 
 
 class ApplicationModelViewSet(viewsets.ModelViewSet):
     queryset = Application.objects.all()
     serializer_class = ApplicationCandidateSerializer
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated, CreatedByPermission)
 
     def perform_create(self, serializer):
         serializer.save(created_by=self.request.user)
+
+    def get_serializer_class(self):
+        if self.request.method == 'PATCH':
+            return ApplicationUpdateSerializer
+        return ApplicationCandidateSerializer
+
+    def get_permissions(self):
+        if self.request.method == 'PATCH':
+            permission_classes = [IsAuthenticated, VacancyCreatedByPermission]
+        else:
+            permission_classes = [IsAuthenticated, CreatedByPermission]
+        return [permission() for permission in permission_classes]
 
 
 class ApplicationStatusListAPIView(ListAPIView):
@@ -75,8 +96,12 @@ class UserVacanciesListAPIView(ListAPIView):
     permission_classes = (IsAuthenticated,)
 
     def get_queryset(self):
+        language_code = get_language_code()
+
         return (
             Vacancy.objects.order_by("created_at")
+            .annotate(applied=Count("applications"))
+            .prefetch_related(*get_prefetched_translations_for_vacancies(language_code))
             .filter(created_by=self.request.user)
             .prefetch_related("tags", "cities")
         )
@@ -119,15 +144,17 @@ class VacancySearchListAPIView(ListAPIView):
             Vacancy.objects
             .annotate(match_score=Subquery(vacancy_tag_match_qs, output_field=FloatField()))
             .filter(match_score__isnull=False)
-            .prefetch_related(
-                Prefetch("tags", queryset=Tag.objects.prefetch_related(
-                    Prefetch("translations", TagTranslation.objects.filter(language_code=language_code)),
-                ).order_by("vacancytag__position")),
-                Prefetch("cities", queryset=City.objects.prefetch_related(
-                    Prefetch("translations", CityTranslation.objects.filter(language_code=language_code))
-                ).order_by("-population"))
-            )
+            .prefetch_related(*get_prefetched_translations_for_vacancies(language_code))
             .order_by('-match_score')
         )
 
         return qs
+
+
+class VacancyApplicationListAPIView(ListAPIView):
+    queryset = Application.objects.select_related("status", "created_by__photo").order_by("created_at")
+    serializer_class = ApplicationRecruiterSerializer
+    permission_classes = (IsAuthenticated,)
+
+    def get_queryset(self):
+        return self.queryset.filter(vacancy_id=self.kwargs["pk"])

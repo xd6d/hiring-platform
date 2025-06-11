@@ -175,5 +175,7 @@
     "delete_profile_picture": "Видалити фотографію профілю",
     "change_profile_picture": "Змінити фотографію профілю",
     "confirm_remove_profile_picture": "Ви впевнені, що хочете видалити свою фотографію профілю?",
-    "field_required": "Це поле є обов’язковим"
+    "field_required": "Це поле є обов’язковим",
+    "applications": "Відгуків",
+    "view_applications": "Переглянути відгуки"
 }

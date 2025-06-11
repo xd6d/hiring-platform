@@ -10,6 +10,7 @@ import VacancyDetailPage from "./pages/VacancyDetailPage";
 import CreateVacancyPage from "./pages/CreateVacancyPage";
 import ApplicationsPage from "./pages/ApplicationsPage";
 import UserVacanciesPage from "./pages/UserVacanciesPage";
+import VacancyApplicationsPage from "./pages/VacancyApplicationsPage";
 
 function App() {
     const [globalMessage, setGlobalMessage] = useState(null);
@@ -35,6 +36,7 @@ function App() {
                     <Route path="/vacancies/create" element={<CreateVacancyPage />} />
                     <Route path="/applications" element={<ApplicationsPage />} />
                     <Route path="/my-vacancies" element={<UserVacanciesPage />} />
+                    <Route path="/my-vacancies/:id/applications" element={<VacancyApplicationsPage />} />
                 </Routes>
             </div>
         </Router>
