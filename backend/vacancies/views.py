@@ -2,14 +2,14 @@ from django.db.models import OuterRef, ExpressionWrapper, F, Subquery, FloatFiel
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import viewsets
 from rest_framework.filters import SearchFilter
-from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView
+from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView, RetrieveUpdateDestroyAPIView
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 
 from accounts.models import UserTag
-from api.permissions import CreatedByPermission, VacancyCreatedByPermission
+from api.permissions import CreatedByPermission, VacancyCreatedByPermission, VacancyApplicationCreatedByPermission
 from api.utils import get_language_code
 from .filters import VacancyFilter
-from .models import Vacancy, Application, ApplicationStatus, VacancyTag
+from .models import Vacancy, Application, ApplicationStatus, VacancyTag, ApplicationNote
 from .serializers import VacancySerializer, ApplicationCandidateSerializer, ApplicationStatusSerializer, \
     ApplicationNoteSerializer, ApplicationSerializer, UserVacancySerializer, ApplicationRecruiterSerializer, \
     ApplicationUpdateSerializer
@@ -76,6 +76,17 @@ class ApplicationStatusListAPIView(ListAPIView):
 
 class ApplicationNoteCreateAPIView(CreateAPIView):
     serializer_class = ApplicationNoteSerializer
+    permission_classes = [IsAuthenticated]
+
+    def perform_create(self, serializer):
+        serializer.save(created_by=self.request.user)
+
+
+class ApplicationNoteRetrieveUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
+    queryset = ApplicationNote.objects.order_by("created_at")
+    serializer_class = ApplicationNoteSerializer
+    permission_classes = (IsAuthenticated, CreatedByPermission)
+    http_method_names = ["patch", "delete"]
 
 
 class UserApplicationsListAPIView(ListAPIView):
@@ -152,7 +163,11 @@ class VacancySearchListAPIView(ListAPIView):
 
 
 class VacancyApplicationListAPIView(ListAPIView):
-    queryset = Application.objects.select_related("status", "created_by__photo").order_by("created_at")
+    queryset = Application.objects.select_related(
+        "status", "created_by__photo"
+    ).prefetch_related(
+        "notes__created_by"
+    ).order_by("created_at")
     serializer_class = ApplicationRecruiterSerializer
     permission_classes = (IsAuthenticated,)
 

@@ -32,3 +32,9 @@ code {
     }
   }
 }
+
+.note-text {
+  font-family: 'Open Sans', sans-serif;
+  letter-spacing: 0.03em;
+  line-height: 1.7;
+}

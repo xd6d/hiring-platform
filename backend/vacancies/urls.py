@@ -1,7 +1,8 @@
 from django.urls import path, include
 
 from vacancies.views import VacancyModelViewSet, ApplicationModelViewSet, VacancySearchListAPIView, \
-    VacancyApplicationListAPIView, ApplicationStatusListAPIView
+    VacancyApplicationListAPIView, ApplicationStatusListAPIView, ApplicationNoteCreateAPIView, \
+    ApplicationNoteRetrieveUpdateDestroyAPIView
 
 urlpatterns = [
     path("vacancies/", include([
@@ -52,5 +53,8 @@ urlpatterns = [
         ])),
         path("statuses/", ApplicationStatusListAPIView.as_view(), name="applications-statuses"),
     ])),
-
+    path("application-notes/", include([
+        path("", ApplicationNoteCreateAPIView.as_view(), name="application-notes-create"),
+        path("<int:pk>/", ApplicationNoteRetrieveUpdateDestroyAPIView.as_view(), name="application-get-update-delete"),
+    ]))
 ]

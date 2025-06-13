@@ -54,6 +54,8 @@ class Application(models.Model):
 class ApplicationNote(models.Model):
     text = models.TextField()
     application = models.ForeignKey(Application, on_delete=models.CASCADE, related_name='notes')
+    created_at = models.DateTimeField(auto_now_add=True)
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name="application_notes")
 
     class Meta:
         db_table = 'application_notes'

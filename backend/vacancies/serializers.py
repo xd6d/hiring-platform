@@ -1,7 +1,7 @@
 from django.db import transaction
 from rest_framework import serializers
 
-from accounts.serializers import UserShortSerializer
+from accounts.serializers import UserShortSerializer, UserNameSerializer
 from dict.serializers import CitySerializer
 from tags.serializers import TagSerializer
 from vacancies_templates.serializers import AnswerQuestionSerializer
@@ -55,16 +55,26 @@ class ApplicationStatusSerializer(serializers.ModelSerializer):
         fields = ("name",)
 
 
-class ApplicationNoteSerializer(serializers.ModelSerializer):  # todo: validate user from request
+class ApplicationNoteSerializer(serializers.ModelSerializer):
+    created_by = UserNameSerializer(read_only=True)
+
     class Meta:
         model = ApplicationNote
-        fields = ("text", "application")
-        extra_kwargs = {"application": {"read_only": True}}
+        fields = ("id", "text", "application", "created_at", "created_by")
+        extra_kwargs = {"application": {"write_only": True}}
 
     def validate(self, attrs):
-        if attrs.get("application").vacancy.created_by != self.context["request"].user:
-            raise serializers.ValidationError()
+        application = attrs.get("application") if attrs.get("application") else self.instance.application
+        if application.vacancy.created_by != self.context["request"].user:
+            raise serializers.ValidationError("You can not add a note to this application.")
         return attrs
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        request = self.context.get('request', None)
+        if request and request.method != 'POST':
+            self.fields.pop('application', None)
 
 
 class ApplicationCandidateSerializer(serializers.ModelSerializer):
@@ -110,13 +120,13 @@ class ApplicationCandidateSerializer(serializers.ModelSerializer):
 
 class ApplicationRecruiterSerializer(serializers.ModelSerializer):
     status = serializers.SlugRelatedField(queryset=ApplicationStatus.objects.all(), slug_field="name")
-    notes = serializers.StringRelatedField(read_only=True, many=True)
+    notes = ApplicationNoteSerializer(many=True)
     answers = AnswerQuestionSerializer(many=True)
     created_by = UserShortSerializer(read_only=True)
 
     class Meta:
         model = Application
-        fields = ("status", "notes", "answers", "created_at", "created_by")
+        fields = ("id", "status", "notes", "answers", "created_at", "created_by")
 
 
 class ApplicationUpdateSerializer(serializers.ModelSerializer):

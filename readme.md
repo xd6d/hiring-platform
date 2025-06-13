@@ -1,6 +1,6 @@
 ## TODO:
 
-1. view for files
+
 2. add pagination for vacancies
 3. admin panel
 4. user's applications

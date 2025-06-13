@@ -16,7 +16,7 @@ class Role(models.Model):
 class Company(models.Model):
     name = models.CharField(max_length=100, unique=True)
     website = models.URLField(unique=True)
-    contacts = models.JSONField(default=dict)
+    contacts = models.JSONField(default=list)
     created_at = models.DateTimeField(auto_now_add=True)
     created_by = models.ForeignKey("User", on_delete=models.CASCADE, related_name="created_companies")
 

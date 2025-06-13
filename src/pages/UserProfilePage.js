@@ -95,6 +95,9 @@ const UserProfilePage = ({refreshHeader}) => {
     const [fileUploadError, setFileUploadError] = useState(null);
     const [isUploading, setIsUploading] = useState(false);
     const [deletePhotoModalOpen, setDeletePhotoModalOpen] = useState(false);
+    const [editContactIndex, setEditContactIndex] = useState(null);
+    const [newContact, setNewContact] = useState({name: '', value: ''});
+    const [contactErrors, setContactErrors] = useState({name: null, value: null});
     const {t} = useTranslation();
 
     const navigate = useNavigate();
@@ -181,6 +184,75 @@ const UserProfilePage = ({refreshHeader}) => {
         }
     };
 
+    const handleAddContact = () => {
+        setEditContactIndex(-1); // -1 indicates we're adding a new contact
+        setNewContact({name: '', value: ''});
+        setContactErrors({name: null, value: null});
+    };
+
+    const handleSaveContact = async () => {
+        // Validate the contact
+        if (!newContact.name.trim()) {
+            setContactErrors({name: t('name_is_required'), value: null});
+            return;
+        }
+        if (!newContact.value.trim()) {
+            setContactErrors({name: null, value: t('value_is_required')});
+            return;
+        }
+
+        try {
+            const updatedContacts = user.contacts ? [...user.contacts] : [];
+            if (editContactIndex === -1) {
+                // Adding new contact
+                updatedContacts.push(newContact);
+            } else {
+                // Updating existing contact
+                updatedContacts[editContactIndex] = newContact;
+            }
+
+            const response = await apiClient('users/me/', {
+                method: 'PATCH',
+                body: JSON.stringify({contacts: updatedContacts}),
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(
+                    errorData.contacts
+                        ? Array.isArray(errorData.contacts)
+                            ? errorData.contacts.join(', ')
+                            : errorData.contacts
+                        : t('failed_to_update_contacts')
+                );
+            }
+
+            const updatedUser = await response.json();
+            setUser(updatedUser);
+            setEditContactIndex(null);
+        } catch (err) {
+            alert(err.message);
+        }
+    };
+
+    const handleDeleteContact = async (index) => {
+        try {
+            const updatedContacts = [...user.contacts];
+            updatedContacts.splice(index, 1);
+
+            const response = await apiClient('users/me/', {
+                method: 'PATCH',
+                body: JSON.stringify({contacts: updatedContacts}),
+            });
+
+            if (!response.ok) throw new Error(t('failed_to_update_contacts'));
+
+            const updatedUser = await response.json();
+            setUser(updatedUser);
+        } catch (err) {
+            alert(err.message);
+        }
+    };
 
     const handleFileUpload = async (e) => {
         const file = e.target.files?.[0];
@@ -580,6 +652,110 @@ const UserProfilePage = ({refreshHeader}) => {
                                 </div>
                             </div>
                         ))}
+                        <div className="mb-8">
+                            <div className="flex justify-between items-center mb-4 pb-2 border-b border-gray-100">
+                                <h2 className="text-lg font-semibold text-gray-800">{t('additional_contacts')}</h2>
+                                <button
+                                    onClick={handleAddContact}
+                                    className="flex items-center gap-1 text-sm bg-blue-500 text-white px-3 py-1.5 rounded hover:bg-blue-600"
+                                >
+                                    <Plus size={16}/> {t('add_contact')}
+                                </button>
+                            </div>
+
+                            {editContactIndex !== null && (
+                                <div className="bg-gray-50 p-4 rounded-lg mb-4">
+                                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-3">
+                                        <label className="text-sm font-medium text-gray-700 sm:col-span-1">
+                                            {t('contact_name')}
+                                        </label>
+                                        <div className="sm:col-span-2">
+                                            <input
+                                                type="text"
+                                                maxLength="50"
+                                                value={newContact.name}
+                                                onChange={(e) => setNewContact({...newContact, name: e.target.value})}
+                                                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                                placeholder={t('contact_name_placeholder')}
+                                            />
+                                            {contactErrors.name && (
+                                                <p className="text-red-500 text-sm mt-1">{contactErrors.name}</p>
+                                            )}
+                                        </div>
+                                    </div>
+                                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-3">
+                                        <label className="text-sm font-medium text-gray-700 sm:col-span-1">
+                                            {t('contact_value')}
+                                        </label>
+                                        <div className="sm:col-span-2">
+                                            <input
+                                                type="text"
+                                                maxLength="255"
+                                                value={newContact.value}
+                                                onChange={(e) => setNewContact({...newContact, value: e.target.value})}
+                                                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                                placeholder={t('contact_value_placeholder')}
+                                            />
+                                            {contactErrors.value && (
+                                                <p className="text-red-500 text-sm mt-1">{contactErrors.value}</p>
+                                            )}
+                                        </div>
+                                    </div>
+                                    <div className="flex justify-end space-x-2">
+                                        <button
+                                            onClick={() => setEditContactIndex(null)}
+                                            className="px-3 py-1 text-sm text-gray-600 hover:text-gray-800"
+                                        >
+                                            {t('cancel')}
+                                        </button>
+                                        <button
+                                            onClick={handleSaveContact}
+                                            className="px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
+                                        >
+                                            {t('save')}
+                                        </button>
+                                    </div>
+                                </div>
+                            )}
+
+                            {user.contacts && user.contacts.length > 0 ? (
+                                <div className="space-y-3">
+                                    {user.contacts.map((contact, index) => (
+                                        <div key={index}
+                                             className="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100">
+                                            <div className="flex-1">
+                                                <div className="font-medium text-gray-800">{contact.name}</div>
+                                                <div className="text-sm text-gray-600 break-all">{contact.value}</div>
+                                            </div>
+                                            <div className="flex space-x-2">
+                                                <button
+                                                    onClick={() => {
+                                                        setEditContactIndex(index);
+                                                        setNewContact({...contact});
+                                                        setContactErrors({name: null, value: null});
+                                                    }}
+                                                    className="p-2 text-gray-500 hover:text-blue-500 rounded-full hover:bg-gray-200"
+                                                    title={t('edit')}
+                                                >
+                                                    <Pencil size={16}/>
+                                                </button>
+                                                <button
+                                                    onClick={() => handleDeleteContact(index)}
+                                                    className="p-2 text-gray-500 hover:text-red-500 rounded-full hover:bg-gray-200"
+                                                    title={t('delete')}
+                                                >
+                                                    <Trash2 size={16}/>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            ) : (
+                                <div className="bg-gray-50 rounded-lg p-4 text-center">
+                                    <p className="text-gray-500">{t('no_additional_contacts')}</p>
+                                </div>
+                            )}
+                        </div>
                     </div>
                 </div>
 

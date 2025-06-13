@@ -9,3 +9,8 @@ class CreatedByPermission(permissions.BasePermission):
 class VacancyCreatedByPermission(permissions.BasePermission):
     def has_object_permission(self, request, view, obj):
         return obj.vacancy.created_by == request.user
+
+
+class VacancyApplicationCreatedByPermission(permissions.BasePermission):
+    def has_object_permission(self, request, view, obj):
+        return obj.application.vacancy.created_by == request.user

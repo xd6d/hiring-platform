@@ -86,12 +86,21 @@ class UserTagPositionSerializer(serializers.ModelSerializer):
         return instance
 
 
+class ContactSerializer(serializers.Serializer):
+    name = serializers.CharField(max_length=50)
+    value = serializers.CharField(max_length=255)
+
+
 class UserSerializer(serializers.ModelSerializer):
     role = serializers.StringRelatedField(source="role.name", read_only=True)
     company = CompanySerializer(read_only=True)
     tags = TagSerializer(many=True, read_only=True)
     photo = serializers.SerializerMethodField()
     files = FileSerializer(many=True, read_only=True, include_url=True)
+    contacts = serializers.ListField(
+        child=ContactSerializer(),
+        max_length=5
+    )
 
     class Meta:
         model = User
@@ -111,3 +120,8 @@ class UserSerializer(serializers.ModelSerializer):
 class UserShortSerializer(UserSerializer):
     class Meta(UserSerializer.Meta):
         fields = ("first_name", "last_name", "phone_number", "contacts", "photo")
+
+
+class UserNameSerializer(UserSerializer):
+    class Meta(UserSerializer.Meta):
+        fields = ("first_name", "last_name")
