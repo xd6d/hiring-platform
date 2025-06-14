@@ -16,7 +16,9 @@ class AbstractSoftDeleteModel(models.Model):
     def soft_delete(self):
         self.deleted_at = timezone.now()
         self.save(update_fields=['deleted_at'])
+        return self
 
     def restore(self):
         self.deleted_at = None
         self.save(update_fields=['deleted_at'])
+        return self

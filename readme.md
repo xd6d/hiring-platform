@@ -1,8 +1,3 @@
-## TODO:
+## Management system for the selection and hiring of candidates
 
-
-2. add pagination for vacancies
-3. admin panel
-4. user's applications
-5. add permission classes
-6. delete/hide vacancy
+Created with Django REST Framework, React and PostgreSQL.

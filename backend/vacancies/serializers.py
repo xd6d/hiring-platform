@@ -22,7 +22,7 @@ class VacancySerializer(serializers.ModelSerializer):
     class Meta:
         model = Vacancy
         fields = ("id", "name", "description", "work_format", "tags", "application_template", "cities", "is_applied")
-        extra_kwargs = {'cities': {'write_only': True}}
+        extra_kwargs = {'cities': {'write_only': True, "allow_empty": True, "required": False}}
 
     def create(self, validated_data):
         tags = validated_data.pop('tags')
@@ -157,3 +157,17 @@ class UserVacancySerializer(VacancySerializer):
 
     class Meta(VacancySerializer.Meta):
         fields = ("id", "name", "description", "work_format", "tags", "cities", "applied")
+
+
+class VacancyDeletedSerializer(UserVacancySerializer):
+    class Meta(UserVacancySerializer.Meta):
+        fields = UserVacancySerializer.Meta.fields + ("deleted_at", )
+
+
+class VacancyRestoreSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Vacancy
+        fields = []
+
+    def update(self, instance, validated_data):
+        return instance.restore()

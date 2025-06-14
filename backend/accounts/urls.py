@@ -3,7 +3,8 @@ from django.urls import path, include
 from accounts.views import UserCreateAPIView, UserRetrieveView, RoleListAPIView, CompanyCreateAPIView, \
     UserTagCreateAPIView, UserTagDestroyAPIView, CompanyRetrieveUpdateDestroyAPIView, UserPhotoDeleteAPIView
 from files.views import UserPhotoUploadCreateAPIView
-from vacancies.views import UserApplicationsListAPIView, UserVacanciesListAPIView, VacancyRecruiterRetrieveAPIView
+from vacancies.views import UserApplicationsListAPIView, UserVacanciesListAPIView, VacancyRecruiterRetrieveAPIView, \
+    VacancyDeletedListAPIView
 
 urlpatterns = [
     path("users/", include([
@@ -14,6 +15,7 @@ urlpatterns = [
             path("vacancies/", include([
                 path("", UserVacanciesListAPIView.as_view(), name="user-me-vacancies"),
                 path("<int:pk>/", VacancyRecruiterRetrieveAPIView.as_view(), name="vacancy-recruiter"),
+                path("deleted/", VacancyDeletedListAPIView.as_view(), name="vacancies-deleted"),
             ])),
             path("tags/", include([
                 path("", UserTagCreateAPIView.as_view(), name="user-tag-create"),

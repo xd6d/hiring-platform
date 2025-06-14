@@ -1,18 +1,21 @@
 from django.db.models import OuterRef, ExpressionWrapper, F, Subquery, FloatField, Sum, Count
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import viewsets
+from rest_framework.exceptions import PermissionDenied
 from rest_framework.filters import SearchFilter
-from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView, RetrieveUpdateDestroyAPIView
+from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView, RetrieveUpdateDestroyAPIView, \
+    UpdateAPIView
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 
 from accounts.models import UserTag
-from api.permissions import CreatedByPermission, VacancyCreatedByPermission, VacancyApplicationCreatedByPermission
+from api.pagination import DefaultPageNumberPagination
+from api.permissions import CreatedByPermission, VacancyCreatedByPermission
 from api.utils import get_language_code
 from .filters import VacancyFilter
 from .models import Vacancy, Application, ApplicationStatus, VacancyTag, ApplicationNote
 from .serializers import VacancySerializer, ApplicationCandidateSerializer, ApplicationStatusSerializer, \
     ApplicationNoteSerializer, ApplicationSerializer, UserVacancySerializer, ApplicationRecruiterSerializer, \
-    ApplicationUpdateSerializer
+    ApplicationUpdateSerializer, VacancyDeletedSerializer, VacancyRestoreSerializer
 from .utils import get_prefetched_translations_for_vacancies
 
 
@@ -23,6 +26,7 @@ class VacancyModelViewSet(viewsets.ModelViewSet):
     filter_backends = [DjangoFilterBackend, SearchFilter]
     filterset_class = VacancyFilter
     search_fields = ['name', 'description']
+    pagination_class = DefaultPageNumberPagination
 
     def perform_create(self, serializer):
         serializer.save(created_by=self.request.user)
@@ -33,6 +37,27 @@ class VacancyModelViewSet(viewsets.ModelViewSet):
         return Vacancy.objects.prefetch_related(
             *get_prefetched_translations_for_vacancies(language_code)
         ).order_by("-created_at")
+
+    def perform_destroy(self, instance):
+        if instance.created_by == self.request.user:
+            instance.soft_delete()
+        else:
+            raise PermissionDenied
+
+
+class VacancyDeletedListAPIView(ListAPIView):
+    queryset = Vacancy.objects.none()  # mock for swagger
+    serializer_class = VacancyDeletedSerializer
+    permission_classes = (IsAuthenticated,)
+
+    def get_queryset(self):
+        language_code = get_language_code()
+
+        return Vacancy.all_objects.filter(
+            deleted_at__isnull=False, created_by=self.request.user
+        ).prefetch_related(
+            *get_prefetched_translations_for_vacancies(language_code)
+        ).annotate(applied=Count("applications")).order_by("-created_at")
 
 
 class VacancyRecruiterRetrieveAPIView(RetrieveAPIView):
@@ -124,6 +149,7 @@ class VacancySearchListAPIView(ListAPIView):
     filter_backends = [DjangoFilterBackend, SearchFilter]
     filterset_class = VacancyFilter
     search_fields = ['name', 'description']
+    pagination_class = DefaultPageNumberPagination
 
     def get_queryset(self):
         if getattr(self, "swagger_fake_view", False):
@@ -173,3 +199,10 @@ class VacancyApplicationListAPIView(ListAPIView):
 
     def get_queryset(self):
         return self.queryset.filter(vacancy_id=self.kwargs["pk"])
+
+
+class VacancyRestoreUpdateAPIView(UpdateAPIView):
+    queryset = Vacancy.all_objects.filter(deleted_at__isnull=False)
+    serializer_class = VacancyRestoreSerializer
+    permission_classes = (IsAuthenticated, CreatedByPermission)
+    http_method_names = ["patch"]

@@ -1,14 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import {apiClient} from '../utils/auth';
-import {Info, Search, Filter} from 'lucide-react';
-import { useTranslation } from 'react-i18next';
+import {Info, Search, Filter, ChevronLeft, ChevronRight} from 'lucide-react';
+import {useTranslation} from 'react-i18next';
 
 const VacanciesPage = () => {
-    const [vacancies, setVacancies] = useState([]);
+    const [vacanciesData, setVacanciesData] = useState({results: [], count: 0, next: null, previous: null});
+    const [page, setPage] = useState(1);
     const [vacLoading, setVacLoading] = useState(true);
     const [vacError, setVacError] = useState(null);
-    const { t, i18n } = useTranslation();
+    const {t, i18n} = useTranslation();
 
     const [searchTerm, setSearchTerm] = useState('');
 
@@ -39,15 +40,15 @@ const VacanciesPage = () => {
                     ? `${baseEndpoint}?${params.toString()}`
                     : baseEndpoint;
 
-            const response = await apiClient(endpoint, {method: 'GET'});
+            const response = await apiClient(`${endpoint}${params.toString() ? '&' : '?'}page=${page}`, {method: 'GET'});
             if (!response.ok) {
                 throw new Error(`HTTP ${response.status}`);
             }
             const data = await response.json();
-            setVacancies(data);
+            setVacanciesData(data);
         } catch (err) {
             setVacError(err.message);
-            setVacancies([]);
+            setVacanciesData([]);
         } finally {
             setVacLoading(false);
         }
@@ -56,7 +57,11 @@ const VacanciesPage = () => {
     useEffect(() => {
         fetchVacancies();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [i18n.language]);
+    }, [i18n.language, personalized, selectedTagIds, page]);
+
+    useEffect(() => {
+        setPage(1);
+    }, [personalized]);
 
     useEffect(() => {
         const fetchTagGroups = async () => {
@@ -81,14 +86,13 @@ const VacanciesPage = () => {
         fetchTagGroups();
     }, []);
 
-    useEffect(() => {
-        fetchVacancies();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [personalized, selectedTagIds]);
-
     const handleSearch = (e) => {
         e.preventDefault();
-        fetchVacancies();
+        if (page !== 1) {
+            setPage(1);
+        } else {
+            fetchVacancies();
+        }
     };
 
     const handleTagToggle = (tagId) => {
@@ -99,6 +103,111 @@ const VacanciesPage = () => {
                 return [...prev, tagId];
             }
         });
+        setPage(1);
+    };
+
+    const vacancies = vacanciesData.results;
+
+    const Pagination = () => {
+        if (vacanciesData.count === 0) return null;
+
+        const totalPages = vacanciesData.total_pages || 1;
+        const maxVisiblePages = 5; // Maximum number of page buttons to show at once
+        let startPage, endPage;
+
+        if (totalPages <= maxVisiblePages) {
+            // Show all pages if total pages is less than max visible
+            startPage = 1;
+            endPage = totalPages;
+        } else {
+            // Calculate start and end pages to show with current page in the middle
+            const half = Math.floor(maxVisiblePages / 2);
+            if (page <= half + 1) {
+                startPage = 1;
+                endPage = maxVisiblePages;
+            } else if (page >= totalPages - half) {
+                startPage = totalPages - maxVisiblePages + 1;
+                endPage = totalPages;
+            } else {
+                startPage = page - half;
+                endPage = page + half;
+            }
+        }
+
+        const pageNumbers = [];
+        for (let i = startPage; i <= endPage; i++) {
+            pageNumbers.push(i);
+        }
+
+        return (
+            <div className="flex items-center justify-center mt-6 gap-1">
+                <button
+                    onClick={() => setPage(1)}
+                    disabled={page === 1}
+                    className={`p-2 rounded-md ${page === 1 ? 'text-gray-400 cursor-not-allowed' : 'text-gray-700 hover:bg-gray-100'}`}
+                >
+                    <ChevronLeft className="h-5 w-5"/>
+                </button>
+
+                <button
+                    onClick={() => setPage(p => Math.max(p - 1, 1))}
+                    disabled={!vacanciesData.previous}
+                    className={`p-2 rounded-md ${!vacanciesData.previous ? 'text-gray-400 cursor-not-allowed' : 'text-gray-700 hover:bg-gray-100'}`}
+                >
+                    {t('previous')}
+                </button>
+
+                {startPage > 1 && (
+                    <>
+                        <button
+                            onClick={() => setPage(1)}
+                            className={`px-3 py-1 rounded-md ${1 === page ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-100'}`}
+                        >
+                            1
+                        </button>
+                        {startPage > 2 && <span className="px-2">...</span>}
+                    </>
+                )}
+
+                {pageNumbers.map(number => (
+                    <button
+                        key={number}
+                        onClick={() => setPage(number)}
+                        className={`px-3 py-1 rounded-md ${number === page ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-100'}`}
+                    >
+                        {number}
+                    </button>
+                ))}
+
+                {endPage < totalPages && (
+                    <>
+                        {endPage < totalPages - 1 && <span className="px-2">...</span>}
+                        <button
+                            onClick={() => setPage(totalPages)}
+                            className={`px-3 py-1 rounded-md ${totalPages === page ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-100'}`}
+                        >
+                            {totalPages}
+                        </button>
+                    </>
+                )}
+
+                <button
+                    onClick={() => setPage(p => Math.min(p + 1, totalPages))}
+                    disabled={!vacanciesData.next}
+                    className={`p-2 rounded-md ${!vacanciesData.next ? 'text-gray-400 cursor-not-allowed' : 'text-gray-700 hover:bg-gray-100'}`}
+                >
+                    {t('next')}
+                </button>
+
+                <button
+                    onClick={() => setPage(totalPages)}
+                    disabled={page === totalPages}
+                    className={`p-2 rounded-md ${page === totalPages ? 'text-gray-400 cursor-not-allowed' : 'text-gray-700 hover:bg-gray-100'}`}
+                >
+                    <ChevronRight className="h-5 w-5"/>
+                </button>
+            </div>
+        );
     };
 
     return (
@@ -320,10 +429,13 @@ const VacanciesPage = () => {
                                     <p className="mt-1 text-gray-500">{t('try_adjusting_your_search_or_filter_criteria')}</p>
                                 </div>
                             )}
+
+                            <Pagination/>
                         </div>
                     )}
                 </div>
             </div>
+
         </div>
     );
 };

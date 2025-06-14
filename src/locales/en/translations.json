@@ -198,5 +198,16 @@
     "phone": "Phone",
     "contact": "Contact",
     "status_visibility": "Application status <1>is visible</1> for the candidate.",
-    "notes_visibility": "Notes are <1>not shown</1> for the candidate."
+    "notes_visibility": "Notes are <1>not shown</1> for the candidate.",
+    "previous": "Previous",
+    "next": "Next",
+    "confirm_delete_title": "Delete Vacancy",
+    "confirm_delete_message": "Are you sure you want to delete this vacancy?",
+    "existing": "Existing",
+    "deleted": "Deleted",
+    "deleted_on": "Deleted on",
+    "active": "Active",
+    "confirm_restore_title": "Restore Vacancy",
+    "confirm_restore_message": "Are you sure you want to restore this vacancy?",
+    "restore": "Restore"
 }

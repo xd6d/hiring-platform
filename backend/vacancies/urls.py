@@ -2,7 +2,7 @@ from django.urls import path, include
 
 from vacancies.views import VacancyModelViewSet, ApplicationModelViewSet, VacancySearchListAPIView, \
     VacancyApplicationListAPIView, ApplicationStatusListAPIView, ApplicationNoteCreateAPIView, \
-    ApplicationNoteRetrieveUpdateDestroyAPIView
+    ApplicationNoteRetrieveUpdateDestroyAPIView, VacancyRestoreUpdateAPIView
 
 urlpatterns = [
     path("vacancies/", include([
@@ -10,16 +10,6 @@ urlpatterns = [
             "",
             VacancyModelViewSet.as_view({'get': 'list', 'post': 'create'}),
             name="vacancies-list-create"
-        ),
-        path(
-            "<int:pk>/",
-            VacancyModelViewSet.as_view({
-                'get': 'retrieve',
-                'put': 'update',
-                'patch': 'partial_update',
-                'delete': 'destroy'
-            }),
-            name="vacancies-retrieve-update-delete"
         ),
         path("<int:pk>/", include([
             path(
@@ -33,6 +23,7 @@ urlpatterns = [
                 name="vacancies-retrieve-update-delete"
             ),
             path("applications/", VacancyApplicationListAPIView.as_view(), name="vacancies-application-list"),
+            path("restore/", VacancyRestoreUpdateAPIView.as_view(), name="vacancies-restore"),
         ])),
         path("personalized/", VacancySearchListAPIView.as_view())
     ])),
