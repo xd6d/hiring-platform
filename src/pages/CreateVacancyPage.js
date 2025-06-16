@@ -1,12 +1,13 @@
 import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {apiClient} from '../utils/auth';
-import {ChevronDown, ChevronUp, Plus, Search, X} from 'lucide-react';
+import {ChevronDown, ChevronUp, Loader2, Plus, Search, X, XCircle} from 'lucide-react';
 import {closestCenter, DndContext, PointerSensor, useSensor, useSensors,} from '@dnd-kit/core';
 import {arrayMove, SortableContext, verticalListSortingStrategy,} from '@dnd-kit/sortable';
 import ReactMarkdown from "react-markdown";
 import {useTranslation} from 'react-i18next';
 import SortableTagItem from "../components/SortableTagItem";
+import {debounce} from "../utils/utils";
 
 
 const CreateVacancyPage = () => {
@@ -30,6 +31,7 @@ const CreateVacancyPage = () => {
     const [selectedTemplate, setSelectedTemplate] = useState(null);
     const [selectedAnswers, setSelectedAnswers] = useState({});
     const [searchTerm, setSearchTerm] = useState('');
+    const [isSearchingCountries, setIsSearchingCountries] = useState(false);
     const [expandedCountry, setExpandedCountry] = useState(null);
     const [expandedTagGroup, setExpandedTagGroup] = useState(null);
     const [showCreateTemplateModal, setShowCreateTemplateModal] = useState(false);
@@ -53,11 +55,13 @@ const CreateVacancyPage = () => {
     const [editingQuestionIndex, setEditingQuestionIndex] = useState(null);
     const [fileTypes, setFileTypes] = useState([]);
     const [selectedFileTypes, setSelectedFileTypes] = useState([]);
+    const [tagSearchTerm, setTagSearchTerm] = useState('');
+    const [isSearchingTags, setIsSearchingTags] = useState(false);
 
     const navigate = useNavigate();
     const sensors = useSensors(useSensor(PointerSensor));
     const [isPreview, setIsPreview] = useState(false);
-    const { t, i18n  } = useTranslation();
+    const {t, i18n} = useTranslation();
 
     useEffect(() => {
         (async () => {
@@ -85,6 +89,70 @@ const CreateVacancyPage = () => {
             }
         })();
     }, [i18n.language]);
+
+    const fetchCountries = useCallback(async (search = '') => {
+        try {
+            setIsSearchingCountries(true);
+            const res = await apiClient(`dict/countries/?search=${encodeURIComponent(search)}`, {
+                method: 'GET'
+            });
+            if (res.ok) {
+                setCountries(await res.json());
+            }
+        } catch (err) {
+            console.error('Failed to fetch countries', err);
+        } finally {
+            setIsSearchingCountries(false);
+        }
+    }, []);
+
+    useEffect(() => {
+        fetchCountries();
+    }, [fetchCountries, i18n.language]);
+
+    const debouncedSearch = useMemo(() =>
+            debounce((search) => {
+                if (search.trim()) {
+                    fetchCountries(search);
+                } else {
+                    fetchCountries();
+                }
+            }, 500),
+        [fetchCountries]
+    );
+
+    const fetchTagGroups = useCallback(async (search = '') => {
+        try {
+            setIsSearchingTags(true);
+            const res = await apiClient(`tags/groups/?search=${encodeURIComponent(search)}`, {
+                method: 'GET'
+            });
+            if (res.ok) {
+                setTagGroups(await res.json());
+            }
+        } catch (err) {
+            console.error('Failed to fetch tag groups', err);
+        } finally {
+            setIsSearchingTags(false);
+        }
+    }, []);
+
+    const debouncedTagSearch = useMemo(() =>
+            debounce((search) => {
+                if (search.trim()) {
+                    fetchTagGroups(search);
+                } else {
+                    fetchTagGroups();
+                }
+            }, 500),
+        [fetchTagGroups]
+    );
+
+    const handleTagSearchChange = useCallback((e) => {
+        const value = e.target.value;
+        setTagSearchTerm(value);
+        debouncedTagSearch(value);
+    }, [debouncedTagSearch]);
 
     useEffect(() => {
         if (showCreateTemplateModal && !fileTypes.length) {
@@ -260,15 +328,11 @@ const CreateVacancyPage = () => {
         }
     }, []);
 
-    const filteredCountries = useMemo(() => {
-        if (!searchTerm) return countries;
-        return countries.filter(country =>
-            country.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            country.cities.some(city =>
-                city.name.toLowerCase().includes(searchTerm.toLowerCase())
-            )
-        );
-    }, [countries, searchTerm]);
+    const handleSearchChange = useCallback((e) => {
+        const value = e.target.value;
+        setSearchTerm(value);
+        debouncedSearch(value);
+    }, [debouncedSearch]);
 
     const handleCreateTemplate = async () => {
         if (!newTemplateData.name.trim()) {
@@ -327,12 +391,17 @@ const CreateVacancyPage = () => {
                     type="text"
                     placeholder={`${t('search_countries_or_cities')}...`}
                     value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
+                    onChange={handleSearchChange}
                     className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 />
+                {isSearchingCountries && (
+                    <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
+                        <Loader2 className="animate-spin h-5 w-5 text-gray-500"/>
+                    </div>
+                )}
             </div>
             <div className="max-h-96 overflow-y-auto border border-gray-200 rounded-lg p-4 space-y-4 bg-white">
-                {filteredCountries.map(country => (
+                {countries.map(country => (
                     <div key={country.name} className="border-b border-gray-100 last:border-b-0 pb-2 last:pb-0">
                         <button
                             type="button"
@@ -389,10 +458,25 @@ const CreateVacancyPage = () => {
                 </div>
             )}
         </div>
-    ), [countries, formData.cities, handleCityToggle, searchTerm, filteredCountries, expandedCountry, t]);
+    ), [countries, formData.cities, handleCityToggle, searchTerm, expandedCountry, t, handleSearchChange, isSearchingCountries]);
 
     const tagsBlock = useMemo(() => (
         <div className="space-y-4">
+            <div className="relative">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18}/>
+                <input
+                    type="text"
+                    placeholder={`${t('search_tags')}...`}
+                    value={tagSearchTerm}
+                    onChange={handleTagSearchChange}
+                    className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                />
+                {isSearchingTags && (
+                    <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
+                        <Loader2 className="animate-spin h-5 w-5 text-gray-500"/>
+                    </div>
+                )}
+            </div>
             <div className="max-h-96 overflow-y-auto border border-gray-200 rounded-lg p-4 bg-white">
                 {tagGroups.map(group => (
                     <div key={group.id} className="mb-4 last:mb-0">
@@ -453,7 +537,7 @@ const CreateVacancyPage = () => {
                 </div>
             )}
         </div>
-    ), [tagGroups, formData.tags, handleAddTag, handleRemoveTag, handleDragEnd, sensors, expandedTagGroup, t]);
+    ), [tagGroups, formData.tags, handleAddTag, handleRemoveTag, handleDragEnd, sensors, expandedTagGroup, t, handleTagSearchChange, isSearchingTags, tagSearchTerm]);
 
     const handleSubmit = async e => {
         e.preventDefault();
@@ -485,7 +569,7 @@ const CreateVacancyPage = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
+        <div className="min-h-screen bg-gray-50 py-2 px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mx-auto">
                 <div className="bg-white shadow rounded-lg overflow-hidden">
                     <div className="px-6 py-5 border-b border-gray-200 bg-gradient-to-r from-blue-50 to-white">
@@ -498,12 +582,7 @@ const CreateVacancyPage = () => {
                             <div className="p-4 bg-red-50 border-l-4 border-red-500 rounded">
                                 <div className="flex">
                                     <div className="flex-shrink-0">
-                                        <svg className="h-5 w-5 text-red-500" xmlns="http://www.w3.org/2000/svg"
-                                             viewBox="0 0 20 20" fill="currentColor">
-                                            <path fillRule="evenodd"
-                                                  d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
-                                                  clipRule="evenodd"/>
-                                        </svg>
+                                        <XCircle className="h-5 w-5 text-red-500"/>
                                     </div>
                                     <div className="ml-3">
                                         <p className="text-sm text-red-700">{error}</p>
@@ -580,7 +659,8 @@ const CreateVacancyPage = () => {
 
                         {/* Application Template */}
                         <div className="space-y-2">
-                            <label className="block text-sm font-medium text-gray-700">{t('application_form_template')}</label>
+                            <label
+                                className="block text-sm font-medium text-gray-700">{t('application_form_template')}</label>
                             <div className="flex items-center space-x-3">
                                 <div className="flex-1 border border-gray-300 rounded-lg px-4 py-2 bg-white">
                                     {templateInfo ? (
@@ -628,7 +708,8 @@ const CreateVacancyPage = () => {
 
                         {/* Tags */}
                         <div className="space-y-2">
-                            <label className="block text-sm font-medium text-gray-700">{t('skills_and_technologies')}</label>
+                            <label
+                                className="block text-sm font-medium text-gray-700">{t('skills_and_technologies')}</label>
                             {tagsBlock}
                         </div>
 
@@ -642,13 +723,7 @@ const CreateVacancyPage = () => {
                             >
                                 {loading ? (
                                     <>
-                                        <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
-                                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"
-                                                    strokeWidth="4"></circle>
-                                            <path className="opacity-75" fill="currentColor"
-                                                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                                        </svg>
+                                        <Loader2 className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"/>
                                         {t('creating_vacancy')}...
                                     </>
                                 ) : t('create_vacancy')}
@@ -978,7 +1053,7 @@ const CreateVacancyPage = () => {
                                             checked={newTemplateData.is_global}
                                             onChange={(e) => setNewTemplateData({
                                                 ...newTemplateData,
-                                                is_required: e.target.checked
+                                                is_global: e.target.checked
                                             })}
                                             className="h-4 w-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500"
                                         />
@@ -1086,7 +1161,7 @@ const CreateVacancyPage = () => {
                                             })}
                                             maxLength={100}
                                             className="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
-                                            placeholder="Enter question text"
+                                            placeholder={t('enter_question_text')}
                                         />
                                         <p className="text-xs text-gray-500">
                                             {newQuestion.name.length}/100 {t('characters')}
@@ -1106,7 +1181,7 @@ const CreateVacancyPage = () => {
                                             })}
                                             className="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
                                         >
-                                            <option value="">Select a type</option>
+                                            <option value="">{t('select_type')}</option>
                                             {questionTypes.map((type) => (
                                                 <option key={type.name} value={type.name}>
                                                     {type.name}

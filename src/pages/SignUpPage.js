@@ -4,6 +4,7 @@ import {API_URL} from '../config/apiConfig';
 import {setAuthToken} from '../utils/auth';
 import {useTranslation} from 'react-i18next';
 import {User, Briefcase} from 'lucide-react';
+import {formatPhoneNumber} from "../utils/phoneMask";
 
 const SignUpPage = ({setGlobalAppMessage, refreshHeader}) => {
     const {t} = useTranslation();
@@ -127,7 +128,7 @@ const SignUpPage = ({setGlobalAppMessage, refreshHeader}) => {
                                     type={field.includes('password') ? 'password' : 'text'}
                                     value={formData[field]}
                                     onChange={(e) =>
-                                        setFormData({...formData, [field]: e.target.value})
+                                        setFormData({...formData, phone_number: formatPhoneNumber(e.target.value)})
                                     }
                                     required={[
                                         'first_name',
@@ -137,6 +138,7 @@ const SignUpPage = ({setGlobalAppMessage, refreshHeader}) => {
                                         'confirm_password',
                                     ].includes(field)}
                                     className="w-full border px-3 py-2 rounded"
+                                    placeholder={field === 'phone_number' ? "+380 (__) ___-__-__" : ""}
                                 />
                                 {errors[field] && (
                                     <div className="text-red-500 text-sm mt-1">

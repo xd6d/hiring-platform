@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import {apiClient} from '../utils/auth';
 import {useNavigate} from 'react-router-dom';
 import {closestCenter, DndContext, PointerSensor, useSensor, useSensors,} from '@dnd-kit/core';
@@ -13,16 +13,19 @@ import {
     FileText,
     GraduationCap,
     GripVertical,
-    Image,
+    Image, Loader2,
     Pencil,
     Plus,
     Shield,
     Trash2,
     User,
-    X
+    X,
+    Search
 } from 'lucide-react';
 import defaultProfilePicture from '../assets/default_profile_picture.png';
 import {useTranslation} from 'react-i18next';
+import {debounce} from "../utils/utils";
+import {formatPhoneNumber} from "../utils/phoneMask";
 
 const SortableItem = ({tag, onDelete, t}) => {
     const {
@@ -99,6 +102,8 @@ const UserProfilePage = ({refreshHeader}) => {
     const [newContact, setNewContact] = useState({name: '', value: ''});
     const [contactErrors, setContactErrors] = useState({name: null, value: null});
     const {t} = useTranslation();
+    const [tagSearchTerm, setTagSearchTerm] = useState('');
+    const [isSearchingTags, setIsSearchingTags] = useState(false);
 
     const navigate = useNavigate();
     const sensors = useSensors(useSensor(PointerSensor));
@@ -328,38 +333,15 @@ const UserProfilePage = ({refreshHeader}) => {
     };
 
     const handlePhoneChange = (e) => {
-        let digits = e.target.value.replace(/\D/g, '');
-        if (!digits.startsWith('380')) {
-            digits = '380' + digits;
-        }
-        if (digits.length > 12) {
-            digits = digits.slice(0, 12);
-        }
-
-        let formatted = '+' + digits.slice(0, 3);
-        if (digits.length > 3) {
-            const area = digits.slice(3, Math.min(5, digits.length));
-            formatted += ' (' + area;
-            if (area.length === 2) {
-                formatted += ')';
-            }
-        }
-        if (digits.length > 5) {
-            formatted += ' ' + digits.slice(5, Math.min(8, digits.length));
-        }
-        if (digits.length > 8) {
-            formatted += '-' + digits.slice(8, Math.min(10, digits.length));
-        }
-        if (digits.length > 10) {
-            formatted += '-' + digits.slice(10, Math.min(12, digits.length));
-        }
-
+        const formatted = formatPhoneNumber(e.target.value);
         setFieldValues((prev) => ({...prev, phone_number: formatted}));
     };
 
-    const openTagsModal = async () => {
+    const openTagsModal = async (search = '') => {
         try {
-            const response = await apiClient('tags/groups/', {method: 'GET'});
+            setIsSearchingTags(true);
+            const searchQuery = typeof search === 'string' ? search : '';
+            const response = await apiClient(`tags/groups/?search=${encodeURIComponent(searchQuery)}`, {method: 'GET'});
             if (!response.ok) throw new Error(t('failed_to_fetch_tags'));
             const data = await response.json();
             setTagGroups(data);
@@ -371,8 +353,23 @@ const UserProfilePage = ({refreshHeader}) => {
             setTagsModalOpen(true);
         } catch (err) {
             alert(err.message);
+        } finally {
+            setIsSearchingTags(false);
         }
     };
+
+    const debouncedTagSearch = useMemo(() =>
+            debounce((search) => {
+                openTagsModal(search || '');
+            }, 500),
+        [user, t]
+    );
+
+    const handleTagSearchChange = useCallback((e) => {
+        const value = e.target.value;
+        setTagSearchTerm(value);
+        debouncedTagSearch(value);
+    }, [debouncedTagSearch]);
 
     const saveTags = async () => {
         try {
@@ -517,7 +514,7 @@ const UserProfilePage = ({refreshHeader}) => {
     }
 
     return (
-        <div className="pt-8 px-4 sm:px-6 max-w-2xl mx-auto">
+        <div className="px-4 sm:px-6 max-w-2xl mx-auto">
             <div className="bg-white rounded-lg shadow-sm p-6">
                 <div className="flex justify-between items-start mb-6">
                     <h1 className="text-2xl font-bold text-gray-800">{t('profile_settings')}</h1>
@@ -955,6 +952,22 @@ const UserProfilePage = ({refreshHeader}) => {
                             <X size={20}/>
                         </button>
                         <h2 className="text-xl font-bold text-gray-800 mb-4">{t('select_tags')}</h2>
+                        <div className="relative mb-4">
+                            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                                    size={18}/>
+                            <input
+                                type="text"
+                                placeholder={`${t('search_tags')}...`}
+                                value={tagSearchTerm}
+                                onChange={handleTagSearchChange}
+                                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                            />
+                            {isSearchingTags && (
+                                <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
+                                    <Loader2 className="animate-spin h-5 w-5 text-gray-500"/>
+                                </div>
+                            )}
+                        </div>
                         <div className="space-y-6">
                             {tagGroups.map((group) => (
                                 <div key={group.id}>

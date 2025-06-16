@@ -209,5 +209,8 @@
     "active": "Active",
     "confirm_restore_title": "Restore Vacancy",
     "confirm_restore_message": "Are you sure you want to restore this vacancy?",
-    "restore": "Restore"
+    "restore": "Restore",
+    "search_tags": "Search tags",
+    "select_type": "Select a type",
+    "enter_question_text": "Enter question text"
 }

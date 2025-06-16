@@ -8,6 +8,7 @@ from accounts.filters import CurrentUserFilterBackend
 from accounts.models import User, Role, UserTag, Company
 from accounts.serializers import UserPostSerializer, UserSerializer, RoleSerializer, CompanySerializer, \
     UserTagSerializer, UserTagPositionSerializer
+from api.permissions import CreatedByPermission
 from api.utils import get_language_code
 from files.models import File
 from tags.models import Tag, TagTranslation
@@ -47,10 +48,15 @@ class CompanyCreateAPIView(CreateAPIView):
     serializer_class = CompanySerializer
 
 
-class CompanyRetrieveUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):  # todo: update and destroy only for creator
+class CompanyRetrieveUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
     queryset = Company.objects.all()
     serializer_class = CompanySerializer
     permission_classes = [IsAuthenticated]
+
+    def get_permissions(self):
+        if self.request.method in ['PATCH', 'PUT', 'DELETE']:
+            self.permission_classes.append(CreatedByPermission)
+        return super().get_permissions()
 
 
 class UserTagCreateAPIView(CreateAPIView):
